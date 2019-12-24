@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="200mm" height="200mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 20000 20000"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#009846;stroke-width:20}
+    .str2 {stroke:#999694;stroke-width:20}
+    .str1 {stroke:#E1BF9D;stroke-width:20}
+    .str4 {stroke:#266B47;stroke-width:20;stroke-linejoin:round}
+    .str3 {stroke:#FEFEFE;stroke-width:20;stroke-linejoin:round}
+    .fil0 {fill:#009846}
+    .fil4 {fill:#266B47}
+    .fil2 {fill:#999694}
+    .fil1 {fill:#E1BF9D}
+    .fil3 {fill:#FEFEFE}
+   ]]>
+  </style>
+ </defs>
+ <g id="Vrstva_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1869640849456">
+   <rect class="fil0 str0" x="14" y="-10" width="19996" height="20000"/>
+   <rect class="fil1 str1" x="10" y="3663" width="19996" height="2721"/>
+   <rect class="fil1 str1" transform="matrix(6.33107E-015 -0.253088 0.892704 2.50316E-014 13270.1 19990)" width="21007" height="3781"/>
+   <rect class="fil1 str1" x="12" y="13567" width="19996" height="3090"/>
+   <rect class="fil1 str1" transform="matrix(5.42502E-015 -0.254705 0.764948 2.51914E-014 3601.02 19990)" width="21007" height="3781"/>
+   <rect class="fil2 str2" x="14" y="6390" width="19996" height="7176"/>
+   <rect class="fil2 str2" transform="matrix(-2.66394E-014 0.644682 -1.30408 -2.01174E-013 13736.3 6389.8)" width="21096" height="5786"/>
+   <rect class="fil3 str3" x="14" y="13166" width="6641" height="236"/>
+   <rect class="fil3 str3" transform="matrix(-2.08814E-014 0.324992 -1.34028 -1.33004E-013 6684.76 13165.5)" width="20999" height="176"/>
+   <rect class="fil3 str3" x="13364" y="13166" width="6646" height="236"/>
+   <rect class="fil3 str3" transform="matrix(-2.08814E-014 0.324992 -1.34028 -1.33004E-013 13442.6 13165.5)" width="20999" height="176"/>
+   <rect class="fil3 str3" x="14" y="6633" width="19996" height="236"/>
+   <rect class="fil3 str3" x="16794" y="9870" width="3216" height="236"/>
+   <rect class="fil3 str3" x="12035" y="9870" width="3713" height="236"/>
+   <rect class="fil3 str3" x="7364" y="9870" width="3713" height="236"/>
+   <rect class="fil3 str3" x="2685" y="9870" width="3713" height="236"/>
+   <rect class="fil3 str3" x="14" y="9870" width="1631" height="236"/>
+   <rect class="fil4 str4" x="14" y="11818" width="6669" height="236"/>
+   <rect class="fil4 str4" x="13363" y="11818" width="6647" height="236"/>
+   <rect class="fil4 str4" x="9544" y="11818" width="866" height="236"/>
+   <rect class="fil4 str4" x="11924" y="11818" width="866" height="236"/>
+   <rect class="fil4 str4" x="10724" y="11818" width="866" height="236"/>
+   <rect class="fil4 str4" x="8385" y="11818" width="866" height="236"/>
+   <rect class="fil4 str4" x="7225" y="11818" width="866" height="236"/>
+   <rect class="fil4 str4" x="9544" y="13218" width="866" height="236"/>
+   <rect class="fil4 str4" x="11924" y="13218" width="866" height="236"/>
+   <rect class="fil4 str4" x="10724" y="13218" width="866" height="236"/>
+   <rect class="fil4 str4" x="8385" y="13218" width="866" height="236"/>
+   <rect class="fil4 str4" x="7225" y="13218" width="866" height="236"/>
+  </g>
+ </g>
+</svg>

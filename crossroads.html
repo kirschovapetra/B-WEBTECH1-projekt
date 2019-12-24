@@ -1,3 +1,8 @@
+<!--
+CHECKLIST
+Petra: vytvorenie html, menu, galeria, prvych 5 krizovatiek (zatial bez animacii)
+-->
+
 <!DOCTYPE html>
 <html lang="sk">
 <head>
@@ -20,30 +25,76 @@
 			<div class="left-menu">
 				<a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
 			</div>
-	
+
 			<div class="right-menu">
 				<a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i> DOMOV</a>
-				<a href="crossroads.html" class="nav-button nav-button-white active"><i class="fa fa-th"></i> KRIŽOVATKY</a>  
+				<a href="crossroads.html" class="nav-button nav-button-white active"><i class="fa fa-th"></i> KRIŽOVATKY</a>
 				<a href="calendar.html" class="nav-button nav-button-white"><i class="fa fa-calendar"></i> KALENDÁR</a>
-				<a href="contacts.html" class="nav-button nav-button-white"><i class="fa fa-user"></i> KONTAKTY</a>				
+				<a href="contacts.html" class="nav-button nav-button-white"><i class="fa fa-user"></i> KONTAKTY</a>
 			</div>
-			
+
 			<a href="javascript:void(0);" class="nav-button nav-button-white" id="dropdown-menu-button" onclick="openSideMenu()">
 				<i class="fa fa-bars"></i>
 			</a>
 
 			<nav id="side-menu">
-			  <a href="javascript:void(0);" class="nav-button nav-button-blue" onclick="closeSideMenu()"> X</a>
+			    <a href="javascript:void(0);" class="nav-button nav-button-blue" onclick="closeSideMenu()"> X</a>
 				<a href="index.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-home"></i> DOMOV</a>
-				<a href="#work" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-th" ></i> KRIŽOVATKY</a>  
-				<a href="#pricing" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-calendar"></i> KALENDÁR</a>
-				<a href="#team" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-user"></i> KONTAKTY</a>		
+				<a href="crossroads.html" class="nav-button nav-button-blue active"><i class="fa fa-th"></i> KRIŽOVATKY</a>
+				<a href="calendar.html" class="nav-button nav-button-blue"><i class="fa fa-calendar"></i> KALENDÁR</a>
+				<a href="contacts.html" class="nav-button nav-button-blue"><i class="fa fa-user"></i> KONTAKTY</a>
 			</nav>
-			
+
 		</nav>
 	</header>
 
-	<section>krizovatky</section>
+	<section>
+
+		<!--galeria prebrata zo Zadania 04: Galeria-->
+		<!--nahlady krizovatiek-->
+		<div id="crossroads-menu">
+			<img id="crossroad1-temp" src="krizovatky_temp/krizovatka01.jpg" alt="križovatka 1" width="591" height="591" onclick="openCrossroad(1)">
+			<img id="crossroad2-temp" src="krizovatky_temp/krizovatka02.jpg" alt="križovatka 2" width="591" height="591" onclick="openCrossroad(2)">
+			<img id="crossroad3-temp" src="krizovatky_temp/krizovatka03.jpg" alt="križovatka 3" width="591" height="591" onclick="openCrossroad(3)">
+			<img id="crossroad4-temp" src="krizovatky_temp/krizovatka04.jpg" alt="križovatka 4" width="591" height="591" onclick="openCrossroad(4)">
+			<img id="crossroad5-temp" src="krizovatky_temp/krizovatka05.jpg" alt="križovatka 5" width="591" height="591" onclick="openCrossroad(5)">
+		</div>
+
+		<!--zobrazenie svg vo velkom okne-->
+		<div id="fullsizeView">
+
+			<!--ovladacie tlacidla-->
+			<div id="controls-wrap">
+				<div id="#fullsizeView-controls">
+					<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveLeft()"><i class="fa fa-arrow-left"></i></a>
+					<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveRight()"><i class="fa fa-arrow-right"></i></a>
+				</div>
+				<div id="fullsizeView-exit">
+					<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="closeCrossroad()"> X</a>
+				</div>
+			</div>
+
+			<!--krizovatky-->
+			<div id="fullsize-wrapper">
+				<div id="crossroad1-fullsize" class="crossroad">
+					<object type="image/svg+xml" data="krizovatky/krizovatka01.svg" width="600" height="600"></object>
+				</div>
+				<div id="crossroad2-fullsize" class="crossroad">
+					<object type="image/svg+xml" data="krizovatky/krizovatka02.svg" width="600" height="600"></object>
+				</div>
+				<div id="crossroad3-fullsize" class="crossroad">
+					<object type="image/svg+xml" data="krizovatky/krizovatka03.svg" width="600" height="600"></object>
+				</div>
+				<div id="crossroad4-fullsize" class="crossroad">
+					<object type="image/svg+xml" data="krizovatky/krizovatka04.svg" width="600" height="600"></object>
+				</div>
+				<div id="crossroad5-fullsize" class="crossroad">
+					<object type="image/svg+xml" data="krizovatky/krizovatka05.svg" width="600" height="600"></object>
+				</div>
+			</div>
+		</div>
+
+	</section>
 
 	<footer>
 		Copyright &copy; 2019 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>
