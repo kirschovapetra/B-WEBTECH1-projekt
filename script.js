@@ -5,6 +5,11 @@ Petra: funkcie openSideMenu, closeSideMenu, hideAllCrossroads, openCrossroad, cl
 
 var activeCrossroadIndex = 0;
 
+//animacie
+var animations = [
+  ["","move-right 5s infinite",""],["",""],["move-right 5s infinite","",""],["","move-right 5s infinite",""],["","",""]
+];
+
 //otvorenie bocneho menu
 function openSideMenu() {
   var sideMenu = document.getElementById("side-menu");
@@ -80,4 +85,24 @@ function moveRight(){
   }
   hideAllCrossroads();
   crossroads[activeCrossroadIndex].style.display = "flex";
+}
+
+function playDemo() {
+  var currentAnimationsList = animations[activeCrossroadIndex];
+  var crossroadId = "crossroad"+(activeCrossroadIndex+1)+"-fullsize";
+  var crossroad = document.getElementById(crossroadId);
+  var svgs = crossroad.getElementsByTagName("svg");
+  for (var i = 0; i< currentAnimationsList.length; i++) {
+     svgs[i].style.animation = currentAnimationsList[i];
+  }
+}
+
+// vygenerovanie aktualneho datumu {matus}
+function date(){
+  var month = new Array("január","február","marec","apríl","máj","jún","júl","august","september","október","november","december");
+  var d = new Date();
+  var actualDate = d.getDate() + "." + month[d.getMonth()] + "."+ d.getFullYear();
+  var out = document.getElementById("nDate");
+
+  out.innerHTML = "Dnes je " + actualDate ;
 }
