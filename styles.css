@@ -126,10 +126,13 @@ a.active {
 	height:15%;
 	margin:20px;
 }
-#crossroad1-fullsize, #crossroad2-fullsize, #crossroad3-fullsize, #crossroad4-fullsize, #crossroad5-fullsize{
-	display: none;
-	padding:0 0 20px 0;
+
+#crossroad1-fullsize, #crossroad2-fullsize, #crossroad3-fullsize, #crossroad4-fullsize, #crossroad5-fullsize #crossroad6-fullsize,
+#crossroad7-fullsize, #crossroad8-fullsize, #crossroad9-fullsize, #crossroad10-fullsize {
+    display: none;
+    padding: 0 0 20px 0;
 }
+
 #fullsizeView{
 	background-color:rgba(0,0,0,0.4);
 	display: none;
@@ -181,7 +184,6 @@ a.active {
 	height:14%;
 	z-index: 1;
 }
-
 #black-car1{
 	bottom:20%;
 	right:40%;
@@ -246,7 +248,83 @@ a.active {
 	left:15%;
 	transform: rotate(90deg);
 }
+#red-car6{
+	bottom: 5%;
+	right: 43%;
+}
+#green-car6{
+	top: 8%;
+	right: 67%;
+	transform: rotate(180deg);
+}
+#pink-car6{
+	top: 28%;
+	right: 24%;
+	transform: rotate(270deg);
+}
 
+#yellow-car7{
+	bottom: 8%;
+	right: 35%;
+}
+#black-car7{
+	top: 2%;
+	right: 53%;
+	transform: rotate(180deg);
+}
+#green-car7{
+	top: 53%;
+	right: 74%;
+	transform: rotate(90deg);
+}
+
+#yellow-car8{
+	bottom: 5%;
+	right: 34%;
+}
+#black-car8{
+	top: 12%;
+	right: 58%;
+	transform: rotate(180deg);
+}
+#pink-car8{
+	top: 32%;
+	right: 13%;
+	transform: rotate(270deg);
+}
+#blue-car9{
+	bottom: 5%;
+	right: 43%;
+}
+#orange-car9{
+	top: 8%;
+	right: 67%;
+	transform: rotate(180deg);
+}
+#black-car9{
+	top: 28%;
+	right: 24%;
+	transform: rotate(270deg);
+}
+#yellow-car10{
+	bottom: 8%;
+	right: 35%;
+}
+#black-car10{
+	top: 2%;
+	right: 53%;
+	transform: rotate(180deg);
+}
+#green-car10{
+	top: 53%;
+	right: 74%;
+	transform: rotate(90deg);
+}
+#pink-car10{
+	top: 30%;
+	right: 13%;
+	transform: rotate(270deg);
+}
 .crossroad-objects{
 	position: relative;
 	display: block;
