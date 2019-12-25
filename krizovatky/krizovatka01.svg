@@ -22,6 +22,9 @@ viewBox="0 0 20000 20000"
     .fil6 {fill:#252422}
     .fil0 {fill:#009846}
     .fil2 {fill:#999694}
+    .fil10 {fill:#FFED00;fill-rule:nonzero}
+    .fil9 {fill:#E5097F;fill-rule:nonzero}
+    .fil8 {fill:#1F1B20;fill-rule:nonzero}
    ]]>
   </style>
  </defs>
@@ -34,10 +37,10 @@ viewBox="0 0 20000 20000"
   <rect class="fil1 str1" x="-15" y="3610" width="19992" height="2368"/>
   <rect class="fil2 str2" x="-15" y="5991" width="20000" height="5774"/>
   <rect class="fil3 str3" x="-15" y="6242" width="19972" height="176"/>
-  <rect class="fil4 str3" x="3128" y="9160" width="339" height="2194"/>
-  <rect class="fil4 str3" transform="matrix(-2.21795E-013 -1.48054 0.937047 -4.45831E-014 -15.6598 9332.01)" width="116" height="3355"/>
+  <rect class="fil4 str3" x="4808" y="9160" width="339" height="2194"/>
+  <rect class="fil4 str3" transform="matrix(-3.64249E-013 -1.48054 1.53889 -4.45831E-014 -15.6596 9152.01)" width="116" height="3355"/>
   <rect class="fil4 str3" transform="matrix(-2.14063E-013 -1.48054 0.905155 -4.44854E-014 16865.7 8790.19)" width="116" height="3355"/>
-  <g id="_1430972951504">
+  <g id="_2621928252816">
    <path class="fil5 str4" d="M15952 5806c0,-566 0,-1132 0,-1699 0,-566 0,-1132 0,-1699l180 0 0 3398 -180 0z"/>
    <polygon class="fil3 str5" points="15552,3066 16603,2738 16537,3779 15486,4107 "/>
    <polygon class="fil4 str6" points="16085,953 16588,1786 16898,2297 16085,2619 15075,2901 15581,1786 "/>
@@ -52,8 +55,8 @@ viewBox="0 0 20000 20000"
    <polygon class="fil6" points="15947,2043 15969,2380 15970,2398 15988,2379 16077,2285 16180,2367 16200,2383 16199,2365 16177,2028 16406,2013 16398,1898 16169,1913 16153,1661 16031,1559 15923,1676 15939,1928 15710,1943 15718,2058 "/>
   </g>
   <rect class="fil2 str2" transform="matrix(2.62948E-014 -0.524622 0.997423 1.39586E-014 6902.14 20011.4)" width="21096" height="5786"/>
-  <rect class="fil4 str3" transform="matrix(-2.14063E-013 -1.48054 0.905155 -4.44854E-014 11517.3 8824.55)" width="116" height="3355"/>
-  <g id="_1430971806480">
+  <rect class="fil4 str3" transform="matrix(-1.07032E-013 -1.48054 0.452579 -4.44854E-014 13035.6 8824.55)" width="116" height="3355"/>
+  <g id="_2621928248880">
    <path class="fil5 str4" d="M13520 14012c0,-566 0,-1133 0,-1699 0,-566 0,-1133 0,-1699l176 0 0 3398 -176 0z"/>
    <g>
     <polygon class="fil4 str6" points="13643,9322 14135,10155 14548,10944 13643,10988 12704,10912 13151,10155 "/>
@@ -70,10 +73,13 @@ viewBox="0 0 20000 20000"
    </g>
   </g>
   <rect class="fil4 str3" x="9767" y="16068" width="172" height="3038"/>
-  <rect class="fil4 str3" x="9767" y="10580" width="172" height="3038"/>
+  <rect class="fil4 str3" x="9767" y="11958" width="172" height="1660"/>
   <rect class="fil3 str6" x="-15" y="11333" width="7165" height="176"/>
   <rect class="fil3 str6" x="12410" y="11333" width="7574" height="176"/>
   <rect class="fil3 str6" transform="matrix(1.02194E-014 -0.413115 0.997423 2.82819E-014 7114.7 20010.1)" width="20999" height="176"/>
   <rect class="fil3 str6" transform="matrix(1.02194E-014 -0.413172 0.997423 2.82858E-014 12301.7 20011.4)" width="20999" height="176"/>
+  <polygon class="fil8" points="9918,8096 10203,7800 10203,7948 11418,7948 11425,10810 11127,10810 11133,8245 10203,8245 10203,8393 "/>
+  <polygon class="fil9" points="8659,8602 8362,8317 8510,8317 8510,7102 11372,7096 11372,7394 8807,7387 8807,8317 8955,8317 "/>
+  <polygon class="fil10" points="8315,10176 8030,10476 8030,10326 5451,10333 5457,10041 8030,10026 8030,9876 "/>
  </g>
 </svg>
