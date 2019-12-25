@@ -131,6 +131,7 @@ object{
 	margin:20px;
 }
 #crossroad1-fullsize, #crossroad2-fullsize, #crossroad3-fullsize, #crossroad4-fullsize, #crossroad5-fullsize{display: none;}
+#crossroad6-fullsize, #crossroad7-fullsize, #crossroad8-fullsize, #crossroad9-fullsize, #crossroad10-fullsize{display: none;}
 #fullsizeView{
 	background-color:rgba(0,0,0,0.4);
 	display: none;
