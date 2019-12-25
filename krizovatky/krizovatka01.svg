@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="200mm" height="200mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 20000 20000"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str3 {stroke:#FEFEFE;stroke-width:20}
+    .str1 {stroke:#E1BF9D;stroke-width:20}
+    .str0 {stroke:#009846;stroke-width:20}
+    .str2 {stroke:#999694;stroke-width:20}
+    .str5 {stroke:#2B2A29;stroke-width:10}
+    .str6 {stroke:#FEFEFE;stroke-width:20;stroke-linejoin:round}
+    .str4 {stroke:#2B2A29;stroke-width:20;stroke-linejoin:round}
+    .fil3 {fill:#FEFEFE}
+    .fil4 {fill:#FEFEFE}
+    .fil5 {fill:#2B2A29}
+    .fil7 {fill:#E32124}
+    .fil1 {fill:#E1BF9D}
+    .fil6 {fill:#252422}
+    .fil0 {fill:#009846}
+    .fil2 {fill:#999694}
+   ]]>
+  </style>
+ </defs>
+ <g id="Vrstva_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0 str0" x="-15" y="34" width="19972" height="19976"/>
+  <rect class="fil1 str1" x="-15" y="11782" width="19994" height="2368"/>
+  <rect class="fil1 str1" transform="matrix(5.41226E-015 -0.39281 0.763148 3.88505E-014 12694.9 20033.9)" width="21007" height="3781"/>
+  <rect class="fil1 str1" transform="matrix(5.41226E-015 -0.392681 0.763148 3.88378E-014 4006.07 20013.9)" width="21007" height="3781"/>
+  <rect class="fil1 str1" x="-15" y="3610" width="19992" height="2368"/>
+  <rect class="fil2 str2" x="-15" y="5991" width="20000" height="5774"/>
+  <rect class="fil3 str3" x="-15" y="6242" width="19972" height="176"/>
+  <rect class="fil4 str3" x="3128" y="9160" width="339" height="2194"/>
+  <rect class="fil4 str3" transform="matrix(-2.21795E-013 -1.48054 0.937047 -4.45831E-014 -15.6598 9332.01)" width="116" height="3355"/>
+  <rect class="fil4 str3" transform="matrix(-2.14063E-013 -1.48054 0.905155 -4.44854E-014 16865.7 8790.19)" width="116" height="3355"/>
+  <g id="_1430972951504">
+   <path class="fil5 str4" d="M15952 5806c0,-566 0,-1132 0,-1699 0,-566 0,-1132 0,-1699l180 0 0 3398 -180 0z"/>
+   <polygon class="fil3 str5" points="15552,3066 16603,2738 16537,3779 15486,4107 "/>
+   <polygon class="fil4 str6" points="16085,953 16588,1786 16898,2297 16085,2619 15075,2901 15581,1786 "/>
+   <g>
+    <path class="fil6" d="M16160 3521c-7,-130 -25,-187 -203,-172l-323 17 6 149 269 -14c89,-14 99,21 97,104l13 241 158 -11 -17 -314z"/>
+    <polygon class="fil6" points="16113,3297 16094,2945 16034,2948 16053,3300 "/>
+   </g>
+   <g>
+    <path class="fil7" d="M15124 3023l856 -283 6 -141 -911 302 979 -1836 7 -141c-27,8 -54,22 -74,40l0 0c-31,27 -68,84 -87,120l-926 1731c-45,84 -64,208 20,228 31,7 93,-7 130,-20z"/>
+    <path class="fil7" d="M15980 2740l856 -283c40,-14 96,-37 132,-69 44,-38 67,-94 69,-141 3,-38 -6,-76 -27,-107l-799 -1160c-17,-23 -49,-56 -79,-64l0 0c-19,-4 -45,-1 -71,8l-7 141 844 1232 -912 302 -6 141z"/>
+   </g>
+   <polygon class="fil6" points="15947,2043 15969,2380 15970,2398 15988,2379 16077,2285 16180,2367 16200,2383 16199,2365 16177,2028 16406,2013 16398,1898 16169,1913 16153,1661 16031,1559 15923,1676 15939,1928 15710,1943 15718,2058 "/>
+  </g>
+  <rect class="fil2 str2" transform="matrix(2.62948E-014 -0.524622 0.997423 1.39586E-014 6902.14 20011.4)" width="21096" height="5786"/>
+  <rect class="fil4 str3" transform="matrix(-2.14063E-013 -1.48054 0.905155 -4.44854E-014 11517.3 8824.55)" width="116" height="3355"/>
+  <g id="_1430971806480">
+   <path class="fil5 str4" d="M13520 14012c0,-566 0,-1133 0,-1699 0,-566 0,-1133 0,-1699l176 0 0 3398 -176 0z"/>
+   <g>
+    <polygon class="fil4 str6" points="13643,9322 14135,10155 14548,10944 13643,10988 12704,10912 13151,10155 "/>
+    <path class="fil7" d="M13634 11018l793 0c38,0 89,-4 122,-24 40,-23 59,-69 59,-114 1,-36 -9,-76 -30,-113l-801 -1379c-16,-29 -48,-71 -76,-87l0 0c-18,-11 -43,-16 -67,-16l0 134 845 1465 -845 0 0 134zm-794 0l794 0 0 -134 -846 0 846 -1465 0 -134c-25,-1 -50,5 -68,15l0 0c-28,17 -60,60 -77,88l-800 1380c-39,67 -51,181 29,227 29,17 88,23 122,23z"/>
+    <polygon class="fil6" points="13521,10377 13521,10715 13521,10733 13539,10715 13633,10627 13727,10715 13746,10733 13746,10715 13746,10377 13970,10377 13970,10262 13746,10262 13746,10010 13634,9899 13521,10010 13521,10262 13297,10262 13297,10377 "/>
+   </g>
+   <g>
+    <rect class="fil3 str3" x="13150" y="11276" width="994" height="998"/>
+    <g>
+     <path class="fil6" d="M13641 11260l511 0 0 1023 -511 0 0 -9 503 0 0 -1005 -503 0 0 -9zm-511 0l511 0 0 9 -502 0 0 1005 502 0 0 9 -511 0 0 -1023z"/>
+     <path class="fil6" d="M13773 11725c-131,0 -189,15 -184,191l0 319 150 1 0 -265c-9,-88 27,-96 110,-90l243 0 -2 -156 -317 0z"/>
+     <polygon class="fil6" points="13545,11760 13190,11760 13190,11819 13545,11819 "/>
+    </g>
+   </g>
+  </g>
+  <rect class="fil4 str3" x="9767" y="16068" width="172" height="3038"/>
+  <rect class="fil4 str3" x="9767" y="10580" width="172" height="3038"/>
+  <rect class="fil3 str6" x="-15" y="11333" width="7165" height="176"/>
+  <rect class="fil3 str6" x="12410" y="11333" width="7574" height="176"/>
+  <rect class="fil3 str6" transform="matrix(1.02194E-014 -0.413115 0.997423 2.82819E-014 7114.7 20010.1)" width="20999" height="176"/>
+  <rect class="fil3 str6" transform="matrix(1.02194E-014 -0.413172 0.997423 2.82858E-014 12301.7 20011.4)" width="20999" height="176"/>
+ </g>
+</svg>
