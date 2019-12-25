@@ -188,9 +188,20 @@ svg {
 	height:14%;
 	z-index: 1;
 }
+.tram{
+	display: block;
+	padding:0;
+	margin:0;
+	position: absolute;
+	width:10%;
+	height:40%;
+	z-index: 1;
+}
 #black-car1{
 	bottom:20%;
 	right:40%;
+	offset-path: inset(5% 20% 15% 10%);
+
 }
 #yellow-car1{
 	top:41%;
@@ -282,6 +293,11 @@ svg {
 	right: 74%;
 	transform: rotate(90deg);
 }
+#tram7{
+	top: 28%;
+	right: 74%;
+	transform: rotate(90deg);
+}
 
 #yellow-car8{
 	bottom: 5%;
@@ -367,10 +383,19 @@ svg {
 	to {right: 80%;}
 }
 @keyframes move-right {
-	from {left: 5%}
-	to {left: 85%;}
+	from {left: 10%;}
+	to {left: 80%;}
 }
-
+/*
+@keyframes move-left-curved {
+	from {offset-distance: 0;}
+	to {offset-distance: 100%;}
+}
+@keyframes move-right-curved {
+	from {offset-distance: 0;}
+	to {offset-distance: 100%;}
+}
+*/
 #svg-defs{
 	display: none;
 }
