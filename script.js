@@ -81,3 +81,7 @@ function moveRight(){
   hideAllCrossroads();
   crossroads[activeCrossroadIndex].style.display = "flex";
 }
+
+function playDemo() {
+//TODO
+}
