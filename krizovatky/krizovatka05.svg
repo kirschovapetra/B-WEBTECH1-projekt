@@ -17,29 +17,32 @@ viewBox="0 0 20000 20000"
     .fil2 {fill:#999694}
     .fil1 {fill:#E1BF9D}
     .fil3 {fill:#FEFEFE}
+    .fil6 {fill:#E31E24;fill-rule:nonzero}
+    .fil7 {fill:#009846;fill-rule:nonzero}
+    .fil5 {fill:#393185;fill-rule:nonzero}
    ]]>
   </style>
  </defs>
  <g id="Vrstva_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_1869640849456">
+  <g id="_2621918272352">
    <rect class="fil0 str0" x="14" y="-10" width="19996" height="20000"/>
-   <rect class="fil1 str1" x="10" y="3663" width="19996" height="2721"/>
-   <rect class="fil1 str1" transform="matrix(6.33107E-015 -0.253088 0.892704 2.50316E-014 13270.1 19990)" width="21007" height="3781"/>
+   <rect class="fil1 str1" x="10" y="1500" width="19996" height="2442"/>
+   <rect class="fil1 str1" transform="matrix(2.49302E-014 -1 1 2.78168E-014 13270.1 19990)" width="5317" height="3375"/>
    <rect class="fil1 str1" x="12" y="13567" width="19996" height="3090"/>
-   <rect class="fil1 str1" transform="matrix(5.42502E-015 -0.254705 0.764948 2.51914E-014 3601.02 19990)" width="21007" height="3781"/>
-   <rect class="fil2 str2" x="14" y="6390" width="19996" height="7176"/>
-   <rect class="fil2 str2" transform="matrix(-2.66394E-014 0.644682 -1.30408 -2.01174E-013 13736.3 6389.8)" width="21096" height="5786"/>
+   <rect class="fil1 str1" transform="matrix(2.13775E-014 -1 1 3.29238E-014 3601.03 19990)" width="5351" height="2892"/>
+   <rect class="fil2 str2" x="14" y="3942" width="19996" height="9624"/>
+   <rect class="fil2 str2" transform="matrix(-4.12391E-014 1.18 -1 -1.81765E-013 13736.3 3941.75)" width="13600" height="7545"/>
    <rect class="fil3 str3" x="14" y="13166" width="6641" height="236"/>
-   <rect class="fil3 str3" transform="matrix(-2.08814E-014 0.324992 -1.34028 -1.33004E-013 6684.76 13165.5)" width="20999" height="176"/>
+   <rect class="fil3 str3" transform="matrix(-6.43317E-014 1 -1 -9.91927E-014 6684.75 13165.5)" width="6824" height="236"/>
    <rect class="fil3 str3" x="13364" y="13166" width="6646" height="236"/>
-   <rect class="fil3 str3" transform="matrix(-2.08814E-014 0.324992 -1.34028 -1.33004E-013 13442.6 13165.5)" width="20999" height="176"/>
-   <rect class="fil3 str3" x="14" y="6633" width="19996" height="236"/>
-   <rect class="fil3 str3" x="16794" y="9870" width="3216" height="236"/>
-   <rect class="fil3 str3" x="12035" y="9870" width="3713" height="236"/>
-   <rect class="fil3 str3" x="7364" y="9870" width="3713" height="236"/>
-   <rect class="fil3 str3" x="2685" y="9870" width="3713" height="236"/>
-   <rect class="fil3 str3" x="14" y="9870" width="1631" height="236"/>
+   <rect class="fil3 str3" transform="matrix(-6.43317E-014 1 -1 -9.91927E-014 13442.6 13165.5)" width="6824" height="236"/>
+   <rect class="fil3 str3" x="14" y="4222" width="19996" height="236"/>
+   <rect class="fil3 str3" x="16794" y="8080" width="3216" height="236"/>
+   <rect class="fil3 str3" x="12035" y="8080" width="3713" height="236"/>
+   <rect class="fil3 str3" x="7364" y="8080" width="3713" height="236"/>
+   <rect class="fil3 str3" x="2685" y="8080" width="3713" height="236"/>
+   <rect class="fil3 str3" x="14" y="8080" width="1631" height="236"/>
    <rect class="fil4 str4" x="14" y="11818" width="6669" height="236"/>
    <rect class="fil4 str4" x="13363" y="11818" width="6647" height="236"/>
    <rect class="fil4 str4" x="9544" y="11818" width="866" height="236"/>
@@ -53,5 +56,8 @@ viewBox="0 0 20000 20000"
    <rect class="fil4 str4" x="8385" y="13218" width="866" height="236"/>
    <rect class="fil4 str4" x="7225" y="13218" width="866" height="236"/>
   </g>
+  <path class="fil5" d="M7730 14086l300 -285 -150 0 0 -1215 -1350 0 0 285 1050 0 0 930 -150 0 300 285zm150 -142m75 -143m-75 -607m-675 -608m-675 143m525 142m525 465m-75 465m75 143z"/>
+  <polygon class="fil6" points="8765,11213 9061,10928 8913,10928 8913,9713 6061,9707 6061,10005 8618,9998 8618,10928 8470,10928 "/>
+  <polygon class="fil7" points="12989,11189 12704,10893 12704,11041 11489,11041 11482,13893 11780,13893 11774,11336 12704,11336 12704,11484 "/>
  </g>
 </svg>
