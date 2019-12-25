@@ -14,40 +14,47 @@
 	<!--fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
-<body>
-	<header>
-		<nav class="main-menu">
-			<div class="left-menu">
-				<a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
-			</div>
-	
-			<div class="right-menu">
-				<a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i> DOMOV</a>
-				<a href="crossroads.html" class="nav-button nav-button-white"><i class="fa fa-th"></i> KRIŽOVATKY</a>  
-				<a href="calendar.html" class="nav-button nav-button-white active"><i class="fa fa-calendar"></i> KALENDÁR</a>
-				<a href="contacts.html" class="nav-button nav-button-white"><i class="fa fa-user"></i> KONTAKTY</a>				
-			</div>
-			
-			<a href="javascript:void(0);" class="nav-button nav-button-white" id="dropdown-menu-button" onclick="openSideMenu()">
-				<i class="fa fa-bars"></i>
-			</a>
 
-			<nav id="side-menu">
-			  <a href="javascript:void(0);" class="nav-button nav-button-blue" onclick="closeSideMenu()"> X</a>
-				<a href="index.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-home"></i> DOMOV</a>
-				<a href="crossroads.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-th" ></i> KRIŽOVATKY</a>
-				<a href="calendar.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-calendar"></i> KALENDÁR</a>
-				<a href="contacts.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-user"></i> KONTAKTY</a>
-			</nav>
-			
-		</nav>
-	</header>
+<body onload="date()">
+    <header>
+        <nav class="main-menu">
+            <div class="left-menu">
+                <a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
+            </div>
+    
+            <div class="right-menu">
+                <a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i> DOMOV</a>
+                <a href="crossroads.html" class="nav-button nav-button-white"><i class="fa fa-th"></i> KRIŽOVATKY</a>  
+                <a href="calendar.html" class="nav-button nav-button-white active"><i class="fa fa-calendar"></i> KALENDÁR</a>
+                <a href="contacts.html" class="nav-button nav-button-white"><i class="fa fa-user"></i> KONTAKTY</a>             
+            </div>
+            
+            <a href="javascript:void(0);" class="nav-button nav-button-white" id="dropdown-menu-button" onclick="openSideMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
 
-	<section>kalendar</section>
+            <nav id="side-menu">
+              <a href="javascript:void(0);" class="nav-button nav-button-blue" onclick="closeSideMenu()"> X</a>
+                <a href="index.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-home"></i> DOMOV</a>
+                <a href="crossroads.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-th" ></i> KRIŽOVATKY</a>
+                <a href="calendar.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-calendar"></i> KALENDÁR</a>
+                <a href="contacts.html" class="nav-button nav-button-blue" onclick="closeSideMenu()"><i class="fa fa-user"></i> KONTAKTY</a>
+            </nav>
+            
+        </nav>
+    </header>
 
-	<footer>
-		Copyright &copy; 2019 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>
-		Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
-	</footer>
+    <section>kalendar</section>
+    <p id="nDate" ></p>
+
+    <div >
+        Dátum narodenia <input id="datumnarodenia"  type="date" name="bday" required>
+    </div>
+
+    <footer>
+        Copyright &copy; 2019 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>
+        Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
+    </footer>
+
 </body>
 </html>
