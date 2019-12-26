@@ -8,15 +8,19 @@ Petra: vytvorenie css
 - galeria prebrata zo Zadania 04: Galeria
 */
 
-/*zakladne prvky*/
-*{
-	box-sizing:border-box;
+/************************************************zakladne prvky************************************************/
+*{box-sizing:border-box;}
+i{padding:0;}
+p{
+	text-align: center;
+	font-weight: bold;
 }
 body, html {
   	height: 100%;
 	line-height: 1.8;
 	font-family: "Raleway", sans-serif;
 }
+section{margin:50px auto;}
 header{
 	width:100%;
 	margin:0;
@@ -26,9 +30,6 @@ header{
 	top:0;
 	left:0;
 	background-color: white;
-}
-section{
-	margin:50px auto;
 }
 footer{
 	width:100%;
@@ -44,13 +45,25 @@ footer{
 	font-size: 0.9em;
 }
 
-/*menu, tlacidla*/
-.main-menu{
+/*************************************************menu, tlacidla*************************************************/
+#main-menu{
 	width:100%;
 	padding:0;
 	overflow:hidden;
 	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-
+}
+#left-menu{
+	float:left;
+	padding:0;
+}
+#right-menu{float:right;}
+#side-menu{ display:none;
+	height:100%;
+	width:100%;
+	position:fixed;
+	z-index:1;
+	overflow:auto;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .nav-button{
 	border:none;
@@ -74,31 +87,13 @@ footer{
 	background-color:white;
 	color:black;
 }
-.left-menu{
-	float:left;
-	padding:0;
-}
-i{padding:0;}
-.right-menu{float:right;}
-#side-menu{ display:none;
-	height:100%;
-	width:100%;
-	position:fixed;
-	z-index:1;
-	overflow:auto;
-	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-}
 #dropdown-menu-button{
 	display:none;
 	float:right;
 }
 @media screen and (max-width: 600px) {
-  .right-menu{
-	  display:none;
-  }
-  #dropdown-menu-button{
-	  display: block;
-  }
+  #right-menu{display:none;}
+  #dropdown-menu-button{display: block;}
 }
 a:hover{background-color: lightgrey;}
 a.active {
@@ -106,18 +101,7 @@ a.active {
   color: white;
 }
 
-svg {
-	display: block;
-}
-
-/*krizovatky*/
-.crossroad-svg{
-	display: block;
-	margin:0 auto;
-	width:100%;
-	height:100%;
-	padding:0;
-}
+/**********************************************galeria krizovatiek************************************************/
 #crossroads-menu{
 	display: flex;
 	flex-wrap:wrap;
@@ -131,17 +115,13 @@ svg {
 	margin:20px;
 }
 
-#crossroad1-fullsize, #crossroad2-fullsize, #crossroad3-fullsize, #crossroad4-fullsize, #crossroad5-fullsize #crossroad6-fullsize,
-#crossroad7-fullsize, #crossroad8-fullsize, #crossroad9-fullsize, #crossroad10-fullsize {
-    display: none;
-    padding: 0 0 20px 0;
-}
-
+/***********************************************zvacsene krizovatky***********************************************/
+/*okno, kde sa zobrazuje krizovatka (zobrazenie na celu stranku = biele okno + priehladne pozadie)*/
 #fullsizeView{
 	background-color:rgba(0,0,0,0.4);
 	display: none;
 	position: fixed;
-	padding-top: 30px;
+	padding-top: 20px;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -149,16 +129,13 @@ svg {
 	overflow: auto;
 	z-index: 1;
 }
-#fullsize-wrapper, #controls-wrap, #demo-wrap{
-	background-color: white;
-	margin: auto;
-	width: 50%;
-}
-#demo-wrap{
-	padding-bottom:20px;
-}
+
+/*ovladacie prvky*/
 #controls-wrap{
 	position: relative;
+	background-color: white;
+	margin: auto;
+	width: 100%;
 }
 #fullsizeView-exit{
 	background-color: white;
@@ -170,6 +147,103 @@ svg {
 }
 #fullsizeView-exit .nav-button{	float: right;}
 
+/*(biele) okno s krizovatkou*/
+#fullsize-wrapper{
+	background-color: white;
+	margin: auto;
+	width: 60%;
+	height:60%;
+}
+
+/*div-y obsahujuce svg krizovatky*/
+.crossroad {
+	display: none;
+	padding: 0;
+	position: relative;
+}
+
+/*svg krizovatky*/
+.crossroad-svg{
+	display: block;
+	margin:0 auto;
+	width:100%;
+	height:100%;
+	padding:0;
+}
+
+/*spustenie dema*/
+.demo-wrap{
+	/*width:60%;
+	height:10%;*/
+	width:100%;
+	margin:0 auto;
+	background-color: white;
+	padding:20px 0;
+}
+.demo-button {
+	margin:0 auto;
+	width: 50%;
+	display: block;
+	background-color: #0099ff;
+	color: white;
+	padding: 12px;
+	border: none;
+	border-radius:20px;
+}
+.demo-button:hover{
+	opacity:0.7;
+	cursor: pointer;
+}
+
+/*okraje krizovatky*/
+.border-left{
+	position:absolute;
+	left:0;
+	width:20%;
+	height:100%;
+	background-color: white;
+	z-index:2;
+}
+.border-right{
+	position:absolute;
+	right:0;
+	width:20%;
+	height:100%;
+	background-color: white;
+	z-index:2;
+}
+.border-top{
+	position:absolute;
+	bottom:100%;
+	width:100%;
+	height:20%;
+	background-color: white;
+	z-index:2;
+}
+.border-bottom{
+	position:absolute;
+	top:100%;
+	width:100%;
+	height:20%;
+	background-color: white;
+	z-index:2;
+}
+
+
+/***********************************************objekty v krizovatke***********************************************/
+/*<div> obsahujuci vsetky objekty, ktore sa nachadzaju na krizovatke */
+.crossroad-objects{
+	position: relative;
+	display: block;
+	width:60%;
+	height:60%;
+	margin:0 auto;
+}
+
+/*auta - svg sprites*/
+#svg-defs{display: none;}
+
+/*dopravne prostriedky (vseobecne)*/
 .car{
 	display: block;
 	padding:0;
@@ -188,23 +262,33 @@ svg {
 	height:14%;
 	z-index: 1;
 }
+.tram{
+	display: block;
+	padding:0;
+	margin:0;
+	position: absolute;
+	width:10%;
+	height:40%;
+	z-index: 1;
+}
+
+/*konkretne dopravne prostriedky*/
 #black-car1{
 	bottom:20%;
-	right:40%;
+	right:37%;
 }
 #yellow-car1{
-	top:41%;
+	top:40%;
 	left:7%;
 	transform: rotate(90deg);
-	/*animation: move-right 5s infinite;*/
 }
 #pink-car1{
-	top:28%;
+	top:24%;
 	right:15%;
-	transform: rotate(270deg);
+	transform: rotate(-90deg);
 }
 #red-car2{
-	bottom:0;
+	bottom:1%;
 	right:37%;
 }
 #green-car2{
@@ -265,9 +349,8 @@ svg {
 #pink-car6{
 	top: 28%;
 	right: 24%;
-	transform: rotate(270deg);
+	transform: rotate(-90deg);
 }
-
 #yellow-car7{
 	bottom: 8%;
 	right: 35%;
@@ -282,7 +365,11 @@ svg {
 	right: 74%;
 	transform: rotate(90deg);
 }
-
+#tram7{
+	top: 28%;
+	right: 74%;
+	transform: rotate(90deg);
+}
 #yellow-car8{
 	bottom: 5%;
 	right: 34%;
@@ -295,7 +382,7 @@ svg {
 #pink-car8{
 	top: 32%;
 	right: 13%;
-	transform: rotate(270deg);
+	transform: rotate(-90deg);
 }
 #blue-car9{
 	bottom: 5%;
@@ -309,7 +396,7 @@ svg {
 #black-car9{
 	top: 28%;
 	right: 24%;
-	transform: rotate(270deg);
+	transform: rotate(-90deg);
 }
 #yellow-car10{
 	bottom: 8%;
@@ -328,49 +415,5 @@ svg {
 #pink-car10{
 	top: 30%;
 	right: 13%;
-	transform: rotate(270deg);
-}
-.crossroad-objects{
-	position: relative;
-	display: block;
-	width:70%;
-	height:70%;
-	margin:0 auto;
-}
-
-#demo-button {
-	margin:0 auto;
-	width: 50%;
-	display: block;
-	background-color: #0099ff;
-	color: white;
-	padding: 12px;
-	border: none;
-	border-radius:20px;
-}
-#demo-button:hover{
-	opacity:0.7;
-	cursor: pointer;
-}
-
-/*animacie*/
-@keyframes move-up {
-	from {bottom: 0%;}
-	to {bottom: 80%;}
-}
-@keyframes move-down {
-	from {top: 0%;}
-	to {top: 80%;}
-}
-@keyframes move-left {
-	from {right: 0%;}
-	to {right: 80%;}
-}
-@keyframes move-right {
-	from {left: 5%}
-	to {left: 85%;}
-}
-
-#svg-defs{
-	display: none;
+	transform: rotate(-90deg);
 }
