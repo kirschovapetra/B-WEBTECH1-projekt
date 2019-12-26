@@ -16,13 +16,14 @@ Simona: pridane krizovatky 06-10
 	
 	<!--js-->
 	<script src="script.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
 	
 	<!--fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
-<!-- sprites vytvorene pomocou https://svgsprite.com/tools/svg-sprite-generator/ -->
-<svg id="svg-defs" display="none">
+	<!-- sprites vytvorene pomocou https://svgsprite.com/tools/svg-sprite-generator/ -->
+	<svg id="svg-defs" display="none">
 	<defs>
 		<g id="img-yellow-car">
 			<path xmlns="http://www.w3.org/2000/svg" fill="#FFED00" d="M374 1979c79,-14 54,140 0,175 -55,35 -374,104 -374,104 0,0 0,-216 374,-279z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FFED00" d="M920 6998l1660 0c332,0 601,-267 601,-597l0 -5339c0,-588 -479,-1064 -1069,-1064l-723 0c-591,0 -1070,476 -1070,1064l0 5339c0,330 270,597 601,597z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FDEE4E" d="M714 5172l46 -2382 -379 -1594c0,-588 479,-1063 1069,-1063l600 0c591,0 1070,475 1070,1063l-380 1594 46 2382c0,561 -2072,561 -2072,0z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FFED00" d="M3127 1979c-80,-14 -54,140 0,175 54,35 373,104 373,104 0,0 0,-216 -373,-279z"/><path xmlns="http://www.w3.org/2000/svg" fill="#514F51" d="M424 1825c0,0 217,1087 238,1295 21,209 42,2801 0,2895 -42,93 -107,72 -107,72 0,0 -131,-540 -131,-1814 0,-1275 0,-2448 0,-2448z"/><path xmlns="http://www.w3.org/2000/svg" fill="#514F51" d="M3077 1825c0,0 -218,1087 -238,1295 -22,209 -42,2801 0,2895 42,93 106,72 106,72 0,0 132,-540 132,-1814 0,-1275 0,-2448 0,-2448z"/><path xmlns="http://www.w3.org/2000/svg" fill="#514F51" d="M760 3013c0,0 -248,-1095 -205,-1296 43,-202 591,-354 1195,-354 605,0 1152,152 1195,354 44,201 -205,1296 -205,1296 0,0 -334,-65 -990,-65 -656,0 -990,65 -990,65z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FCFDFE" d="M1057 347c-3,-51 -35,-97 -76,-127l-1 0c-176,70 -324,195 -425,355 122,38 260,25 372,-37 70,-39 136,-108 130,-191z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FCFDFE" d="M2444 347c2,-51 35,-97 76,-127l1 0c175,70 324,195 424,355 -122,38 -260,25 -372,-37 -70,-39 -135,-108 -129,-191z"/><path xmlns="http://www.w3.org/2000/svg" fill="#E74129" d="M780 6793c-89,-27 -172,-75 -239,-139 -18,-17 -35,-35 -57,-45 -14,-7 -33,-9 -49,-5 94,129 239,218 405,239l0 -1c-1,-28 -34,-41 -60,-49z"/><path xmlns="http://www.w3.org/2000/svg" fill="#E74129" d="M2721 6793c88,-27 171,-75 239,-139 17,-17 35,-35 56,-45 16,-7 33,-9 49,-5 -94,129 -239,218 -405,239l0 -1c1,-28 34,-41 61,-49z"/><path xmlns="http://www.w3.org/2000/svg" fill="#514F51" d="M2649 5603c0,0 -376,189 -899,189 -522,0 -899,-189 -899,-189 -73,209 -101,490 -112,641 -5,67 32,131 93,161 157,77 493,213 918,213 425,0 762,-136 919,-213 60,-30 97,-94 93,-161 -11,-151 -39,-432 -113,-641z"/>
@@ -56,13 +57,14 @@ Simona: pridane krizovatky 06-10
 		</g>
 	</defs>
 </svg>
+
 	<header>
-		<nav class="main-menu">
-			<div class="left-menu">
+		<nav id="main-menu">
+			<div id="left-menu">
 				<a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
 			</div>
 
-			<div class="right-menu">
+			<div id="right-menu">
 				<a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i> DOMOV</a>
 				<a href="crossroads.html" class="nav-button nav-button-white active"><i class="fa fa-th"></i> KRIŽOVATKY</a>
 				<a href="calendar.html" class="nav-button nav-button-white"><i class="fa fa-calendar"></i> KALENDÁR</a>
@@ -87,7 +89,7 @@ Simona: pridane krizovatky 06-10
 	<section>
 		<!--galeria prebrata zo Zadania 04: Galeria-->
 
-		<!--nahlady krizovatiek-->
+		<!--galeria krizovatiek-->
 		<div id="crossroads-menu">
 			<img id="crossroad1-temp" src="krizovatky_temp/krizovatka01.JPG" alt="križovatka 1" width="450" height="450" onclick="openCrossroad(1)">
 			<img id="crossroad2-temp" src="krizovatky_temp/krizovatka02.JPG" alt="križovatka 2" width="450" height="450" onclick="openCrossroad(2)">
@@ -103,162 +105,232 @@ Simona: pridane krizovatky 06-10
 
 		<!--zobrazenie svg vo velkom okne-->
 		<div id="fullsizeView">
-
-			<!--ovladacie tlacidla-->
-			<div id="controls-wrap">
-				<div id="#fullsizeView-controls">
-					<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveLeft()"><i class="fa fa-arrow-left"></i></a>
-					<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveRight()"><i class="fa fa-arrow-right"></i></a>
-				</div>
-				<div id="fullsizeView-exit">
-					<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="closeCrossroad()"> X</a>
-				</div>
-			</div>
-
 			<!--krizovatky-->
 			<div id="fullsize-wrapper">
+				<!--ovladacie tlacidla-->
+				<div id="controls-wrap">
+					<div id="#fullsizeView-controls">
+						<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveLeft()"><i class="fa fa-arrow-left"></i></a>
+						<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveRight()"><i class="fa fa-arrow-right"></i></a>
+					</div>
+					<div id="fullsizeView-exit">
+						<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="closeCrossroad()"> X</a>
+					</div>
+				</div>
+				<p>V akom poradí prejdú autá križovatkou?</p>
+				<p id="car-order">Poradie: </p>
 				<div id="crossroad1-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg" type="image/svg+xml" data="krizovatky/krizovatka01.svg" width="200" height="200"></object>
-						<svg id="black-car1" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="black-car1" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-black-car"></use>
 						</svg>
-						<svg id="yellow-car1" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="yellow-car1" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-yellow-car"></use>
 						</svg>
-						<svg id="pink-car1" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="pink-car1" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-pink-car"></use>
 						</svg>
 					</div>
 				</div>
 				<div id="crossroad2-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka02.svg" width="200" height="200"></object>
-						<svg id="red-car2" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="red-car2" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-red-car"></use>
 						</svg>
-						<svg id="green-car2" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="green-car2" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-green-car"></use>
 						</svg>
 					</div>
 				</div>
 				<div id="crossroad3-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka03.svg" width="200" height="200"></object>
-						<svg id="blue-car3" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="blue-car3" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-blue-car"></use>
 						</svg>
-						<svg id="yellow-car3" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="yellow-car3" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-yellow-car"></use>
 						</svg>
-						<svg id="grey-car3" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="grey-car3" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-grey-car"></use>
 						</svg>
 					</div>
 				</div>
 				<div id="crossroad4-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka04.svg" width="200" height="200"></object>
-						<svg id="orange-car4" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="orange-car4" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-orange-car"></use>
 						</svg>
-						<svg id="pink-car4" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="pink-car4" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-pink-car"></use>
 						</svg>
-						<svg id="black-car4" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="black-car4" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-black-car"></use>
 						</svg>
 					</div>
 				</div>
 				<div id="crossroad5-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka05.svg" width="200" height="200"></object>
-						<svg id="red-car5" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="red-car5" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-red-car"></use>
 						</svg>
-						<svg id="green-car5" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="green-car5" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-green-car"></use>
 						</svg>
-						<svg id="cyclist5" class="cyclist" width="25" height="50" viewBox="0 0 2500 5000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="cyclist5" class="crossroad-object cyclist" onclick="selectObject(this)" width="25" height="50" viewBox="0 0 2500 5000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-cyclist"></use>
 						</svg>
 					</div>
 				</div>
 				<div id="crossroad6-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka06.svg" width="200" height="200"></object>
-						<svg id="red-car6" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="red-car6" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-red-car"></use>
 						</svg>
-						<svg id="green-car6" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="green-car6" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-green-car"></use>
 						</svg>
-						<svg id="pink-car6" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="pink-car6" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-pink-car"></use>
 						</svg>
 
 					</div>
 				</div>
 				<div id="crossroad7-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka07.svg" width="200" height="200"></object>
-						<svg id="yellow-car7" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="yellow-car7" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-yellow-car"></use>
 						</svg>
-						<svg id="black-car7" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="black-car7" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-black-car"></use>
 						</svg>
-						<svg id="green-car7" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="green-car7" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-green-car"></use>
 						</svg>
-						<svg id="tram7" class="tram" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="tram7" class="crossroad-object tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-tram"></use>
 						</svg>
 					</div>
 				</div>
 				<div id="crossroad8-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka08.svg" width="200" height="200"></object>
-						<svg id="yellow-car8" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="yellow-car8" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-yellow-car"></use>
 						</svg>
-						<svg id="black-car8" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="black-car8" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-black-car"></use>
 						</svg>
-						<svg id="pink-car8" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="pink-car8" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-pink-car"></use>
 						</svg>
 
 					</div>
 				</div>
 				<div id="crossroad9-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 					<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka09.svg" width="200" height="200"></object>
-					<svg id="blue-car9" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+					<svg id="blue-car9" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 						<use xlink:href="#img-blue-car"></use>
 					</svg>
-					<svg id="orange-car9" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+					<svg id="orange-car9" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 						<use xlink:href="#img-orange-car"></use>
 					</svg>
-					<svg id="black-car9" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+					<svg id="black-car9" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 						<use xlink:href="#img-black-car"></use>
 					</svg>
 
 				</div>
 			</div>
 				<div id="crossroad10-fullsize" class="crossroad">
+					<div class="border-left"></div>
+					<div class="border-right"></div>
+					<div class="border-bottom">
+						<div class="demo-wrap">
+							<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+						</div>
+					</div>
 					<div class="crossroad-objects">
 						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka10.svg" width="200" height="200"></object>
-						<svg id="yellow-car10" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="yellow-car10" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-yellow-car"></use>
 						</svg>
-						<svg id="black-car10" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="black-car10" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-black-car"></use>
 						</svg>
-						<svg id="green-car10" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="green-car10" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-green-car"></use>
 						</svg>
-						<svg id="pink-car10" class="car" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="pink-car10" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-pink-car"></use>
 						</svg>
 
@@ -266,10 +338,9 @@ Simona: pridane krizovatky 06-10
 				</div>
 			</div>
 
-			<div id="demo-wrap">
-				<input id="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-			</div>
 		</div>
+
+
 
 	</section>
 
