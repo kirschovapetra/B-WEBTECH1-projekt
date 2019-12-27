@@ -110,20 +110,6 @@ function moveRight(){
   crossroads[activeCrossroadIndex].style.display = "flex";
 }
 
-<<<<<<< HEAD
-function playDemo() {
-  var currentAnimationsList = animations[activeCrossroadIndex];
-  var crossroadId = "crossroad"+(activeCrossroadIndex+1)+"-fullsize";
-  var crossroad = document.getElementById(crossroadId);
-  var svgs = crossroad.getElementsByTagName("svg");
-  for (var i = 0; i< currentAnimationsList.length; i++) {
-     svgs[i].style.animation = currentAnimationsList[i];
-  }
-}
-
-
-=======
->>>>>>> 793a4d9fe662bcf8063886e1b5213a220912e648
 // vygenerovanie aktualneho datumu {matus}
 function date(){
   var month = new Array("január","február","marec","apríl","máj","jún","júl","august","september","október","november","december");
@@ -135,11 +121,9 @@ function date(){
   //sss
 }
 
-<<<<<<< HEAD
 //function dateMeniny(){
 // var name = " ";
 // }
-=======
 
 //***********************************************************************ANIMACIE***********************************************************************
 
@@ -608,5 +592,3 @@ function selectObject(object){
     }
 }
 
-
->>>>>>> 793a4d9fe662bcf8063886e1b5213a220912e648
