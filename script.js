@@ -97,12 +97,16 @@ function playDemo() {
   }
 }
 
+
 // vygenerovanie aktualneho datumu {matus}
 function date(){
   var month = new Array("január","február","marec","apríl","máj","jún","júl","august","september","október","november","december");
   var d = new Date();
-  var actualDate = d.getDate() + "." + month[d.getMonth()] + "."+ d.getFullYear();
+  var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
   var out = document.getElementById("nDate");
 
   out.innerHTML = "Dnes je " + actualDate ;
 }
+
+//function dateMeniny(){
+// var name = " ";}
