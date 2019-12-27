@@ -132,11 +132,13 @@ function date(){
   var out = document.getElementById("nDate");
 
   out.innerHTML = "Dnes je " + actualDate ;
+  //sss
 }
 
 <<<<<<< HEAD
 //function dateMeniny(){
-// var name = " ";}
+// var name = " ";
+// }
 =======
 
 //***********************************************************************ANIMACIE***********************************************************************
