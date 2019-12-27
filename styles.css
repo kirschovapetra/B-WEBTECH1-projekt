@@ -91,9 +91,12 @@ footer{
 	display:none;
 	float:right;
 }
+/*TODO aby button bol pod textom ked sa zmensi obrazovka*/
 @media screen and (max-width: 600px) {
-  #right-menu{display:none;}
-  #dropdown-menu-button{display: block;}
+  	#right-menu{display:none;}
+  	#dropdown-menu-button{display: block;}
+	#car-order{width: 100%;}
+	#answer-button-wrap{width: 100%;}
 }
 a:hover{background-color: lightgrey;}
 a.active {
@@ -190,7 +193,39 @@ a.active {
 	border: none;
 	border-radius:20px;
 }
-.demo-button:hover{
+
+#car-order{
+	width:60%;
+}
+#answer-wrap{
+	width:100%;
+	margin:0 auto;
+	background-color: white;
+	padding:20px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:center;
+}
+#answer-button-wrap{
+	width:40%;
+	margin:0 auto;
+	background-color: white;
+	padding:20px;
+	display:none;
+}
+
+.answer-button{
+	margin:0 auto;
+	width: 80%;
+	display: block;
+	background-color: #0099ff;
+	color: white;
+	padding: 12px;
+	border: none;
+	border-radius:20px;
+}
+
+.demo-button:hover, .answer-button:hover{
 	opacity:0.7;
 	cursor: pointer;
 }
@@ -308,7 +343,7 @@ a.active {
 #yellow-car3{
 	top:15%;
 	right:55%;
-	transform: rotate(180deg);
+	transform: rotate(-180deg);
 }
 #orange-car4{
 	bottom:2%;
@@ -400,11 +435,11 @@ a.active {
 }
 #yellow-car10{
 	bottom: 8%;
-	right: 35%;
+	right: 33%;
 }
 #black-car10{
 	top: 2%;
-	right: 53%;
+	right: 57%;
 	transform: rotate(180deg);
 }
 #green-car10{
@@ -413,7 +448,7 @@ a.active {
 	transform: rotate(90deg);
 }
 #pink-car10{
-	top: 30%;
+	top: 32%;
 	right: 13%;
 	transform: rotate(-90deg);
 }
