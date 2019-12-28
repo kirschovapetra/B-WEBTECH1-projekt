@@ -17,7 +17,7 @@ p{
 }
 body, html {
   	height: 100%;
-	line-height: 1.8;
+	font-size: 1em;
 	font-family: "Raleway", sans-serif;
 }
 section{margin:50px auto;}
@@ -91,13 +91,6 @@ footer{
 	display:none;
 	float:right;
 }
-/*TODO aby button bol pod textom ked sa zmensi obrazovka*/
-@media screen and (max-width: 600px) {
-  	#right-menu{display:none;}
-  	#dropdown-menu-button{display: block;}
-	#car-order{width: 100%;}
-	#answer-button-wrap{width: 100%;}
-}
 a:hover{background-color: lightgrey;}
 a.active {
   background-color: #0099ff;
@@ -155,7 +148,6 @@ a.active {
 	background-color: white;
 	margin: auto;
 	width: 60%;
-	height:60%;
 }
 
 /*div-y obsahujuce svg krizovatky*/
@@ -175,18 +167,24 @@ a.active {
 }
 
 /*spustenie dema*/
-.demo-wrap{
-	/*width:60%;
-	height:10%;*/
+.buttons-wrap{
 	width:100%;
 	margin:0 auto;
 	background-color: white;
 	padding:20px 0;
 }
+.buttons{
+	width:60%;
+	margin:0 auto;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	flex-wrap:wrap;
+
+}
 .demo-button {
 	margin:0 auto;
-	width: 50%;
-	display: block;
+	width: 40%;
 	background-color: #0099ff;
 	color: white;
 	padding: 12px;
@@ -194,14 +192,15 @@ a.active {
 	border-radius:20px;
 }
 
-#car-order{
-	width:60%;
+#car-order{width:60%;}
+#car-order-text{
+	text-align: center;
 }
 #answer-wrap{
-	width:100%;
+	width:60%;
 	margin:0 auto;
 	background-color: white;
-	padding:20px 0;
+	padding:0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content:center;
@@ -216,11 +215,11 @@ a.active {
 
 .answer-button{
 	margin:0 auto;
-	width: 80%;
+	width: 100%;
 	display: block;
 	background-color: #0099ff;
 	color: white;
-	padding: 12px;
+	padding: 12px 5px;
 	border: none;
 	border-radius:20px;
 }
@@ -451,4 +450,24 @@ a.active {
 	top: 32%;
 	right: 13%;
 	transform: rotate(-90deg);
+}
+
+/*responzivne*/
+@media screen and (max-width: 600px) {
+	#right-menu{display:none;}
+	#dropdown-menu-button{display: block;}
+	#car-order{width: 100%;}
+	#answer-button-wrap{
+		width: 100%;
+		padding:5px 0;
+		}
+	.answer-button{
+		padding:8px 5px;
+	}
+	.demo-button{
+		width:100%;
+		padding:8px 5px;
+		margin-bottom: 5px;
+	}
+	body{font-size:0.7em;}
 }
