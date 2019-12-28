@@ -226,6 +226,91 @@ function date(){
 // var name = " ";
 // }
 
+//Simona
+function vymazInput() {
+    document.getElementById("mena").value = "";
+}
+
+function onloadfunction(){
+    vymazInput();
+    date();
+}
+function loadXMLDoc(dname)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",dname,false);
+    xhttp.send();
+    return xhttp.responseXML;
+}
+
+// s a bez diakritiky
+function diaConvert(str) {
+    let accents = 'ÀÁÂÃÄÅàáâãäåßÒÓÔÕÕÖØòóôõöøĎďDŽdžÈÉÊËèéêëðÇçČčÐÌÍÎÏìíîïÙÚÛÜùúûüĽĹľĺÑŇňñŔŕřŠšŤťŸÝÿýŽž';
+    let accentsOut = "AAAAAAaaaaaasOOOOOOOooooooDdDZdzEEEEeeeeeCcCcDIIIIiiiiUUUUuuuuLLllNNnnRrrSsTtYYyyZz";
+    str = str.split('');
+    str.forEach((letter, index) => {
+        let i = accents.indexOf(letter);
+        if (i !== -1) {
+            str[index] = accentsOut[i];
+        }
+    });
+    return str.join('');
+}
+
+//vyhladavanie v XML 
+function searchXML()
+{
+    stat = ["SKd","PL","HU","AT","CZ"];
+    for(j=0; j < stat.length; j++){
+        let kontrola = 0;
+        let statIndex = stat[j];
+        xmlDoc = loadXMLDoc("Mena.xml");
+        x = xmlDoc.getElementsByTagName(statIndex);
+        input = document.getElementById("mena").value;
+        size = input.length;
+        input = diaConvert(input).toLowerCase();
+
+        if (input == null || input == "")
+        {
+            document.getElementById("vysledok").innerHTML= "Zadaj meno!";
+            return false;
+        }
+
+        for (i=0;i<x.length;i++)
+        {
+            meno = xmlDoc.getElementsByTagName(statIndex)[i].childNodes[0].nodeValue;
+            meno = diaConvert(meno).toLowerCase();
+            if (meno.search(input) >= 0 )
+            {
+                meno = xmlDoc.getElementsByTagName(statIndex)[i].childNodes[0].nodeValue;
+                datum = xmlDoc.getElementsByTagName("den")[i+1].childNodes[0].nodeValue;
+
+                datum = datum.substr(2,2)  + "." + datum.substr(0,2);
+
+
+                divText = datum + " " + statIndex + "<br>" + meno;
+                kontrola = 1;
+                break;
+            }
+            else
+            {
+                divText = "Neexistuje meno";
+            }
+        }
+        if(kontrola===1){
+            break;
+        }
+    }
+    document.getElementById("vysledok").innerHTML= divText;
+}
+
 /******************************************************ANIMACIE********************************************************/
 //zastavenie animacii
 function stopAllAnimations(){
