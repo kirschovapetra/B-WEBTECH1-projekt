@@ -15,14 +15,14 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 
-<body onload="date()">
+<body onload="onloadfunction()">
     <header>
-        <nav class="main-menu">
-            <div class="left-menu">
+        <nav id="main-menu">
+            <div id="left-menu">
                 <a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
             </div>
     
-            <div class="right-menu">
+            <div id="right-menu">
                 <a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i> DOMOV</a>
                 <a href="crossroads.html" class="nav-button nav-button-white"><i class="fa fa-th"></i> KRIŽOVATKY</a>  
                 <a href="calendar.html" class="nav-button nav-button-white active"><i class="fa fa-calendar"></i> KALENDÁR</a>
@@ -44,12 +44,29 @@
         </nav>
     </header>
 
-    <section>kalendar</section>
-    <p id="nDate" ></p>
+    <section>
+        <p id="nDate" ></p>
+        <div class = "calendar-div">
 
-    <div >
-        Dátum  <input id="datumMeniny"  type="date" name="bday" required>
-    </div>
+            <div class = "col1">
+                    <p id = "col1Text"> Zisti meniny: </p>
+                    <input id="datumMeniny" class = "calendarInput" type="date" name="bday" required>
+            </div>
+
+            <div class = "col2">
+                <!-- Simona -->
+                    <p id = "col2Text"> Zisti kedy má meniny? </p>
+                    <input name="riadok"  class = "calendarInput" id="mena" type="text">
+                    <div id = "divPosli">
+                        <button  id = "posli" type="button" onclick="searchXML()">Nájdi</button>
+                        <p id="vysledok"></p>
+                    </div>
+
+            </div>
+
+            </div>
+    </section>
+
 
     <footer>
         Copyright &copy; 2019 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>

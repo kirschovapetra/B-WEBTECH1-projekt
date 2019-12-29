@@ -1,11 +1,13 @@
 /*
 CHECKLIST
-Petra: funkcie openSideMenu, closeSideMenu, hideAllCrossroads, openCrossroad, closeCrossroad, moveLeft, moveRight,
-        animateCrossroad1-5, playDemo, cleanSelected, printCarOrder, selectObject
+Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - vsetky
+       "MENU" -  vsetky
+       "ANIMACIE" - stopAllAnimations, animateCrossroad1-5, playDemo, playCorrectAnswer
+       "VYBER PORADIA AUT" - vsetky
 */
+
 var selected = [];
 var carOrder = [];
-//TODO dorobit kontrolu spravnej odpovede
 var correctCarOrder=[
     ["pink-car1","black-car1","yellow-car1"],
     ["green-car2","red-car2"],
@@ -17,15 +19,120 @@ var correctCarOrder=[
     ],
     [],[],[],[],[],
     [],[],[],[],[]
-];
+]; //TODO krizovatky 6-15
 var activeCrossroadIndex = 0;
+var animations = [];
+var isClickable = true;
 
+/************************************ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU************************************/
 
+//vyprazdnenie poli "selected" a "carOrder", odstranenie oznacenia aut
 function cleanSelected() {
+    for (var i=0; i< carOrder.length; i++){
+        document.getElementById(carOrder[i]).style.border="none";
+    }
     selected = [];
     carOrder = [];
 }
 
+//nastavenie povodnych pozicii a rotacii aut
+function revertCarPositions(){
+    //krizovatka 1
+    var pinkCar1 = document.getElementById('pink-car1');
+    pinkCar1.style.transform = 'rotate(-90deg)';
+    pinkCar1.style.top = '24%';
+    pinkCar1.style.right = '15%';
+
+    var blackCar1 = document.getElementById('black-car1');
+    blackCar1.style.transform = 'rotate(0deg)';
+    blackCar1.style.bottom = '20%';
+    blackCar1.style.right = '37%';
+
+    var yellowCar1 = document.getElementById('yellow-car1');
+    yellowCar1.style.transform = 'rotate(90deg)';
+    yellowCar1.style.top = '40%';
+    yellowCar1.style.left = '7%';
+
+    //krizovatka 2
+    var greenCar2 = document.getElementById('green-car2');
+    greenCar2.style.transform = 'rotate(90deg)';
+    greenCar2.style.bottom = '32%';
+    greenCar2.style.left = '7%';
+
+    var redCar2 = document.getElementById('red-car2');
+    redCar2.style.transform = 'rotate(0deg)';
+    redCar2.style.bottom = '1%';
+    redCar2.style.right = '37%';
+
+    //krizovatka 3
+    var blueCar3 = document.getElementById('blue-car3');
+    blueCar3.style.transform = 'rotate(90deg)';
+    blueCar3.style.top = '47%';
+    blueCar3.style.left = '8%';
+
+    var greyCar3 = document.getElementById('grey-car3');
+    greyCar3.style.transform = 'rotate(0deg)';
+    greyCar3.style.bottom = '15%';
+    greyCar3.style.right = '37%';
+
+    var yellowCar3 = document.getElementById('yellow-car3');
+    yellowCar3.style.transform = 'rotate(-180deg)';
+    yellowCar3.style.top = '15%';
+    yellowCar3.style.right = '55%';
+
+    //krizovatka 4
+    var pinkCar4 = document.getElementById('pink-car4');
+    pinkCar4.style.transform = 'rotate(90deg)';
+    pinkCar4.style.bottom = '33%';
+    pinkCar4.style.left = '5%';
+
+    //TODO oranzove?
+
+    var blackCar4 = document.getElementById('black-car4');
+    blackCar4.style.transform = 'rotate(0deg)';
+    blackCar4.style.bottom = '2%';
+    blackCar4.style.right = '27%';
+
+    //krizovatka 5
+    var greenCar5 = document.getElementById('green-car5');
+    greenCar5.style.transform = 'rotate(0deg)';
+    greenCar5.style.bottom = '10%';
+    greenCar5.style.right = '37%';
+
+    var redCar5 = document.getElementById('red-car5');
+    redCar5.style.transform = 'rotate(90deg)';
+    redCar5.style.top = '41%';
+    redCar5.style.left = '7%';
+
+    var cyclist5 = document.getElementById('cyclist5');
+    cyclist5.style.transform = 'rotate(90deg)';
+    cyclist5.style.top = '55%';
+    cyclist5.style.left = '15%';
+
+    //TODO krizovatky 6-15
+}
+
+//vsetky svg krizovatky nastavene na display:none
+function hideAllCrossroads(){
+    var crossroads = document.getElementsByClassName("crossroad");
+    var crossroadsCount = crossroads.length;
+
+    for (var i = 0; i < crossroadsCount; i++){
+        var crossroadId = "crossroad"+(i+1)+"-fullsize";
+        var crossroad = document.getElementById(crossroadId);
+        crossroad.style.display = "none";
+    }
+}
+
+//odstranenie vyberu, zastavenie animacii, vratenie aut na povodnu poziciu
+function revert(){
+    cleanSelected();
+    showAnswerButton();
+    stopAllAnimations();
+    revertCarPositions();
+}
+
+/************************************************************MENU******************************************************/
 
 //otvorenie bocneho menu
 function openSideMenu() {
@@ -43,24 +150,13 @@ function closeSideMenu() {
     sideMenu.style.display = "none";
 }
 
-//vsetky svg krizovatky nastavene na display:none
-function hideAllCrossroads(){
-  var crossroads = document.getElementsByClassName("crossroad");
-  var crossroadsCount = crossroads.length;
-
-  for (var i = 0; i < crossroadsCount; i++){
-    var crossroadId = "crossroad"+(i+1)+"-fullsize";
-    var crossroad = document.getElementById(crossroadId);
-    crossroad.style.display = "none";
-  }
-}
-
 //otvorenie okna svg krizovatky s cislom crossroadNum (1 az 15)
 function openCrossroad(crossroadNum) {
   var fullsizeView = document.getElementById("fullsizeView");
   var crossroadId = "crossroad"+crossroadNum+"-fullsize";
 
-  cleanSelected();
+  isClickable = true;
+  revert();
   printCarOrder();
   hideAllCrossroads();
   activeCrossroadIndex = crossroadNum-1;
@@ -84,46 +180,37 @@ function closeCrossroad() {
   fullsizeView.style.display = "none";
 }
 
-//posun vlavo
+//posun vlavo (prepnutie na predchadzajucu krizovatku)
 function moveLeft(){
   var crossroads = document.getElementsByClassName("crossroad");
+  isClickable = true;
+
   activeCrossroadIndex--;
   if (activeCrossroadIndex < 0){
     activeCrossroadIndex = crossroads.length-1;
   }
-  cleanSelected();
+  revert();
   printCarOrder();
   hideAllCrossroads();
   crossroads[activeCrossroadIndex].style.display = "flex";
 }
 
-//posun vpravo
+//posun vpravo (prepnutie na nasledujucu krizovatku)
 function moveRight(){
   var crossroads = document.getElementsByClassName("crossroad");
+  isClickable = true;
   activeCrossroadIndex++;
   if (activeCrossroadIndex >= crossroads.length){
     activeCrossroadIndex = 0;
   }
-  cleanSelected();
+  revert();
   printCarOrder();
   hideAllCrossroads();
   crossroads[activeCrossroadIndex].style.display = "flex";
 }
 
-<<<<<<< HEAD
-function playDemo() {
-  var currentAnimationsList = animations[activeCrossroadIndex];
-  var crossroadId = "crossroad"+(activeCrossroadIndex+1)+"-fullsize";
-  var crossroad = document.getElementById(crossroadId);
-  var svgs = crossroad.getElementsByTagName("svg");
-  for (var i = 0; i< currentAnimationsList.length; i++) {
-     svgs[i].style.animation = currentAnimationsList[i];
-  }
-}
+/*******************************************************KALENDAR*******************************************************/
 
-
-=======
->>>>>>> 793a4d9fe662bcf8063886e1b5213a220912e648
 // vygenerovanie aktualneho datumu {matus}
 function date(){
   var month = new Array("január","február","marec","apríl","máj","jún","júl","august","september","október","november","december");
@@ -135,31 +222,113 @@ function date(){
   //sss
 }
 
-<<<<<<< HEAD
 //function dateMeniny(){
 // var name = " ";
 // }
-=======
 
-//***********************************************************************ANIMACIE***********************************************************************
+//Simona
+function vymazInput() {
+    document.getElementById("mena").value = "";
+}
+
+function onloadfunction(){
+    vymazInput();
+    date();
+}
+function loadXMLDoc(dname)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",dname,false);
+    xhttp.send();
+    return xhttp.responseXML;
+}
+
+// s a bez diakritiky
+function diaConvert(str) {
+    let accents = 'ÀÁÂÃÄÅàáâãäåßÒÓÔÕÕÖØòóôõöøĎďDŽdžÈÉÊËèéêëðÇçČčÐÌÍÎÏìíîïÙÚÛÜùúûüĽĹľĺÑŇňñŔŕřŠšŤťŸÝÿýŽž';
+    let accentsOut = "AAAAAAaaaaaasOOOOOOOooooooDdDZdzEEEEeeeeeCcCcDIIIIiiiiUUUUuuuuLLllNNnnRrrSsTtYYyyZz";
+    str = str.split('');
+    str.forEach((letter, index) => {
+        let i = accents.indexOf(letter);
+        if (i !== -1) {
+            str[index] = accentsOut[i];
+        }
+    });
+    return str.join('');
+}
+
+//vyhladavanie v XML 
+function searchXML()
+{
+    stat = ["SKd","PL","HU","AT","CZ"];
+    for(j=0; j < stat.length; j++){
+        let kontrola = 0;
+        let statIndex = stat[j];
+        xmlDoc = loadXMLDoc("Mena.xml");
+        x = xmlDoc.getElementsByTagName(statIndex);
+        input = document.getElementById("mena").value;
+        size = input.length;
+        input = diaConvert(input).toLowerCase();
+
+        if (input == null || input == "")
+        {
+            document.getElementById("vysledok").innerHTML= "Zadaj meno!";
+            return false;
+        }
+
+        for (i=0;i<x.length;i++)
+        {
+            meno = xmlDoc.getElementsByTagName(statIndex)[i].childNodes[0].nodeValue;
+            meno = diaConvert(meno).toLowerCase();
+            if (meno.search(input) >= 0 )
+            {
+                meno = xmlDoc.getElementsByTagName(statIndex)[i].childNodes[0].nodeValue;
+                datum = xmlDoc.getElementsByTagName("den")[i+1].childNodes[0].nodeValue;
+
+                datum = datum.substr(2,2)  + "." + datum.substr(0,2);
+
+
+                divText = datum + " " + statIndex + "<br>" + meno;
+                kontrola = 1;
+                break;
+            }
+            else
+            {
+                divText = "Neexistuje meno";
+            }
+        }
+        if(kontrola===1){
+            break;
+        }
+    }
+    document.getElementById("vysledok").innerHTML= divText;
+}
+
+/******************************************************ANIMACIE********************************************************/
+//zastavenie animacii
+function stopAllAnimations(){
+    for (var i=0; i < animations.length; i++){
+        animations[i].pause();
+    }
+}
 
 //krizovatka 1: 1) ruzove, 2) cierne, 3) zlte
 function animateCrossroad1() {
-  //povodne pozicie a rotacie aut
-  var pinkCar = document.getElementById('pink-car1');
-  pinkCar.style.transform = 'rotate(-90deg)';
-
-  var blackCar = document.getElementById('black-car1');
-  blackCar.style.transform = 'rotate(0deg)';
-
-  var yellowCar = document.getElementById('yellow-car1');
-  yellowCar.style.transform = 'rotate(90deg)';
 
   //casova os: animacie sa vykonavaju postupne za sebou
   var timeline1 = anime.timeline({
     easing: 'easeOutExpo',
     duration: 750
   });
+
+  animations.push(timeline1);
 
   //pridanie animacii
 
@@ -218,107 +387,64 @@ function animateCrossroad1() {
 }
 
 //krizovatka 2: 1) zelene, 2) cervene
-//TODO pohyb po kruhaci
 function animateCrossroad2() {
-  //povodne pozicie a rotacie aut
-  var greenCar = document.getElementById('green-car2');
-  greenCar.style.transform = 'rotate(90deg)';
 
-  //casova os: animacie sa vykonavaju postupne za sebou
+   //casova os: animacie sa vykonavaju postupne za sebou
   var timeline2 = anime.timeline({
     easing: 'easeOutExpo',
     duration: 750
   });
 
-  //pridanie animacii
+    animations.push(timeline2);
 
-  //animacia pohybu zeleneho auta
-  /*timeline2.add({
-   targets: '#green-car2',
-   easing: 'easeInSine',
-   duration:2000
- });*/
+    //pridanie animacii
 
-  //animacia pohybu cerveneho auta
-  timeline2.add({
-    targets: '#red-car2',
-    bottom: {
-      value: ['1%','35%'],
-      easing: 'easeInSine'
-    },
-    rotate:{
-      value:'+=90',
-      delay: 200,
-      easing: 'easeInSine'
-    },
-    right: {
-      value: ['37%','-15%'],
-      easing: 'easeInSine',
-      delay: 1000
-    },
-    easing: 'easeInSine',
-    duration:2000
-  });
+    //animacia pohybu zeleneho auta
+    timeline2.add({
+        targets: '#green-car2',
+        easing: 'easeInOutSine',
+        duration: 4000,
+        bottom: [
+            {value: ['32%','18%'], delay: 600},
+            {value:['18%','18%'],duration:20},
+            {value:['18%','32%'], duration:800}
+        ],
+        left: ['7%', '105%'],
+        rotate: [
+            {value: '+=45', duration: 800, delay: 300},
+            {value: '-=45',duration: 700},
+            {value: '-=45',duration: 600},
+            {value: '+=45',duration: 600}
+        ]
+    });
 
-  /*
-  keyframes: [
-    {translateY: -40},
-    {translateX: 250},
-    {translateY: 40},
-    {translateX: 0},
-    {translateY: 0}
-  ],
-
-  nime({
-  targets: '.property-keyframes-demo .el',
-  translateX: [
-    { value: 250, duration: 1000, delay: 500 },
-    { value: 0, duration: 1000, delay: 500 }
-  ],
-  translateY: [
-    { value: -40, duration: 500 },
-    { value: 40, duration: 500, delay: 1000 },
-    { value: 0, duration: 500, delay: 1000 }
-  ],
-  scaleX: [
-    { value: 4, duration: 100, delay: 500, easing: 'easeOutExpo' },
-    { value: 1, duration: 900 },
-    { value: 4, duration: 100, delay: 500, easing: 'easeOutExpo' },
-    { value: 1, duration: 900 }
-  ],
-  scaleY: [
-    { value: [1.75, 1], duration: 500 },
-    { value: 2, duration: 50, delay: 1000, easing: 'easeOutExpo' },
-    { value: 1, duration: 450 },
-    { value: 1.75, duration: 50, delay: 1000, easing: 'easeOutExpo' },
-    { value: 1, duration: 450 }
-  ],
-  easing: 'easeOutElastic(1, .8)',
-  loop: true
-});
-
-
-
-   */
+    //animacia pohybu cerveneho auta
+    timeline2.add({
+        targets: '#red-car2',
+        easing: 'easeInOutSine',
+        duration: 3000,
+        bottom: ['1%','35%'],
+        right: {
+            value: ['37%', '-15%'],
+            delay:800
+        },
+        rotate: [
+            {value: '+=45',duration: 900, delay: 500},
+            {value: '+=45',duration: 900, delay: 500}
+        ]
+    });
 }
 
 //krizovatka 3: 1) modre, 2) sive, 3) zlte
 function animateCrossroad3() {
-  //povodne pozicie a rotacie aut
-  var blueCar = document.getElementById('blue-car3');
-  blueCar.style.transform = 'rotate(90deg)';
-
-  var greyCar = document.getElementById('grey-car3');
-  greyCar.style.transform = 'rotate(0deg)';
-
-  var yellowCar = document.getElementById('yellow-car3');
-  yellowCar.style.transform = 'rotate(-180deg)';
 
   //casova os: animacie sa vykonavaju postupne za sebou
   var timeline3 = anime.timeline({
     easing: 'easeOutExpo',
     duration: 750
   });
+
+    animations.push(timeline3);
 
   //pridanie animacii
 
@@ -379,17 +505,13 @@ function animateCrossroad3() {
 
 //krizovatka 4: 1) ruzove, 2) cierne - da prednost ruzovemu a chodcom
 function animateCrossroad4() {
-  //povodne pozicie a rotacie aut
-  var pinkCar = document.getElementById('pink-car4');
-  pinkCar.style.transform = 'rotate(90deg)';
-
-  var blackCar = document.getElementById('black-car4');
-  blackCar.style.transform = 'rotate(0deg)';
 
   var timeline4 = anime.timeline({
     easing: 'easeOutExpo',
     duration: 750
   });
+
+  animations.push(timeline4);
 
   //pridanie animacii
 
@@ -429,15 +551,6 @@ function animateCrossroad4() {
 
 //krizovatka 5: 1) cyklista a zelene naraz, potom 2) cervene
 function animateCrossroad5() {
-  //povodne pozicie a rotacie aut
-  var greenCar = document.getElementById('green-car5');
-  greenCar.style.transform = 'rotate(0deg)';
-
-  var redCar = document.getElementById('red-car5');
-  redCar.style.transform = 'rotate(90deg)';
-
-  var cyclist = document.getElementById('cyclist5');
-  cyclist.style.transform = 'rotate(90deg)';
 
   //2 casove osi: cyklista a zelene auto idu naraz
 
@@ -451,6 +564,9 @@ function animateCrossroad5() {
     easing: 'easeOutExpo',
     duration: 750
   });
+
+    animations.push(timeline5);
+    animations.push(timeline5_2);
 
   //pridanie animacii
 
@@ -532,81 +648,178 @@ function animateCrossroad15(){}
 
 //spustenie animacie po kliknuti na tlacidlo "Spusti demo"
 function playDemo(){
-  switch (activeCrossroadIndex){
-    case 0:
-      animateCrossroad1();
-      break;
-    case 1:
-      animateCrossroad2();
-      break;
-    case 2:
-      animateCrossroad3();
-      break;
-    case 3:
-      animateCrossroad4();
-      break;
-    case 4:
-      animateCrossroad5();
-      break;
-    case 5:
-      animateCrossroad6();
-      break;
-    case 6:
-      animateCrossroad7();
-      break;
-    case 7:
-      animateCrossroad8();
-      break;
-    case 8:
-      animateCrossroad9();
-      break;
-    case 9:
-      animateCrossroad10();
-      break;
-    case 10:
-      animateCrossroad11();
-      break;
-    case 11:
-      animateCrossroad12();
-      break;
-    case 12:
-      animateCrossroad13();
-      break;
-    case 13:
-      animateCrossroad14();
-      break;
-    case 14:
-      animateCrossroad15();
-      break;
-  }
+    revert();
+    printCarOrder();
+    playCorrectAnswer();
 }
 
+//spustenie animacie pri spravnej odpovedi
+function playCorrectAnswer(){
+    isClickable = false;
+    revert();
+
+    switch (activeCrossroadIndex){
+        case 0:
+            animateCrossroad1();
+            break;
+        case 1:
+            animateCrossroad2();
+            break;
+        case 2:
+            animateCrossroad3();
+            break;
+        case 3:
+            animateCrossroad4();
+            break;
+        case 4:
+            animateCrossroad5();
+            break;
+        case 5:
+            animateCrossroad6();
+            break;
+        case 6:
+            animateCrossroad7();
+            break;
+        case 7:
+            animateCrossroad8();
+            break;
+        case 8:
+            animateCrossroad9();
+            break;
+        case 9:
+            animateCrossroad10();
+            break;
+        case 10:
+            animateCrossroad11();
+            break;
+        case 11:
+            animateCrossroad12();
+            break;
+        case 12:
+            animateCrossroad13();
+            break;
+        case 13:
+            animateCrossroad14();
+            break;
+        case 14:
+            animateCrossroad15();
+            break;
+    }
+}
+
+/**************************************************VYBER PORADIA AUT***************************************************/
+
+//vypis zvoleneho poradia aut
 function printCarOrder(){
-    var p = document.getElementById("car-order");
+    var p = document.getElementById("car-order-text");
+    p.style.color='black';
     p.innerHTML = "Poradie: ";
     for (var i = 0; i < carOrder.length; i++){
-        p.innerHTML += carOrder[i];
+        //Id v tvare "black-car1", vypisat iba "black car"
+        var parsedCarId = carOrder[i].replace('-',' '); //odstrani sa '-'
+        parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo na konci
+
+        p.innerHTML += parsedCarId;
         (i !== carOrder.length-1) ? (p.innerHTML+=", "):p.innerHTML+=". "
     }
 }
 
+//vyber objektu na krizovatke
 function selectObject(object){
+    if (!isClickable)
+        return;
 
     if (selected[object.id]){
         object.style.border="none";
         selected[object.id] = false;
+
         var index = carOrder.indexOf(object.id);
         if (index !== -1)
             carOrder.splice(index, 1);
-        printCarOrder();
     }
     else{
-        object.style.border="1px solid blue";
+        object.style.border="2px solid blue";
         selected[object.id] = true;
         carOrder.push(object.id);
-        printCarOrder();
+    }
+
+    printCarOrder();
+    showAnswerButton();
+}
+
+//tlacidlo "Skontroluj odpoveď" sa zobrazi iba ak bolo vybrate aspon 1 auto
+function showAnswerButton(){
+    var answerButton = document.getElementById('answer-button-wrap');
+    if (carOrder.length > 0){
+        answerButton.style.display = "block";
+    }
+    else{
+        answerButton.style.display = "none";
     }
 }
 
+//porovnanie 2 poli
+function compare(arr1,arr2){
+    if (arr1.length != arr2.length)
+        return false;
 
->>>>>>> 793a4d9fe662bcf8063886e1b5213a220912e648
+    for (var i = 0; i < arr1.length; i++){
+        if (arr1[i] != arr2[i])
+            return false;
+    }
+    return true;
+}
+
+//nastavenie farby oramovania aut
+function setBorderColor(color){
+    for (var i=0; i< carOrder.length; i++){
+        document.getElementById(carOrder[i]).style.border="2px solid "+color;
+    }
+}
+
+//kontrola odpovede
+function checkAnswer(){
+    var correctAnswer = correctCarOrder[activeCrossroadIndex];
+    var p = document.getElementById("car-order-text");
+
+    //viacero moznych odpovedi
+    if (typeof(correctAnswer[0]) == 'object'){
+        for (var i = 0; i < correctAnswer.length; i++){
+            //ak bola odpoved spravna, spusti sa animacia
+            if (compare(correctAnswer[i], carOrder)) {
+                p.style.color='#78f542';
+                p.innerHTML = "Správna odpoveď! :)";
+               // setBorderColor('#78f542');
+                playCorrectAnswer();
+                return;
+            }
+        }
+        //ak bola odpoved nespravna, vyber sa anuluje
+        p.style.color='red';
+        p.innerHTML = "Nesprávna odpoveď! :(";
+        setBorderColor('red');
+        showAnswerButton();
+    }
+    //iba jedina moznost
+    else {
+        //ak bola odpoved spravna, spusti sa animacia
+        if (compare(correctAnswer, carOrder)) {
+            p.style.color='#78f542';
+            p.innerHTML = "Správna odpoveď! :)";
+          //  setBorderColor('#78f542');
+            playCorrectAnswer();
+        } else { //ak bola odpoved nespravna, vyber sa anuluje
+            p.style.color='red';
+            p.innerHTML = "Nesprávna odpoveď! :(";
+            setBorderColor('red');
+            showAnswerButton();
+        }
+    }
+}
+
+//po kliknuti na tlacidlo "Znova" sa obnovi krizovatka
+function restartCrossroad(){
+    isClickable = true;
+    revert();
+    printCarOrder();
+}
