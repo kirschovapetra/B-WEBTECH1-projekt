@@ -530,3 +530,14 @@ a.active {
 	}
 	body{font-size:0.7em;}
 }
+
+/* pri funkcii counterJS() */ 
+h1{
+    padding-left: 0.5%;
+    text-align: left;
+    font-style: italic;
+}
+#counter{
+    padding-left: 6.5%;
+    font-size: 35px;
+}
