@@ -186,7 +186,7 @@ a.active {
 }
 .demo-button {
 	margin:0 auto;
-	width: 40%;
+	width: 30%;
 	background-color: #0099ff;
 	color: white;
 	padding: 12px;
@@ -515,11 +515,14 @@ a.active {
 @media screen and (max-width: 600px) {
 	#right-menu{display:none;}
 	#dropdown-menu-button{display: block;}
+	body{font-size:0.7em;}
+}
+@media screen and (max-width: 1300px) {
 	#car-order{width: 100%;}
 	#answer-button-wrap{
 		width: 100%;
 		padding:5px 0;
-		}
+	}
 	.answer-button{
 		padding:8px 5px;
 	}
@@ -528,5 +531,4 @@ a.active {
 		padding:8px 5px;
 		margin-bottom: 5px;
 	}
-	body{font-size:0.7em;}
 }
