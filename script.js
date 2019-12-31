@@ -537,18 +537,17 @@ function animateCrossroad4() {
         },
         rotate:{
           value:'+=90',
-          delay: 200,
+          delay: 350,
           easing: 'easeInSine'
         },
         right: {
           value: ['27%','-15%'],
           easing: 'easeInSine',
-          delay:1000
+          delay:1100
         },
         easing: 'easeInSine',
         duration:2000
       });
-
 }
 
 //krizovatka 5: 1) cyklista a zelene naraz, potom 2) cervene
