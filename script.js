@@ -546,7 +546,6 @@ function animateCrossroad4() {
         easing: 'easeInSine',
         duration:2000
       });
-
 }
 
 //krizovatka 5: 1) cyklista a zelene naraz, potom 2) cervene
