@@ -40,7 +40,7 @@ viewBox="0 0 20000 20000"
     .str0 {stroke:#E1BF9D;stroke-width:20}
     .str1 {stroke:#34302F;stroke-width:7.62}
     .fil4 {fill:none}
-    .fil14 {fill:#2B2A29}
+    .fil12 {fill:#2B2A29}
     .fil6 {fill:black}
     .fil0 {fill:#009846}
     .fil3 {fill:#252422}
@@ -51,8 +51,8 @@ viewBox="0 0 20000 20000"
     .fil8 {fill:#E32124}
     .fil10 {fill:#F9E805}
     .fil2 {fill:#FEFEFE}
-    .fil13 {fill:#E5097F;fill-rule:nonzero}
-    .fil12 {fill:#E31E24;fill-rule:nonzero}
+    .fil14 {fill:#E5097F;fill-rule:nonzero}
+    .fil13 {fill:#E31E24;fill-rule:nonzero}
     .fil11 {fill:#009846;fill-rule:nonzero}
     .fnt0 {font-weight:normal;font-size:487.02px;font-family:'Arial'}
    ]]>
@@ -71,7 +71,7 @@ viewBox="0 0 20000 20000"
   <rect class="fil1 str0" transform="matrix(1.19521E-013 3.12553 -1 4.7281E-013 3890.8 -6.12556)" width="6389" height="2391"/>
   <polygon class="fil2" points="2077,2863 2578,3433 3079,4003 2578,4572 2077,5142 1576,4572 1075,4003 1576,3433 "/>
   <path class="fil3" d="M2064 2912c8,0 16,3 22,11l957 1050c12,13 12,34 0,47l-957 1050c-6,7 -14,10 -22,10l0 48c19,0 38,-7 53,-23l957 -1051c29,-31 29,-83 0,-116l-957 -1050c-15,-16 -34,-24 -53,-24l0 48zm-979 1061l957 -1050c6,-8 14,-11 22,-11l0 -48c-19,0 -38,8 -53,24l-957 1050c-29,33 -29,85 0,117l957 1050c15,16 34,23 53,23l0 -48c-8,0 -16,-3 -22,-10l-957 -1050c-12,-13 -12,-34 0,-47z"/>
-  <g id="_2375157178256">
+  <g id="_2802074829440">
    <path class="fil4 str1" d="M1085 3973l957 -1050c12,-14 32,-14 44,0l957 1050c12,13 12,34 0,47l-957 1050c-12,14 -32,14 -44,0l-957 -1050c-12,-13 -12,-34 0,-47l0 0zm-31 -35l957 -1050c29,-32 77,-32 106,0l957 1050c29,33 29,85 0,117l-957 1050c-29,31 -77,31 -106,0l-957 -1051c-29,-31 -29,-83 0,-116z"/>
   </g>
   <rect id="rect42-94" class="fil5" x="3647" y="-4" width="8516" height="19988"/>
@@ -109,9 +109,7 @@ viewBox="0 0 20000 20000"
    </g>
   </g>
   <rect id="rect4121-9-2-5-4-2_0" class="fil7" x="2003" y="3997" width="96.28" height="3565.07"/>
-  <polygon class="fil11" points="6500,12721 6215,13019 6215,12871 5000,12871 4994,10000 5292,10000 5285,12573 6215,12573 6215,12424 "/>
-  <polygon class="fil12" points="10300,11641 10600,11927 10450,11927 10457,14513 10165,14507 10150,11927 10000,11927 "/>
-  <path class="fil13" d="M10150 6097l-300 285 150 0 0 1219 1350 0 0 -286 -1050 0 0 -933 150 0 -300 -285zm-150 142m-75 143m75 609m675 610m675 -143m-525 -143m-525 -466m75 -467m-75 -143z"/>
+  <polygon class="fil11" points="5300,10372 5000,10087 5150,10087 5143,7500 5435,7506 5450,10087 5600,10087 "/>
   <rect id="rect106-2" class="fil2" x="7798" y="28" width="573" height="1959"/>
   <rect id="rect106-7-1" class="fil2" x="7806" y="2674" width="573" height="1959"/>
   <rect id="rect106-9-8" class="fil2" x="7807" y="5286" width="573" height="1959"/>
@@ -120,8 +118,10 @@ viewBox="0 0 20000 20000"
   <rect id="rect106-1-1" class="fil2" x="7816" y="13402" width="573" height="1959"/>
   <rect id="rect106-5-6" class="fil2" x="7807" y="16163" width="573" height="1959"/>
   <rect id="rect106-4-2" class="fil2" x="7798" y="18906" width="573" height="1078"/>
-  <text x="15000" y="19855"  class="fil14 fnt0">© </text>
-  <text x="18770" y="19855"  class="fil14 fnt0">íková</text>
-  <text x="15494" y="19855"  class="fil14 fnt0">Simona Lopatn</text>
+  <text x="15000" y="19855"  class="fil12 fnt0">© </text>
+  <text x="18770" y="19855"  class="fil12 fnt0">íková</text>
+  <text x="15494" y="19855"  class="fil12 fnt0">Simona Lopatn</text>
+  <path class="fil13" d="M11649 12750l-286 -300 0 150 -1218 0 0 1350 285 0 0 -1050 933 0 0 150 286 -300zm-142 -150m-144 -75m-609 75m-609 675m143 675m142 -525m467 -525m466 75m144 -75z"/>
+  <polygon class="fil14" points="6298,9000 6000,8715 6148,8715 6148,7500 10871,7487 10875,7766 6446,7785 6446,8715 6595,8715 "/>
  </g>
 </svg>
