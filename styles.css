@@ -279,6 +279,10 @@ a.active {
 #svg-defs{display: none;}
 
 /*dopravne prostriedky (vseobecne)*/
+.turnsignal{
+	opacity: 0;
+}
+
 .car{
 	display: block;
 	padding:0;
@@ -420,18 +424,18 @@ a.active {
 	transform: rotate(-90deg);
 }
 #blue-car9{
-	bottom: 5%;
-	right: 43%;
+	top:48%;
+	left:7%;
+	transform: rotate(90deg);
 }
 #orange-car9{
-	top: 8%;
-	right: 67%;
-	transform: rotate(180deg);
+	top:22%;
+	right:12%;
+	transform: rotate(-90deg);
 }
 #black-car9{
-	top: 28%;
-	right: 24%;
-	transform: rotate(-90deg);
+	bottom:12%;
+	right:33%;
 }
 #yellow-car10{
 	bottom: 8%;
@@ -510,6 +514,24 @@ a.active {
 	margin-top: 100px;
 }
 
+
+/* pri funkcii counterJS() */ 
+h1{
+    padding-left: 0.5%;
+    text-align: left;
+    font-style: italic;
+}
+#counter{
+    padding-left: 6.5%;
+    font-size: 35px;
+}
+
+#fullsize-window{
+	margin:auto;
+	height:80%;
+	width:80%;
+}
+
 /*responzivne*/
 @media screen and (max-width: 600px) {
 	#right-menu{display:none;}
@@ -531,21 +553,8 @@ a.active {
 		margin-bottom: 5px;
 	}
 	body{font-size:0.7em;}
-}
-
-/* pri funkcii counterJS() */ 
-h1{
-    padding-left: 0.5%;
-    text-align: left;
-    font-style: italic;
-}
-#counter{
-    padding-left: 6.5%;
-    font-size: 35px;
-}
-
-#fullsize-window{
-	margin:auto;
-	height:80%;
-	width:80%;
+	.col1,.col2{
+		flex:100%;
+		border:1px solid red;
+	}
 }

@@ -55,6 +55,12 @@ function cleanSelected() {
 
 //nastavenie povodnych pozicii a rotacii aut
 function revertCarPositions(){
+    //blinkre
+    var turnsignals = document.getElementsByClassName("turnsignal");
+    for (var i = 0; i < turnsignals.length; i++)
+        turnsignals[i].style.opacity = "0";
+
+
     //krizovatka 1
     var pinkCar1 = document.getElementById('pink-car1');
     pinkCar1.style.transform = 'rotate(-90deg)';
@@ -103,8 +109,6 @@ function revertCarPositions(){
     pinkCar4.style.transform = 'rotate(90deg)';
     pinkCar4.style.bottom = '33%';
     pinkCar4.style.left = '5%';
-
-    //TODO oranzove?
 
     var blackCar4 = document.getElementById('black-car4');
     blackCar4.style.transform = 'rotate(0deg)';
@@ -390,6 +394,37 @@ function stopAllAnimations(){
     for (var i=0; i < animations.length; i++){
         animations[i].pause();
     }
+}
+
+function animateTurnSignals(){
+
+    var timeline;
+
+    if (activeCrossroadIndex == 1){
+        timeline = anime.timeline({
+            duration: 500,
+            delay:500,
+            loop:true
+        });
+    }
+    else{
+        timeline = anime.timeline({
+            duration: 750,
+            loop:true
+        });
+    }
+    animations.push(timeline);
+
+    timeline.add({
+        targets:".turnsignal",
+        opacity:0,
+        duration:400
+    });
+    timeline.add({
+        targets:".turnsignal",
+        opacity:1,
+        duration:400
+    });
 }
 
 //krizovatka 1: 1) ruzove, 2) cierne, 3) zlte
@@ -955,6 +990,8 @@ function playDemo(){
 function playCorrectAnswer(){
     isClickable = false;
     revert();
+
+    animateTurnSignals();
 
     switch (activeCrossroadIndex){
         case 0:
