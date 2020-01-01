@@ -1,11 +1,16 @@
 /*
 CHECKLIST
-Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - vsetky
+Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - cleanSelected(), revertCarPositions() -> blinkre a krizovatky 1-5,
+                                                            hideAllCrossroads(), revert()
        "MENU" -  vsetky
-       "ANIMACIE" - stopAllAnimations, animateCrossroad1-5, playDemo, playCorrectAnswer
+       "ANIMACIE" - stopAllAnimations(), animateCrossroad1-5, playDemo(), playCorrectAnswer()
        "VYBER PORADIA AUT" - vsetky
 
-Matus: funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+Simona: "KALENDAR" - vymazInput(), onloadfunction(), loadXMLDoc(), diaConvert(), searchXML()
+
+
+Matus: "POCITADLO" - funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+       "KALENDAR" - funkcia date()
 */
 
 var selected = [];
@@ -44,7 +49,7 @@ var correctCarOrder=[
         ["green-car10", "pink-car10","yellow-car10","black-car10"]
     ],
     [],[],[],[],[]
-]; //TODO krizovatky 6-15
+]; //TODO krizovatky 9-15
 var activeCrossroadIndex = 0;
 var animations = [];
 var isClickable = true;
@@ -152,7 +157,7 @@ function revertCarPositions(){
 
     var pinkCar6 = document.getElementById('pink-car6');
     pinkCar6.style.top = '28%';
-    pinkCar6.style.right = '24%';
+    pinkCar6.style.left = '67%';
     pinkCar6.style.transform = 'rotate(-90deg)';
 
     //krizovatka7
@@ -192,7 +197,7 @@ function revertCarPositions(){
     pinkCar8.style.right = '13%';
     pinkCar8.style.transform = 'rotate(-90deg)';
 
-    //krizovatka 9
+  //krizovatka 9
     var blueCar9 = document.getElementById('blue-car9');
     blueCar9.style.top= '48%';
     blueCar9.style.left = '7%'
@@ -228,7 +233,6 @@ function revertCarPositions(){
     pinkCar10.style.top = '32%';
     pinkCar10.style.right = '13%';
     pinkCar10.style.transform = 'rotate(-90deg)';
-
 
     //TODO krizovatky 11-15
 }
@@ -388,7 +392,14 @@ function diaConvert(str) {
 //vyhladavanie v XML 
 function searchXML()
 {
+    var vysledky = [];
+    var xmlDoc,x,input,size,meno,datum,divText;
+
+    var vysledok =  document.getElementById("vysledok");
+    vysledok.innerHTML = "";
+
     stat = ["SKd","PL","HU","AT","CZ"];
+
     for(j=0; j < stat.length; j++){
         let kontrola = 0;
         let statIndex = stat[j];
@@ -426,10 +437,13 @@ function searchXML()
             }
         }
         if(kontrola===1){
-            break;
+            vysledky.push(divText);
         }
     }
-    document.getElementById("vysledok").innerHTML= divText;
+
+    for (var i = 0; i < vysledky.length; i++){
+        vysledok.innerHTML += vysledky[i] + "<br>";
+    }
 }
 
 /******************************************************ANIMACIE********************************************************/
@@ -440,6 +454,7 @@ function stopAllAnimations(){
     }
 }
 
+//animacia blikania smeroviek
 function animateTurnSignals(){
 
     var timeline;
@@ -1336,7 +1351,7 @@ function restartCrossroad(){
     printCarOrder();
 }
 
-/******************************************************Pocitadlo********************************************************/
+/******************************************************POCITADLO*******************************************************/
 // Matus 
 function counterJS(){
   var n = localStorage.getItem('on_load_counter');
