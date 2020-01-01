@@ -40,7 +40,14 @@ var correctCarOrder=[
         ["yellow-car8", "black-car8", "pink-car8"],
         ["black-car8", "yellow-car8", "pink-car8"],
     ],
-    [],[],
+    [
+        ["orange-car9", "blue-car9", "black-car9"],
+        ["blue-car9", "orange-car9", "black-car9"],
+    ],
+    [
+        ["pink-car10","green-car10","black-car10","yellow-car10"],
+        ["green-car10", "pink-car10","yellow-car10","black-car10"]
+    ],
     [],[],[],[],[]
 ]; //TODO krizovatky 9-15
 var activeCrossroadIndex = 0;
@@ -189,7 +196,43 @@ function revertCarPositions(){
     pinkCar8.style.top = '32%';
     pinkCar8.style.right = '13%';
     pinkCar8.style.transform = 'rotate(-90deg)';
-    
+
+  //krizovatka 9
+    var blueCar9 = document.getElementById('blue-car9');
+    blueCar9.style.top= '48%';
+    blueCar9.style.left = '7%'
+    blueCar9.style.transform = 'rotate(90deg)';
+
+    var orangeCar9 = document.getElementById('orange-car9');
+    orangeCar9.style.top = '22%';
+    orangeCar9.style.right = '12%';
+    orangeCar9.style.transform = 'rotate(-90deg)';
+
+    var blackCar9 = document.getElementById('black-car9');
+    blackCar9.style.bottom = '12%';
+    blackCar9.style.right = '33%';
+    blackCar9.style.transform = 'rotate(0deg)';
+
+    //krizovatka 10
+    var yellowCar10 = document.getElementById('yellow-car10');
+    yellowCar10.style.bottom= '8%';
+    yellowCar10.style.right = '33%'
+    yellowCar10.style.transform = 'rotate(0deg)';
+
+    var blackCar10 = document.getElementById('black-car10');
+    blackCar10.style.top = '2%';
+    blackCar10.style.right = '57%';
+    blackCar10.style.transform = 'rotate(180deg)';
+
+    var greenCar10 = document.getElementById('green-car10');
+    greenCar10.style.top = '53%';
+    greenCar10.style.right = '74%';
+    greenCar10.style.transform = 'rotate(90deg)';
+
+    var pinkCar10 = document.getElementById('pink-car10');
+    pinkCar10.style.top = '32%';
+    pinkCar10.style.right = '13%';
+    pinkCar10.style.transform = 'rotate(-90deg)';
 
     //TODO krizovatky 11-15
 }
@@ -985,8 +1028,141 @@ function animateCrossroad8(){
 
 
 }
-function animateCrossroad9(){}
-function animateCrossroad10(){}
+
+//Simona - krizovatka 9
+function animateCrossroad9(){
+    var timeline9 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    var timeline9_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline9);
+    animations.push(timeline9_1);
+
+   timeline9.add({
+        targets: '#orange-car9',
+        right: {
+            value: ['12%','110%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+
+    timeline9_1.add({
+        targets: '#blue-car9',
+        left: {
+            value: ['7%','30%'],
+            easing: 'easeInSine'
+        },
+        rotate: {
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        top: {
+            value: ['48%','100%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline9_1.add({
+        targets: '#black-car9',
+        bottom: {
+            value: ['12%','55%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['33%','110%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
+
+//Simona - krizovatka 10
+function animateCrossroad10(){
+    var timeline10 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    var timeline10_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline10);
+    animations.push(timeline10_1);
+
+    timeline10_1.add({
+        targets: '#pink-car10',
+        right: {
+            value: ['13%','110%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline10.add({
+        targets: '#green-car10',
+        right: {
+            value: ['74%','-15%'],
+            easing: 'easeInSine',
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline10.add({
+        targets: '#yellow-car10',
+        bottom: {
+            value: ['8%','30%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['33%','-15%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline10_1.add({
+        targets: '#black-car10',
+        top: {
+            value: ['2%','100%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+
+}
 
 //TODO dorobit funkcie
 function animateCrossroad11(){}
