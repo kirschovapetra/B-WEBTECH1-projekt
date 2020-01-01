@@ -1,11 +1,16 @@
 /*
 CHECKLIST
-Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - vsetky
+Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - cleanSelected(), revertCarPositions() -> blinkre a krizovatky 1-5,
+                                                            hideAllCrossroads(), revert()
        "MENU" -  vsetky
-       "ANIMACIE" - stopAllAnimations, animateCrossroad1-5, playDemo, playCorrectAnswer
+       "ANIMACIE" - stopAllAnimations(), animateCrossroad1-5, playDemo(), playCorrectAnswer()
        "VYBER PORADIA AUT" - vsetky
 
-Matus: funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+Simona: "KALENDAR" - vymazInput(), onloadfunction(), loadXMLDoc(), diaConvert(), searchXML()
+
+
+Matus: "POCITADLO" - funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+       "KALENDAR" - funkcia date()
 */
 
 var selected = [];
@@ -273,7 +278,14 @@ function diaConvert(str) {
 //vyhladavanie v XML 
 function searchXML()
 {
+    var vysledky = [];
+    var xmlDoc,x,input,size,meno,datum,divText;
+
+    var vysledok =  document.getElementById("vysledok");
+    vysledok.innerHTML = "";
+
     stat = ["SKd","PL","HU","AT","CZ"];
+
     for(j=0; j < stat.length; j++){
         let kontrola = 0;
         let statIndex = stat[j];
@@ -311,10 +323,13 @@ function searchXML()
             }
         }
         if(kontrola===1){
-            break;
+            vysledky.push(divText);
         }
     }
-    document.getElementById("vysledok").innerHTML= divText;
+
+    for (var i = 0; i < vysledky.length; i++){
+        vysledok.innerHTML += vysledky[i] + "<br>";
+    }
 }
 
 /******************************************************ANIMACIE********************************************************/
@@ -325,6 +340,7 @@ function stopAllAnimations(){
     }
 }
 
+//animacia blikania smeroviek
 function animateTurnSignals(){
 
     var timeline;
@@ -862,7 +878,7 @@ function restartCrossroad(){
     printCarOrder();
 }
 
-/******************************************************Pocitadlo********************************************************/
+/******************************************************POCITADLO*******************************************************/
 // Matus 
 function counterJS(){
   var n = localStorage.getItem('on_load_counter');
