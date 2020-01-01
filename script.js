@@ -4,6 +4,8 @@ Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - vsetky
        "MENU" -  vsetky
        "ANIMACIE" - stopAllAnimations, animateCrossroad1-5, playDemo, playCorrectAnswer
        "VYBER PORADIA AUT" - vsetky
+
+Matus: funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
 */
 
 var selected = [];
@@ -568,18 +570,17 @@ function animateCrossroad4() {
         },
         rotate:{
           value:'+=90',
-          delay: 200,
+          delay: 350,
           easing: 'easeInSine'
         },
         right: {
           value: ['27%','-15%'],
           easing: 'easeInSine',
-          delay:1000
+          delay:1100
         },
         easing: 'easeInSine',
         duration:2000
       });
-
 }
 
 //krizovatka 5: 1) cyklista a zelene naraz, potom 2) cervene
@@ -994,4 +995,19 @@ function restartCrossroad(){
     isClickable = true;
     revert();
     printCarOrder();
+}
+
+/******************************************************Pocitadlo********************************************************/
+// Matus 
+function counterJS(){
+  var n = localStorage.getItem('on_load_counter');
+ 
+if (n === null) {
+    n = 0;
+}
+n++;
+ 
+localStorage.setItem("on_load_counter", n);
+ 
+document.getElementById('counter').innerHTML = n;
 }

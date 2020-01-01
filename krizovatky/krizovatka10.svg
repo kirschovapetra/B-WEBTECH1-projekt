@@ -14,7 +14,7 @@ viewBox="0 0 20000 20000"
  inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
  sodipodi:docname="krizovatka3.svg">
  <defs>
-  <font id="FontID0" horiz-adv-x="667" font-variant="normal" style="fill-rule:nonzero" font-style="normal" font-weight="400">
+  <font id="FontID0" horiz-adv-x="667" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
 	<font-face 
 		font-family="Arial">
 	</font-face>
@@ -42,7 +42,7 @@ viewBox="0 0 20000 20000"
     .str0 {stroke:#E1BF9D;stroke-width:20}
     .str1 {stroke:#34302F;stroke-width:7.62}
     .fil6 {fill:none}
-    .fil15 {fill:#2B2A29}
+    .fil14 {fill:#2B2A29}
     .fil9 {fill:black}
     .fil0 {fill:#009846}
     .fil5 {fill:#252422}
@@ -55,7 +55,7 @@ viewBox="0 0 20000 20000"
     .fil4 {fill:#FEFEFE}
     .fil11 {fill:#2B2A29;fill-rule:nonzero}
     .fil12 {fill:#E5097F;fill-rule:nonzero}
-    .fil14 {fill:#009846;fill-rule:nonzero}
+    .fil15 {fill:#009846;fill-rule:nonzero}
     .fil13 {fill:#FFED00;fill-rule:nonzero}
     .fnt0 {font-weight:normal;font-size:487px;font-family:'Arial'}
    ]]>
@@ -158,11 +158,11 @@ viewBox="0 0 20000 20000"
   <polygon class="fil11" points="7503,9823 7203,9537 7353,9537 7346,6951 7638,6957 7653,9537 7803,9537 "/>
   <polygon class="fil12" points="10812,8437 11097,8137 11097,8287 13684,8280 13678,8572 11097,8587 11097,8737 "/>
   <path class="fil13" d="M14377 12724l-285 -300 0 150 -1215 0 0 1350 285 0 0 -1050 930 0 0 150 285 -300zm-143 -150m-142 -75m-608 75m-607 675m142 675m143 -525m465 -525m465 75m142 -75z"/>
-  <polygon class="fil14" points="12084,11397 12381,11682 12233,11682 12233,12897 6947,12896 6947,12585 11936,12612 11936,11682 11788,11682 "/>
   <g transform="matrix(1.00003 0 0 1 4989.18 9854.22)">
-   <text x="10000" y="10000"  class="fil15 fnt0">© </text>
-   <text x="13770" y="10000"  class="fil15 fnt0">íková</text>
-   <text x="10494" y="10000"  class="fil15 fnt0">Simona Lopatn</text>
+   <text x="10000" y="10000"  class="fil14 fnt0">© </text>
+   <text x="13770" y="10000"  class="fil14 fnt0">íková</text>
+   <text x="10494" y="10000"  class="fil14 fnt0">Simona Lopatn</text>
   </g>
+  <polygon class="fil15" points="10289,12700 10003,13000 10003,12850 7416,12857 7422,12565 10003,12550 10003,12400 "/>
  </g>
 </svg>

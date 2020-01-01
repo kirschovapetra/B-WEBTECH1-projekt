@@ -40,7 +40,7 @@ viewBox="0 0 20000 20000"
     @font-face { font-family:"Arial";src:url("#FontID0") format(svg)}
     .str1 {stroke:black;stroke-width:25}
     .str0 {stroke:#E1BF9D;stroke-width:20}
-    .fil12 {fill:#2B2A29}
+    .fil11 {fill:#2B2A29}
     .fil3 {fill:black}
     .fil0 {fill:#009846}
     .fil8 {fill:#252422}
@@ -52,7 +52,7 @@ viewBox="0 0 20000 20000"
     .fil7 {fill:white}
     .fil9 {fill:#EF7F1A;fill-rule:nonzero}
     .fil10 {fill:#1F1B20;fill-rule:nonzero}
-    .fil11 {fill:#5E90C0;fill-rule:nonzero}
+    .fil12 {fill:#5E90C0;fill-rule:nonzero}
     .fnt0 {font-weight:normal;font-size:486.84px;font-family:'Arial'}
    ]]>
   </style>
@@ -113,11 +113,11 @@ viewBox="0 0 20000 20000"
   <rect id="rect4121-4_1" class="fil5" x="2261" y="2743" width="101" height="3336"/>
   <polygon class="fil9" points="5144,9030 4844,8745 4994,8745 4987,6160 5279,6166 5294,8745 5444,8745 "/>
   <path class="fil10" d="M6276 9001l-300 -285 150 0 0 -1214 5874 13 0 271 -5574 0 0 930 150 0 -300 285zm-150 -143m-75 -142m75 -608m675 -606m675 142m-525 142m-525 465m75 465m-75 142z"/>
-  <polygon class="fil11" points="10300,11632 10600,11917 10450,11917 10457,14502 10165,14496 10150,11917 10000,11917 "/>
   <g transform="matrix(1.00036 0 0 1 4975.96 9851.05)">
-   <text x="10000" y="10000"  class="fil12 fnt0">© </text>
-   <text x="13769" y="10000"  class="fil12 fnt0">íková</text>
-   <text x="10494" y="10000"  class="fil12 fnt0">Simona Lopatn</text>
+   <text x="10000" y="10000"  class="fil11 fnt0">© </text>
+   <text x="13769" y="10000"  class="fil11 fnt0">íková</text>
+   <text x="10494" y="10000"  class="fil11 fnt0">Simona Lopatn</text>
   </g>
+  <path class="fil12" d="M11784 12895l-285 -300 0 150 -1215 0 0 1350 285 0 0 -1050 930 0 0 150 285 -300zm-143 -150m-142 -75m-608 75m-607 675m142 675m143 -525m465 -525m465 75m142 -75z"/>
  </g>
 </svg>
