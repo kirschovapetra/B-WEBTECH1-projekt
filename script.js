@@ -110,6 +110,39 @@ function revertCarPositions(){
     cyclist5.style.left = '15%';
 
     //TODO krizovatky 6-15
+    var redCar6 = document.getElementById('red-car6');
+    redCar6.style.bottom = '5%';
+    redCar6.style.right = '43%';
+
+    var greenCar6 = document.getElementById('green-car6');
+    greenCar6.style.top = '8%';
+    greenCar6.style.right = '67%';
+    greenCar6.style.transform = 'rotate(180deg)';
+
+    var pinkCar6 = document.getElementById('pink-car6');
+    pinkCar6.style.top = '28%';
+    pinkCar6.style.right = '24%';
+    pinkCar6.style.transform = 'rotate(-90deg)';
+
+    var yellowCar7 = document.getElementById('yellow-car7');
+    yellowCar7.style.bottom = '8%';
+    yellowCar7.style.right = '35%'
+
+    var blackCar7 = document.getElementById('black-car7');
+    blackCar7.style.top = '2%';
+    blackCar7.style.right = '53%';
+    blackCar7.style.transform = 'rotate(180deg)';
+
+    var greenCar7 = document.getElementById('green-car7');
+    greenCar7.style.top = '53%';
+    greenCar7.style.right = '74%';
+    greenCar7.style.transform = 'rotate(90deg)';
+
+    var tram7 = document.getElementById('tram7');
+    tram7.style.top = '28%';
+    tram7.style.right = '74%';
+    tram7.style.transform = 'rotate(90deg)';
+
 }
 
 //vsetky svg krizovatky nastavene na display:none
@@ -635,8 +668,147 @@ function animateCrossroad5() {
 }
 
 //TODO dorobit funkcie
-function animateCrossroad6(){}
-function animateCrossroad7(){}
+function animateCrossroad6(){
+
+    //casova os: animacie sa vykonavaju postupne za sebou
+    var timeline6 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline6);
+
+    //pridanie animacii
+
+    //animacia pohybu cerveneho auta
+    timeline6.add({
+        targets: '#red-car6',
+        bottom: {
+            value: ['5%','33%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['43%','-15%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu zeleneho auta
+    timeline6.add({
+        targets: '#green-car6',
+        top: {
+            value: ['8%','47%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['67%','-15%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu ruzoveho auta
+    timeline6.add({
+        targets: '#pink-car6',
+        right: {
+            value: ['24%','45%'],
+            easing: 'easeInSine'
+        },
+        rotate: {
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        top: {
+            value: ['28%','-20%'],
+            easing: 'easeInSine',
+            delay:1300
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
+
+function animateCrossroad7(){
+
+    //casova os: animacie sa vykonavaju postupne za sebou
+    var timeline7 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline7);
+
+    //pridanie animacii
+
+    //animacia pohybu elektricky
+    timeline7.add({
+        targets: '#tram7',
+        right: {
+            value: ['74%','-25%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu zlteho auta
+    timeline7.add({
+        targets: '#yellow-car7',
+        bottom: {
+            value: ['8%','47%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['35%','-15%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu ruzoveho auta
+    timeline7.add({
+        targets: '#pink-car6',
+        right: {
+            value: ['24%','45%'],
+            easing: 'easeInSine'
+        },
+        rotate: {
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        top: {
+            value: ['28%','-15%'],
+            easing: 'easeInSine',
+            delay:1300
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
 function animateCrossroad8(){}
 function animateCrossroad9(){}
 function animateCrossroad10(){}
