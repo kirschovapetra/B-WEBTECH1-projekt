@@ -42,7 +42,7 @@ var correctCarOrder=[
     ],
     [],[],
     [],[],[],[],[]
-]; //TODO krizovatky 6-15
+]; //TODO krizovatky 9-15
 var activeCrossroadIndex = 0;
 var animations = [];
 var isClickable = true;
@@ -150,7 +150,7 @@ function revertCarPositions(){
 
     var pinkCar6 = document.getElementById('pink-car6');
     pinkCar6.style.top = '28%';
-    pinkCar6.style.right = '24%';
+    pinkCar6.style.left = '67%';
     pinkCar6.style.transform = 'rotate(-90deg)';
 
     //krizovatka7
@@ -189,7 +189,7 @@ function revertCarPositions(){
     pinkCar8.style.top = '32%';
     pinkCar8.style.right = '13%';
     pinkCar8.style.transform = 'rotate(-90deg)';
-
+    
 
     //TODO krizovatky 11-15
 }
