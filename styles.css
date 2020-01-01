@@ -384,7 +384,7 @@ a.active {
 }
 #pink-car6{
 	top: 28%;
-	right: 24%;
+	left: 67%;
 	transform: rotate(-90deg);
 }
 #yellow-car7{
@@ -408,11 +408,11 @@ a.active {
 }
 #yellow-car8{
 	bottom: 5%;
-	right: 34%;
+	right: 37%;
 }
 #black-car8{
 	top: 12%;
-	right: 58%;
+	right: 51%;
 	transform: rotate(180deg);
 }
 #pink-car8{
