@@ -379,6 +379,9 @@ function openCrossroad(crossroadNum) {
   var fullsizeView = document.getElementById("fullsizeView");
   var crossroadId = "crossroad"+crossroadNum+"-fullsize";
 
+  var heading = document.getElementById("crossroad-heading");
+  heading.innerHTML = "Križovatka č."+crossroadNum;
+
   isClickable = true;
   revert();
   printCarOrder();
@@ -407,6 +410,7 @@ function closeCrossroad() {
 //posun vlavo (prepnutie na predchadzajucu krizovatku)
 function moveLeft(){
   var crossroads = document.getElementsByClassName("crossroad");
+
   isClickable = true;
 
   activeCrossroadIndex--;
@@ -417,11 +421,15 @@ function moveLeft(){
   printCarOrder();
   hideAllCrossroads();
   crossroads[activeCrossroadIndex].style.display = "flex";
+
+    var heading = document.getElementById("crossroad-heading");
+    heading.innerHTML = "Križovatka č."+(activeCrossroadIndex+1);
 }
 
 //posun vpravo (prepnutie na nasledujucu krizovatku)
 function moveRight(){
   var crossroads = document.getElementsByClassName("crossroad");
+
   isClickable = true;
   activeCrossroadIndex++;
   if (activeCrossroadIndex >= crossroads.length){
@@ -431,6 +439,9 @@ function moveRight(){
   printCarOrder();
   hideAllCrossroads();
   crossroads[activeCrossroadIndex].style.display = "flex";
+
+    var heading = document.getElementById("crossroad-heading");
+    heading.innerHTML = "Križovatka č."+(activeCrossroadIndex+1);
 }
 
 /*******************************************************KALENDAR*******************************************************/
@@ -1289,7 +1300,7 @@ function animateCrossroad11(){
 //krizovatka 12
 function animateCrossroad12(){
   var timeline12 = anime.timeline({easing:'easeOutExpo',duration: 750});
-  animations.push(timeline12)
+  animations.push(timeline12);
   //pohyb cerveneho
   timeline12.add({
       targets: '#red-car12',
@@ -1394,7 +1405,7 @@ function animateCrossroad14(){
     rotate:{value:'-=90',delay:200,easing:'easeInSine'},
     right:{value:['34%','105%'],delay:1150,easing:'easeInSine'},
     easing:'easeInSine',duration:2000
-  })
+  });
   //spolocne elektricky
   timeline14B.add({
     targets: "#tram14a",
@@ -1508,9 +1519,12 @@ function printCarOrder(){
     p.style.color='black';
     p.innerHTML = "Poradie: ";
     for (var i = 0; i < carOrder.length; i++){
-        //Id v tvare "black-car1", vypisat iba "black car"
+        //Id v tvare "black-car1","black-car11", "tram1", "tram14", "tram14a" , vypisat bez cisel a znaku "a" na konci
         var parsedCarId = carOrder[i].replace('-',' '); //odstrani sa '-'
-        parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo na konci
+        parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo/znak na konci
+
+        if (!isNaN(parseInt(parsedCarId[parsedCarId.length-1])))
+            parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo, ak sa v id nachadza
 
         p.innerHTML += parsedCarId;
         (i !== carOrder.length-1) ? (p.innerHTML+=", "):p.innerHTML+=". "
