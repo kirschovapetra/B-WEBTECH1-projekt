@@ -453,6 +453,89 @@ a.active {
 	transform: rotate(-90deg);
 }
 
+#black-car11{
+    top: 23%;
+    right: 14%;
+    transform: rotate(-90deg);
+}
+#blue-car11{
+    top: 46%;
+    left: 15%;
+    transform: rotate(90deg);
+}
+
+#black-car12{
+	top: 5%;
+	right: 57%;
+	transform: rotate(180deg);
+}
+#yellow-car12{
+	top: 30%;
+	right: 10%;
+	transform: rotate(-90deg);
+}
+#red-car12{
+	/* right: 35%;
+	bottom: 5%; */
+	bottom:10%;
+	right:37%;
+	
+}
+#blue-car12{
+	top: 53%;
+	right: 74%;
+	transform: rotate(90deg);
+}
+
+#black-car13{
+	top: 29%;
+	right: 15%;
+	transform: rotate(-90deg);
+}
+#blue-car13{
+	top: 53%;
+	left: 13%;
+	transform: rotate(90deg);
+}
+#green-car13{
+	bottom: 9%;
+	right: 34%;
+}
+
+#blue-car14{
+	bottom: 7%;
+	right: 34%;
+}
+#yellow-car14{
+	top: 5%;
+	left: 35%;
+	transform: rotate(180deg);
+}
+#tram14{
+	top: 26%;
+	right: 15%;
+	transform: rotate(-90deg);
+}
+#tram14a{
+	top: 40%;
+	left: 15%;
+	transform: rotate(90deg);
+}
+
+#red-car15{
+	top: 8%;
+	left: 34%;
+	transform: rotate(180deg);
+}
+#blue-car15{
+	bottom: 7%;
+	right: 32%;
+}
+#orange-car15{
+	top: 53%;
+	left: 15%;
+	transform: rotate(90deg);
+}
 /* Kalendar */
 .calendar-div{
 	margin:70px auto;

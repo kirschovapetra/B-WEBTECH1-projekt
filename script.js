@@ -20,7 +20,15 @@ var correctCarOrder=[
         ["green-car5","cyclist5","red-car5"]
     ],
     [],[],[],[],[],
-    [],[],[],[],[]
+    ["blue-car11","black-car11"],
+    ["red-car12","blue-car12","black-car12","yellow-car12"],
+    [
+      ["black-car13","green-car13","blue-car13"], ["green-car13","black-car13","blue-car13"]
+    ],
+    [
+      ["tram14","tram14a","yellow-car14","blue-car14"],["tram14a","tram14","yellow-car14","blue-car14"]
+    ],
+    ["red-car15","orange-car15","blue-car15"]
 ]; //TODO krizovatky 6-15
 var activeCrossroadIndex = 0;
 var animations = [];
@@ -111,7 +119,92 @@ function revertCarPositions(){
     cyclist5.style.top = '55%';
     cyclist5.style.left = '15%';
 
-    //TODO krizovatky 6-15
+    
+
+    //krizovatka 11
+    var black11 = document.getElementById('black-car11');
+    black11.style.top = '23%';
+    black11.style.right = '14%';
+    black11.style.transform = 'rotate(-90deg)';
+    
+    var blue11 = document.getElementById('blue-car11');
+    blue11.style.top = '46%';
+    blue11.style.left = '15%';
+    blue11.style.transform = 'rotate(90deg)';
+
+    //krizovatka 12
+    var black12 = document.getElementById('black-car12');
+    black12.style.top = '5%';
+    black12.style.right = '57%';
+    black12.style.transform = 'rotate(180deg)';
+
+    var yellow12 = document.getElementById('yellow-car12');
+    yellow12.style.top = '30%';
+    yellow12.style.right = '10%';
+    yellow12.style.transform = 'rotate(-90deg)';
+
+    var red12 = document.getElementById('red-car12');
+    red12.style.bottom = '10%';
+    red12.style.right = '37%';
+    red12.style.transform = 'rotate(0deg)';
+    
+    var blue12 = document.getElementById('blue-car12');
+    blue12.style.top = '53%';
+    blue12.style.right = '74%';
+    blue12.style.transform = 'rotate(90deg)';
+
+    //krizovatka 13
+    var black13 = document.getElementById('black-car13');
+    black13.style.top = '29%';
+    black13.style.right = '15%';
+    black13.style.transform = 'rotate(-90deg)';
+
+    var blue13 = document.getElementById('blue-car13');
+    blue13.style.top = '53%';
+    blue13.style.left = '13%';
+    blue13.style.transform = 'rotate(90deg)';
+
+    var green13 = document.getElementById('green-car13');
+    green13.style.bottom = '9%';
+    green13.style.right= '34%';
+    green13.style.transform = 'rotate(0deg)';
+
+    //krizovatka 14
+    var blue14 = document.getElementById('blue-car14');
+    blue14.style.bottom = '7%';
+    blue14.style.right = '34%';
+    blue14.style.transform = 'rotate(0deg)';
+
+    var yellow14 = document.getElementById('yellow-car14');
+    yellow14.style.top = '5%';
+    yellow14.style.left = '35%';
+    yellow14.style.transform = 'rotate(180deg)';
+
+    var tram14 = document.getElementById('tram14');
+    tram14.style.top = '26%';
+    tram14.style.right = '15%';
+    tram14.style.transform = 'rotate(-90deg)';
+
+    var tram14a = document.getElementById('tram14a');
+    tram14a.style.top = '40%';
+    tram14a.style.left = '15%';
+    tram14a.style.transform = 'rotate(90deg)';
+
+    //krizovatka 15
+    var red15 = document.getElementById('red-car15');
+    red15.style.top = '8%';
+    red15.style.left = '34%';
+    red15.style.transform = 'rotate(180deg)';
+
+    var orange15 = document.getElementById('orange-car15');
+    orange15.style.top = '53%';
+    orange15.style.left = '15%';
+    orange15.style.transform = 'rotate(90deg)';
+
+    var blue15 = document.getElementById('blue-car15');
+    blue15.style.bottom = '7%';
+    blue15.style.right = '32%';
+    blue15.style.transform = 'rotate(0deg)';
 }
 
 //vsetky svg krizovatky nastavene na display:none
@@ -568,6 +661,7 @@ function animateCrossroad5() {
 
     animations.push(timeline5);
     animations.push(timeline5_2);
+    
 
   //pridanie animacii
 
@@ -635,17 +729,183 @@ function animateCrossroad5() {
 
 }
 
-//TODO dorobit funkcie
-function animateCrossroad6(){}
-function animateCrossroad7(){}
-function animateCrossroad8(){}
-function animateCrossroad9(){}
-function animateCrossroad10(){}
-function animateCrossroad11(){}
-function animateCrossroad12(){}
-function animateCrossroad13(){}
-function animateCrossroad14(){}
-function animateCrossroad15(){}
+
+//krizovatka 11 
+function animateCrossroad11(){
+  var timeline11 = anime.timeline({
+  easing: 'easeOutExpo',
+  duration: 750
+  });
+
+  animations.push(timeline11);
+  //pohyb modreho auta 
+  timeline11.add({
+  targets: '#blue-car11',
+  left: {value: ['15%','105%'],easing: 'easeInSine',},
+  easing: 'easeInSine',duration:2000
+  });
+  //pohyb cierneho auta
+  timeline11.add({
+    targets: '#black-car11',
+    right: { value:['14%','55%'], easing:'easeInSine' },
+    rotate:{value:'-=90', delay: 200, easing: 'easeInSine'},
+    top: { value: ['23%','100%'], delay: 1000, easing: 'easeInSine'},
+    easing: 'easeInSine', duration:2000
+    });
+}
+//krizovatka 12
+function animateCrossroad12(){
+  var timeline12 = anime.timeline({easing:'easeOutExpo',duration: 750});
+  animations.push(timeline12)
+  //pohyb cerveneho
+  timeline12.add({
+      targets: '#red-car12',
+      right: { value:['37%','105%'], delay: 1000, easing:'easeInSine' },
+      rotate:{value:'-=90', delay: 200, easing: 'easeInSine'},
+      bottom: { value: ['10%','55%'], easing: 'easeInSine'},
+      easing: 'easeInSine', duration:3000
+    });
+  
+  //pohyb modreho auta
+  timeline12.add({
+    targets: '#blue-car12',
+    right: { value:['74%','-15%'], easing:'easeInSine' },
+    easing: 'easeInSine',duration:2000
+  });
+  //pohyb cierneho auta
+  timeline12.add({
+    targets: '#black-car12',
+    right: { value:['57%','-15%'],  delay: 1000, easing:'easeInSine'},
+    rotate:{value:'-=90', delay: 200, easing: 'easeInSine'},
+    top: { value: ['5%','50%'], easing: 'easeInSine'},
+    easing: 'easeInSine', duration:2000
+  });
+  //pohyb zlteho auta
+  timeline12.add({
+    targets: '#yellow-car12',
+    right: { value:['10%','55%'], easing:'easeInSine' },
+    rotate:{value:'-=90', delay: 200, easing: 'easeInSine'},
+    top: { value: ['30%','100%'], delay: 1000, easing: 'easeInSine'},
+    easing: 'easeInSine', duration:2000
+  });
+
+}
+
+//krizovatka 13
+function animateCrossroad13(){
+  // pre cierne zelene a modre
+  var timeline13A = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+  });
+  //zelene,cierne,modre
+  var timeline13B = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+  });
+  //pre prípad číslo 1
+  animations.push(timeline13A);
+  timeline13A.add({
+    targets: '#black-car13',
+    right: { value:['15%','55%'], easing:'easeInSine' },
+    rotate:{value:'-=90', delay: 200, easing: 'easeInSine'},
+    top: { value: ['29%','100%'], delay: 1000, easing: 'easeInSine'},
+    easing: 'easeInSine', duration:2000
+    });
+
+  timeline13A.add({
+    targets: '#blue-car13',
+    left: {value: ['13%','105%'],easing: 'easeInSine',},
+    easing: 'easeInSine',duration:2000
+    });
+
+    // pre to aby sla aj druha naraz s prvou
+    animations.push(timeline13B);
+    timeline13B.add({
+      targets: "#green-car13",
+      bottom:{value:['9%','28%'],easing:'easeInSine'},
+      rotate: {value:'+=90',delay:200,easing:'easeInSine'},
+      right: {value:['34%','-15%'],delay:1000,easing:'easeInSine'},
+      easing:'easeInSine',duration:2000
+    });
+}
+
+//krizovatka 14
+function animateCrossroad14(){
+  var timeline14 = anime.timeline({
+  easing: 'easeOutExpo',
+  duration: 750
+  });
+  var timeline14B = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+    });
+  animations.push(timeline14);
+  animations.push(timeline14B);
+  //prva elektricka
+  timeline14.add({
+    targets: "#tram14",
+    right:{value:['15%','115%'],delay:1000,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  });
+  //zlte auto
+  timeline14.add({
+    targets: "#yellow-car14",
+    top:{value:['5%','100%'],delay:1000,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  });
+  //modre auto
+  timeline14.add({
+    targets: "#blue-car14",
+    bottom:{value:['7%','55%'],easing:'easeInSine'},
+    rotate:{value:'-=90',delay:200,easing:'easeInSine'},
+    right:{value:['34%','105%'],delay:1150,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  })
+  //spolocne elektricky
+  timeline14B.add({
+    targets: "#tram14a",
+    left:{value:['15%','115%'],delay:1000,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  });
+}
+
+  
+//krizovatka 5
+function animateCrossroad15(){
+  var timeline15 = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+    });
+  animations.push(timeline15);
+    //prejde cervene auto
+  timeline15.add({
+    targets: "#red-car15",
+    top:{value:['8%','50%'],delay:20,easing:'easeInSine'},
+    rotate:{value:'-=90deg',delay:200,easing:'easeInSine'},
+    left:{value:['34%','105%'],delay:1000,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  });
+  //prejde orandzove auto
+  timeline15.add({
+    targets: "#orange-car15",
+    left:{value:['15%','105%'],delay:10,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  });
+  //a nakoniec modre auticko
+  timeline15.add({
+    targets: "#blue-car15",
+    bottom:{value:['7%','30%'],delay:20,easing:'easeInSine'},
+    rotate:{value:'+=90deg',delay:200,easing:'easeInSine'},
+    right:{value:['32%','-15%'],delay:1000,easing:'easeInSine'},
+    easing:'easeInSine',duration:2000
+  })
+}
+
+
+
+
+
 
 //spustenie animacie po kliknuti na tlacidlo "Spusti demo"
 function playDemo(){
