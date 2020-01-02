@@ -199,22 +199,40 @@ a.active {
 	border-radius:20px;
 }
 
+/*nadpis krizovatky*/
+#crossroad-heading{
+	text-align: center;
+	font-size: 1.5em;
+	text-decoration: underline;
+	padding:5px 0;
+	margin:0;
+}
+
 /*tlacidlo "Skontroluj odpoved" nad krizovatkou + vypis poradia aut*/
 #answer-wrap{
 	width:60%;
-	margin:0 auto;
+	margin:0 auto 10px auto;
 	padding:0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content:center;
+	align-items:center;
 }
-#car-order{width:60%;}
-#car-order-text{text-align: center;}
+#car-order{
+	display:table;
+	flex:65%;
+	padding:0;
+	margin:0;
+}
+#car-order-text{
+	text-align: center;
+	margin:0 0 5px 0;
+}
 #answer-button-wrap{
-	width:40%;
+	flex:35%;
 	margin:0 auto;
 	background-color: white;
-	padding:20px;
+	padding: 0 5px;
 	display:none;
 }
 .answer-button{
@@ -454,7 +472,7 @@ a.active {
 	transform: rotate(-90deg);
 }
 
-
+/*konkretne dopravne prostriedky (Matus)*/
 #black-car11{
     top: 23%;
     right: 14%;
@@ -470,7 +488,6 @@ a.active {
 	bottom:10%;
 	right:35%;
 }
-
 
 #blue-car12{
 	top: 53%;
@@ -538,9 +555,6 @@ a.active {
 	left: 15%;
 	transform: rotate(90deg);
 }
-
-
-
 
 /***************************************************kalendar (Simona)**************************************************/
 
