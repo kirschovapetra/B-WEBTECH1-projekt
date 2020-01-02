@@ -1,11 +1,16 @@
 /*
 CHECKLIST
-Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - vsetky
+Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - cleanSelected(), revertCarPositions() -> blinkre a krizovatky 1-5,
+                                                            hideAllCrossroads(), revert()
        "MENU" -  vsetky
-       "ANIMACIE" - stopAllAnimations, animateCrossroad1-5, playDemo, playCorrectAnswer
+       "ANIMACIE" - stopAllAnimations(), animateCrossroad1-5, playDemo(), playCorrectAnswer()
        "VYBER PORADIA AUT" - vsetky
 
-Matus: funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+Simona: "KALENDAR" - vymazInput(), onloadfunction(), loadXMLDoc(), diaConvert(), searchXML()
+
+
+Matus: "POCITADLO" - funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+       "KALENDAR" - funkcia date()
 */
 
 var selected = [];
@@ -14,12 +19,40 @@ var correctCarOrder=[
     ["pink-car1","black-car1","yellow-car1"],
     ["green-car2","red-car2"],
     ["blue-car3","grey-car3","yellow-car3"],
-    ["pink-car4","black-car4"],
+    [
+        ["pink-car4","black-car4", "orange-car4"],
+        ["pink-car4","black-car4"]
+    ],
     [
         ["cyclist5","green-car5","red-car5"],
         ["green-car5","cyclist5","red-car5"]
     ],
-    [],[],[],[],[],
+    [
+        ["green-car6","red-car6","pink-car6"],
+        ["red-car6","green-car6","pink-car6"]
+    ],
+    [
+        ["tram7", "green-car7", "black-car7", "yellow-car7"],
+        ["tram7", "black-car7", "green-car7", "yellow-car7"],
+        ["green-car7", "tram7", "black-car7", "yellow-car7"],
+        ["green-car7", "black-car7", "tram7", "yellow-car7"],
+        ["black-car7", "tram7", "green-car7", "yellow-car7"],
+        ["black-car7", "green-car7", "tram7", "yellow-car7"],
+    ],
+    [
+        ["yellow-car8", "black-car8", "pink-car8"],
+        ["black-car8", "yellow-car8", "pink-car8"],
+        ["yellow-car8", "black-car8"],
+        ["black-car8", "yellow-car8"]
+    ],
+    [
+        ["orange-car9", "blue-car9", "black-car9"],
+        ["blue-car9", "orange-car9", "black-car9"],
+    ],
+    [
+        ["pink-car10","green-car10","black-car10","yellow-car10"],
+        ["green-car10", "pink-car10","yellow-car10","black-car10"]
+    ],
     ["blue-car11","black-car11"],
     ["red-car12","blue-car12","black-car12","yellow-car12"],
     [
@@ -29,7 +62,8 @@ var correctCarOrder=[
       ["tram14","tram14a","yellow-car14","blue-car14"],["tram14a","tram14","yellow-car14","blue-car14"]
     ],
     ["red-car15","orange-car15","blue-car15"]
-]; //TODO krizovatky 6-15
+];
+
 var activeCrossroadIndex = 0;
 var animations = [];
 var isClickable = true;
@@ -47,6 +81,12 @@ function cleanSelected() {
 
 //nastavenie povodnych pozicii a rotacii aut
 function revertCarPositions(){
+    //blinkre
+    var turnsignals = document.getElementsByClassName("turnsignal");
+    for (var i = 0; i < turnsignals.length; i++)
+        turnsignals[i].style.opacity = "0";
+
+
     //krizovatka 1
     var pinkCar1 = document.getElementById('pink-car1');
     pinkCar1.style.transform = 'rotate(-90deg)';
@@ -96,8 +136,6 @@ function revertCarPositions(){
     pinkCar4.style.bottom = '33%';
     pinkCar4.style.left = '5%';
 
-    //TODO oranzove?
-
     var blackCar4 = document.getElementById('black-car4');
     blackCar4.style.transform = 'rotate(0deg)';
     blackCar4.style.bottom = '2%';
@@ -118,10 +156,100 @@ function revertCarPositions(){
     cyclist5.style.transform = 'rotate(90deg)';
     cyclist5.style.top = '55%';
     cyclist5.style.left = '15%';
+  
+    //Simona
+    //krizovatka6
+    var redCar6 = document.getElementById('red-car6');
+    redCar6.style.bottom = '5%';
+    redCar6.style.right = '43%';
+    redCar6.style.transform = 'rotate(0deg)';
 
-    
+    var greenCar6 = document.getElementById('green-car6');
+    greenCar6.style.top = '8%';
+    greenCar6.style.right = '67%';
+    greenCar6.style.transform = 'rotate(180deg)';
 
-    //krizovatka 11
+    var pinkCar6 = document.getElementById('pink-car6');
+    pinkCar6.style.top = '28%';
+    pinkCar6.style.left = '67%';
+    pinkCar6.style.transform = 'rotate(-90deg)';
+
+    //krizovatka7
+    var yellowCar7 = document.getElementById('yellow-car7');
+    yellowCar7.style.bottom = '8%';
+    yellowCar7.style.right = '35%'
+    yellowCar7.style.transform = 'rotate(0deg)';
+
+    var blackCar7 = document.getElementById('black-car7');
+    blackCar7.style.top = '2%';
+    blackCar7.style.right = '53%';
+    blackCar7.style.transform = 'rotate(180deg)';
+
+    var greenCar7 = document.getElementById('green-car7');
+    greenCar7.style.top = '53%';
+    greenCar7.style.right = '74%';
+    greenCar7.style.transform = 'rotate(90deg)';
+
+    var tram7 = document.getElementById('tram7');
+    tram7.style.top = '28%';
+    tram7.style.right = '74%';
+    tram7.style.transform = 'rotate(90deg)';
+
+    //krizovatka8
+    var yellowCar8 = document.getElementById('yellow-car8');
+    yellowCar8.style.bottom = '5%';
+    yellowCar8.style.right = '37%';
+    yellowCar8.style.transform = 'rotate(0deg)';
+
+    var blackCar8 = document.getElementById('black-car8');
+    blackCar8.style.top = '12%';
+    blackCar8.style.right = '51%';
+    blackCar8.style.transform = 'rotate(180deg)';
+
+    var pinkCar8 = document.getElementById('pink-car8');
+    pinkCar8.style.top = '32%';
+    pinkCar8.style.right = '13%';
+    pinkCar8.style.transform = 'rotate(-90deg)';
+
+  //krizovatka 9
+    var blueCar9 = document.getElementById('blue-car9');
+    blueCar9.style.top= '48%';
+    blueCar9.style.left = '7%';
+    blueCar9.style.transform = 'rotate(90deg)';
+
+    var orangeCar9 = document.getElementById('orange-car9');
+    orangeCar9.style.top = '22%';
+    orangeCar9.style.right = '12%';
+    orangeCar9.style.transform = 'rotate(-90deg)';
+
+    var blackCar9 = document.getElementById('black-car9');
+    blackCar9.style.bottom = '12%';
+    blackCar9.style.right = '33%';
+    blackCar9.style.transform = 'rotate(0deg)';
+
+    //krizovatka 10
+    var yellowCar10 = document.getElementById('yellow-car10');
+    yellowCar10.style.bottom= '8%';
+    yellowCar10.style.right = '33%';
+    yellowCar10.style.transform = 'rotate(0deg)';
+
+    var blackCar10 = document.getElementById('black-car10');
+    blackCar10.style.top = '2%';
+    blackCar10.style.right = '57%';
+    blackCar10.style.transform = 'rotate(180deg)';
+
+    var greenCar10 = document.getElementById('green-car10');
+    greenCar10.style.top = '53%';
+    greenCar10.style.right = '74%';
+    greenCar10.style.transform = 'rotate(90deg)';
+
+    var pinkCar10 = document.getElementById('pink-car10');
+    pinkCar10.style.top = '32%';
+    pinkCar10.style.right = '13%';
+    pinkCar10.style.transform = 'rotate(-90deg)';
+
+    //Matus
+  //krizovatka 11
     var black11 = document.getElementById('black-car11');
     black11.style.top = '23%';
     black11.style.right = '14%';
@@ -205,6 +333,7 @@ function revertCarPositions(){
     blue15.style.bottom = '7%';
     blue15.style.right = '32%';
     blue15.style.transform = 'rotate(0deg)';
+
 }
 
 //vsetky svg krizovatky nastavene na display:none
@@ -362,7 +491,14 @@ function diaConvert(str) {
 //vyhladavanie v XML 
 function searchXML()
 {
+    var vysledky = [];
+    var xmlDoc,x,input,size,meno,datum,divText;
+
+    var vysledok =  document.getElementById("vysledok");
+    vysledok.innerHTML = "";
+
     stat = ["SKd","PL","HU","AT","CZ"];
+
     for(j=0; j < stat.length; j++){
         let kontrola = 0;
         let statIndex = stat[j];
@@ -400,10 +536,13 @@ function searchXML()
             }
         }
         if(kontrola===1){
-            break;
+            vysledky.push(divText);
         }
     }
-    document.getElementById("vysledok").innerHTML= divText;
+
+    for (var i = 0; i < vysledky.length; i++){
+        vysledok.innerHTML += vysledky[i] + "<br>";
+    }
 }
 
 /******************************************************ANIMACIE********************************************************/
@@ -412,6 +551,38 @@ function stopAllAnimations(){
     for (var i=0; i < animations.length; i++){
         animations[i].pause();
     }
+}
+
+//animacia blikania smeroviek
+function animateTurnSignals(){
+
+    var timeline;
+
+    if (activeCrossroadIndex == 1){
+        timeline = anime.timeline({
+            duration: 500,
+            delay:500,
+            loop:true
+        });
+    }
+    else{
+        timeline = anime.timeline({
+            duration: 750,
+            loop:true
+        });
+    }
+    animations.push(timeline);
+
+    timeline.add({
+        targets:".turnsignal",
+        opacity:0,
+        duration:400
+    });
+    timeline.add({
+        targets:".turnsignal",
+        opacity:1,
+        duration:400
+    });
 }
 
 //krizovatka 1: 1) ruzove, 2) cierne, 3) zlte
@@ -729,7 +900,369 @@ function animateCrossroad5() {
 
 }
 
+//Simona - krizovatka 6
+function animateCrossroad6(){
 
+    //casova os: animacie sa vykonavaju postupne za sebou
+    var timeline6 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    var timeline6_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline6);
+    animations.push(timeline6_1);
+
+    //pridanie animacii
+
+    //animacia pohybu cerveneho auta
+    timeline6.add({
+        targets: '#red-car6',
+        bottom: {
+            value: ['5%','33%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['43%','-15%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu zeleneho auta
+    timeline6_1.add({
+        targets: '#green-car6',
+        top: {
+            value: ['8%','100%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu ruzoveho auta
+    timeline6_1.add({
+        targets: '#pink-car6',
+        left: {
+            value: ['67%','27%'],
+            easing: 'easeInSine'
+        },
+        rotate: {
+            value:'-=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        top: {
+            value: ['28%','100%'],
+            easing: 'easeInSine',
+            delay:1300
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
+
+//Simona - krizovatka 7
+function animateCrossroad7(){
+
+    //casova os: animacie sa vykonavaju postupne za sebou
+    var timeline7 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+    var timeline7_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+    var timeline7_2 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline7);
+    animations.push(timeline7_1);
+    animations.push(timeline7_2);
+
+    //pridanie animacii
+
+    //animacia pohybu elektricky
+    timeline7.add({
+        targets: '#tram7',
+        right: {
+            value: ['74%','-25%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu zeleneho auta
+    timeline7_1.add({
+        targets: '#green-car7',
+        right: {
+            value: ['74%','55%'],
+            easing: 'easeInSine'
+        },
+        rotate: {
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        top: {
+            value: ['53%','100%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+    timeline7_2.add({
+        targets: '#black-car7',
+        top: {
+            value: ['2%','26%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['53%','110%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    //animacia pohybu zlteho auta
+    timeline7_2.add({
+        targets: '#yellow-car7',
+        bottom: {
+            value: ['8%','55%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['35%','110%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
+
+//Simona - krizovatka 8
+function animateCrossroad8(){
+    //casova os: animacie sa vykonavaju postupne za sebou
+    var timeline8 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    var timeline8_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline8);
+    animations.push(timeline8_1);
+
+    //animacia pohybu zlteho auta
+    timeline8.add({
+        targets: '#yellow-car8',
+        bottom: {
+            value: ['5%','50%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['37%','110%'],
+            easing: 'easeInSine',
+            delay:500
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline8_1.add({
+        targets: '#black-car8',
+        top: {
+            value: ['12%','50%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            delay: 100,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['51%','-20%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+
+}
+
+//Simona - krizovatka 9
+function animateCrossroad9(){
+    var timeline9 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    var timeline9_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline9);
+    animations.push(timeline9_1);
+
+   timeline9.add({
+        targets: '#orange-car9',
+        right: {
+            value: ['12%','110%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+
+    timeline9_1.add({
+        targets: '#blue-car9',
+        left: {
+            value: ['7%','30%'],
+            easing: 'easeInSine'
+        },
+        rotate: {
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        top: {
+            value: ['48%','100%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline9_1.add({
+        targets: '#black-car9',
+        bottom: {
+            value: ['12%','55%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'-=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['33%','110%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
+
+//Simona - krizovatka 10
+function animateCrossroad10(){
+    var timeline10 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    var timeline10_1 = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+    });
+
+    animations.push(timeline10);
+    animations.push(timeline10_1);
+
+    timeline10_1.add({
+        targets: '#pink-car10',
+        right: {
+            value: ['13%','110%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline10.add({
+        targets: '#green-car10',
+        right: {
+            value: ['74%','-15%'],
+            easing: 'easeInSine',
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline10.add({
+        targets: '#yellow-car10',
+        bottom: {
+            value: ['8%','30%'],
+            easing: 'easeInSine'
+        },
+        rotate:{
+            value:'+=90',
+            delay: 200,
+            easing: 'easeInSine'
+        },
+        right: {
+            value: ['33%','-15%'],
+            easing: 'easeInSine',
+            delay:1000
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+
+    timeline10_1.add({
+        targets: '#black-car10',
+        top: {
+            value: ['2%','100%'],
+            easing: 'easeInSine'
+        },
+        easing: 'easeInSine',
+        duration:2000
+    });
+}
+
+
+//matus krizovatky
 //krizovatka 11 
 function animateCrossroad11(){
   var timeline11 = anime.timeline({
@@ -871,7 +1404,7 @@ function animateCrossroad14(){
 }
 
   
-//krizovatka 5
+//krizovatka 15
 function animateCrossroad15(){
   var timeline15 = anime.timeline({
     easing: 'easeOutExpo',
@@ -904,9 +1437,6 @@ function animateCrossroad15(){
 
 
 
-
-
-
 //spustenie animacie po kliknuti na tlacidlo "Spusti demo"
 function playDemo(){
     revert();
@@ -918,6 +1448,8 @@ function playDemo(){
 function playCorrectAnswer(){
     isClickable = false;
     revert();
+
+    animateTurnSignals();
 
     switch (activeCrossroadIndex){
         case 0:
@@ -1085,7 +1617,7 @@ function restartCrossroad(){
     printCarOrder();
 }
 
-/******************************************************Pocitadlo********************************************************/
+/******************************************************POCITADLO*******************************************************/
 // Matus 
 function counterJS(){
   var n = localStorage.getItem('on_load_counter');
@@ -1097,5 +1629,5 @@ n++;
  
 localStorage.setItem("on_load_counter", n);
  
-document.getElementById('counter').innerHTML = n;
+document.getElementById('counter').innerHTML = " Počet návštev: "+n;
 }
