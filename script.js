@@ -1,11 +1,16 @@
 /*
 CHECKLIST
-Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - vsetky
+Petra: "ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU" - cleanSelected(), revertCarPositions() -> blinkre a krizovatky 1-5,
+                                                            hideAllCrossroads(), revert()
        "MENU" -  vsetky
-       "ANIMACIE" - stopAllAnimations, animateCrossroad1-5, playDemo, playCorrectAnswer
+       "ANIMACIE" - stopAllAnimations(), animateCrossroad1-5, playDemo(), playCorrectAnswer()
        "VYBER PORADIA AUT" - vsetky
 
-Matus: funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+Simona: "KALENDAR" - vymazInput(), onloadfunction(), loadXMLDoc(), diaConvert(), searchXML()
+
+
+Matus: "POCITADLO" - funkciu counterJS() som si pomohol strankou https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+       "KALENDAR" - funkcia date()
 */
 
 var selected = [];
@@ -14,7 +19,10 @@ var correctCarOrder=[
     ["pink-car1","black-car1","yellow-car1"],
     ["green-car2","red-car2"],
     ["blue-car3","grey-car3","yellow-car3"],
-    ["pink-car4","black-car4"],
+    [
+        ["pink-car4","black-car4", "orange-car4"],
+        ["pink-car4","black-car4"]
+    ],
     [
         ["cyclist5","green-car5","red-car5"],
         ["green-car5","cyclist5","red-car5"]
@@ -34,6 +42,8 @@ var correctCarOrder=[
     [
         ["yellow-car8", "black-car8", "pink-car8"],
         ["black-car8", "yellow-car8", "pink-car8"],
+        ["yellow-car8", "black-car8"],
+        ["black-car8", "yellow-car8"]
     ],
     [
         ["orange-car9", "blue-car9", "black-car9"],
@@ -44,7 +54,7 @@ var correctCarOrder=[
         ["green-car10", "pink-car10","yellow-car10","black-car10"]
     ],
     [],[],[],[],[]
-]; //TODO krizovatky 6-15
+]; //TODO krizovatky 10-15
 var activeCrossroadIndex = 0;
 var animations = [];
 var isClickable = true;
@@ -152,7 +162,7 @@ function revertCarPositions(){
 
     var pinkCar6 = document.getElementById('pink-car6');
     pinkCar6.style.top = '28%';
-    pinkCar6.style.right = '24%';
+    pinkCar6.style.left = '67%';
     pinkCar6.style.transform = 'rotate(-90deg)';
 
     //krizovatka7
@@ -179,7 +189,7 @@ function revertCarPositions(){
     //krizovatka8
     var yellowCar8 = document.getElementById('yellow-car8');
     yellowCar8.style.bottom = '5%';
-    yellowCar8.style.right = '37%'
+    yellowCar8.style.right = '37%';
     yellowCar8.style.transform = 'rotate(0deg)';
 
     var blackCar8 = document.getElementById('black-car8');
@@ -192,10 +202,10 @@ function revertCarPositions(){
     pinkCar8.style.right = '13%';
     pinkCar8.style.transform = 'rotate(-90deg)';
 
-    //krizovatka 9
+  //krizovatka 9
     var blueCar9 = document.getElementById('blue-car9');
     blueCar9.style.top= '48%';
-    blueCar9.style.left = '7%'
+    blueCar9.style.left = '7%';
     blueCar9.style.transform = 'rotate(90deg)';
 
     var orangeCar9 = document.getElementById('orange-car9');
@@ -211,7 +221,7 @@ function revertCarPositions(){
     //krizovatka 10
     var yellowCar10 = document.getElementById('yellow-car10');
     yellowCar10.style.bottom= '8%';
-    yellowCar10.style.right = '33%'
+    yellowCar10.style.right = '33%';
     yellowCar10.style.transform = 'rotate(0deg)';
 
     var blackCar10 = document.getElementById('black-car10');
@@ -228,7 +238,6 @@ function revertCarPositions(){
     pinkCar10.style.top = '32%';
     pinkCar10.style.right = '13%';
     pinkCar10.style.transform = 'rotate(-90deg)';
-
 
     //TODO krizovatky 11-15
 }
@@ -388,7 +397,14 @@ function diaConvert(str) {
 //vyhladavanie v XML 
 function searchXML()
 {
+    var vysledky = [];
+    var xmlDoc,x,input,size,meno,datum,divText;
+
+    var vysledok =  document.getElementById("vysledok");
+    vysledok.innerHTML = "";
+
     stat = ["SKd","PL","HU","AT","CZ"];
+
     for(j=0; j < stat.length; j++){
         let kontrola = 0;
         let statIndex = stat[j];
@@ -426,10 +442,13 @@ function searchXML()
             }
         }
         if(kontrola===1){
-            break;
+            vysledky.push(divText);
         }
     }
-    document.getElementById("vysledok").innerHTML= divText;
+
+    for (var i = 0; i < vysledky.length; i++){
+        vysledok.innerHTML += vysledky[i] + "<br>";
+    }
 }
 
 /******************************************************ANIMACIE********************************************************/
@@ -440,6 +459,7 @@ function stopAllAnimations(){
     }
 }
 
+//animacia blikania smeroviek
 function animateTurnSignals(){
 
     var timeline;
@@ -974,18 +994,17 @@ function animateCrossroad8(){
     timeline8.add({
         targets: '#yellow-car8',
         bottom: {
-            value: ['5%','40%'],
+            value: ['5%','50%'],
             easing: 'easeInSine'
         },
         rotate:{
             value:'-=90',
-            delay: 200,
             easing: 'easeInSine'
         },
         right: {
-            value: ['34%','110%'],
+            value: ['37%','110%'],
             easing: 'easeInSine',
-            delay:1000
+            delay:500
         },
         easing: 'easeInSine',
         duration:2000
@@ -994,16 +1013,16 @@ function animateCrossroad8(){
     timeline8_1.add({
         targets: '#black-car8',
         top: {
-            value: ['12%','40%'],
+            value: ['12%','50%'],
             easing: 'easeInSine'
         },
         rotate:{
             value:'-=90',
-            delay: 200,
+            delay: 100,
             easing: 'easeInSine'
         },
         right: {
-            value: ['58%','-20%'],
+            value: ['51%','-20%'],
             easing: 'easeInSine',
             delay:1000
         },
@@ -1336,7 +1355,7 @@ function restartCrossroad(){
     printCarOrder();
 }
 
-/******************************************************Pocitadlo********************************************************/
+/******************************************************POCITADLO*******************************************************/
 // Matus 
 function counterJS(){
   var n = localStorage.getItem('on_load_counter');
@@ -1348,5 +1367,5 @@ n++;
  
 localStorage.setItem("on_load_counter", n);
  
-document.getElementById('counter').innerHTML = n;
+document.getElementById('counter').innerHTML = " Počet návštev: "+n;
 }
