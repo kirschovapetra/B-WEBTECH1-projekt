@@ -521,6 +521,7 @@ function searchXML()
         input = document.getElementById("mena").value;
         size = input.length;
         input = diaConvert(input).toLowerCase();
+        regEx = new RegExp("\\b" + input + "\\b");
 
         if (input == null || input == "")
         {
@@ -532,7 +533,7 @@ function searchXML()
         {
             meno = xmlDoc.getElementsByTagName(statIndex)[i].childNodes[0].nodeValue;
             meno = diaConvert(meno).toLowerCase();
-            if (meno.search(input) >= 0 )
+            if (regEx.test(meno))
             {
                 meno = xmlDoc.getElementsByTagName(statIndex)[i].childNodes[0].nodeValue;
                 datum = xmlDoc.getElementsByTagName("den")[i+1].childNodes[0].nodeValue;
