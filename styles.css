@@ -454,8 +454,6 @@ a.active {
 	transform: rotate(-90deg);
 }
 
-
-
 #red-car12{
 	bottom:10%;
 	right:35%;
@@ -589,4 +587,60 @@ tr, td, th {
 		margin-bottom: 5px;
 	}
 	body{font-size:0.7em;}
+}
+
+/********************************************kontakt***********************************************/
+
+#inlineId {
+	text-align: center;
+	height: 600px;
+	width:60%;
+	margin-left: 20%;
+	/* height: 600em;*/
+
+}
+.stlpec{
+	height:100%;
+	text-align: left;
+	position:relative;
+	float:left;
+	width:33%;
+
+}
+
+.stlpec1{
+	height:100%;
+	text-align: left;
+	position:relative;
+	float:left;
+	width:33%;
+
+}
+.stlpec2{
+	height:100%;
+	text-align: left;
+	position:relative;
+	float:left;
+	width:33%;
+
+}
+
+.fotografia2{
+	width:94%;
+	padding-left: 4%;
+	padding-top: 15%;
+}
+
+.popis_stlpca1{
+	padding: 28px;
+}
+.navodStranky{
+	width:94%;
+	padding-top:2%;
+	padding-left: 4%;
+	padding-bottom: 10%;
+}
+
+address{
+	text-align: center;
 }
