@@ -123,18 +123,11 @@ Matus: favicon
 			<img id="crossroad8-temp" src="krizovatky_temp/krizovatka08.JPG" alt="križovatka 8" width="450" height="450" onclick="openCrossroad(8)">
 			<img id="crossroad9-temp" src="krizovatky_temp/krizovatka09.JPG" alt="križovatka 9" width="450" height="450" onclick="openCrossroad(9)">
 			<img id="crossroad10-temp" src="krizovatky_temp/krizovatka10.JPG" alt="križovatka 10" width="450" height="450" onclick="openCrossroad(10)">
-
-			<img id="crossroad11-temp" src="krizovatky_temp/krizovatka11.jpg" alt="križovatka 11" width="450" height="450" onclick="openCrossroad(11)">
-			<img id="crossroad12-temp" src="krizovatky_temp/krizovatka12.jpg" alt="križovatka 12" width="450" height="450" onclick="openCrossroad(12)">
-			<img id="crossroad13-temp" src="krizovatky_temp/krizovatka13.jpg" alt="križovatka 13" width="450" height="450" onclick="openCrossroad(13)">
-			<img id="crossroad14-temp" src="krizovatky_temp/krizovatka14.jpg" alt="križovatka 14" width="450" height="450" onclick="openCrossroad(14)">
-			<img id="crossroad15-temp" src="krizovatky_temp/krizovatka15.jpg" alt="križovatka 15" width="450" height="450" onclick="openCrossroad(15)">
-
-
-			
-
-
-
+			<img id="crossroad11-temp" src="krizovatky_temp/krizovatka11.JPG" alt="križovatka 11" width="450" height="450" onclick="openCrossroad(11)">
+			<img id="crossroad12-temp" src="krizovatky_temp/krizovatka12.JPG" alt="križovatka 12" width="450" height="450" onclick="openCrossroad(12)">
+			<img id="crossroad13-temp" src="krizovatky_temp/krizovatka13.JPG" alt="križovatka 13" width="450" height="450" onclick="openCrossroad(13)">
+			<img id="crossroad14-temp" src="krizovatky_temp/krizovatka14.JPG" alt="križovatka 14" width="450" height="450" onclick="openCrossroad(14)">
+			<img id="crossroad15-temp" src="krizovatky_temp/krizovatka15.JPG" alt="križovatka 15" width="450" height="450" onclick="openCrossroad(15)">
 		</div>
 
 		<!--zobrazenie svg vo velkom okne-->
@@ -155,7 +148,10 @@ Matus: favicon
 					</div>
 				</div>
 
-				<p>V akom poradí prejdú autá križovatkou?</p>
+				<div>
+					<h2 id="crossroad-heading"></h2>
+					<p>V akom poradí prejdú autá križovatkou?</p>
+				</div>
 				<div id="answer-wrap">
 					<div id="car-order">
 						<p id="car-order-text">Poradie: </p>
@@ -165,6 +161,7 @@ Matus: favicon
 					</div>
 				</div>
 
+				<!-- Petra krizovatky 6 az 10 -->
 				<div id="crossroad1-fullsize" class="crossroad">
 					<div class="border-left"></div>
 					<div class="border-right"></div>
@@ -532,7 +529,7 @@ Matus: favicon
 					</div>
 				</div>
 
-				<!--TODO krizovatky 11-15  Matus-->
+				<!--krizovatky 11-15  Matus-->
                 <!-- krizovatka 11  -->
                 <div id="crossroad11-fullsize" class="crossroad">
                     <div class="border-left"></div>
@@ -558,6 +555,7 @@ Matus: favicon
                         <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka11.svg" width="200" height="200"></object>
                         <svg id="black-car11" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-black-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
                         </svg>
                         <svg id="blue-car11" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-blue-car"></use>
@@ -591,12 +589,15 @@ Matus: favicon
                         <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka12.svg" width="200" height="200"></object>
                         <svg id="black-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-black-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
 						<svg id="yellow-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-yellow-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
                         <svg id="red-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-red-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
 						<svg id="blue-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-blue-car"></use>
@@ -628,12 +629,14 @@ Matus: favicon
                         <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka13.svg" width="200" height="200"></object>
                         <svg id="black-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-black-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
 						<svg id="blue-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-blue-car"></use>
 						</svg>
                         <svg id="green-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-green-car"></use>
+							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
 						</svg>
 						
                     </div>
@@ -663,6 +666,7 @@ Matus: favicon
                         <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka14.svg" width="200" height="200"></object>
 						<svg id="blue-car14" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-blue-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
                         <svg id="yellow-car14" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-yellow-car"></use>
@@ -702,18 +706,19 @@ Matus: favicon
                         <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka15.svg" width="200" height="200"></object>
 						<svg id="blue-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-blue-car"></use>
+							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
 						</svg>
                         <svg id="orange-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-orange-car"></use>
 						</svg>
 						<svg id="red-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
                             <use xlink:href="#img-red-car"></use>
+							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
 						
 						
                     </div>
 				</div>
-
 
 			</div>
 			</div>
@@ -722,7 +727,7 @@ Matus: favicon
 	</section>
 
 	<footer>
-		Copyright &copy; 2019 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>
+		Copyright &copy; 2020 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>
 		Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
 	</footer>
 
