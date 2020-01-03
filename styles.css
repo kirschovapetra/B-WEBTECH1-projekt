@@ -608,7 +608,9 @@ a.active {
 
 /***********************************************pocitadlo navstev (Matus)**********************************************/
 /* pri funkcii counterJS() */
-#counter{font-size: 1.5em;}
+#counter{
+    display: inline;
+}
 
 /*************************************************checklist (Petra)****************************************************/
 #checklist{
@@ -727,10 +729,12 @@ tr, td, th {
     padding: 28px;
 }
 .navodStranky{
-    width:94%;
-    padding-top:2%;
-    padding-left: 4%;
-    padding-bottom: 10%;
+    width:80%;
+    margin-top:2%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 10%;
+
 }
 
 address{
