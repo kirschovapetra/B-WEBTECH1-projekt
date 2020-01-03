@@ -668,3 +668,15 @@ tr, td, th {
 	}
 	body{font-size:0.7em;}
 }
+
+/**********************************************************************************************************************/
+.crossroadVysvetlenie{
+	display: none;
+}
+
+.textVysvetlenia{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	font-style: italic;
+}

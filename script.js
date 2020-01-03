@@ -51,7 +51,10 @@ var correctCarOrder=[
     ],
     [
         ["pink-car10","green-car10","black-car10","yellow-car10"],
-        ["green-car10", "pink-car10","yellow-car10","black-car10"]
+        ["pink-car10","green-car10","yellow-car10","black-car10"],
+        ["green-car10", "pink-car10","yellow-car10","black-car10"],
+        ["green-car10", "pink-car10","black-car10","yellow-car10"],
+
     ],
     ["blue-car11","black-car11"],
     ["red-car12","blue-car12","black-car12","yellow-car12"],
@@ -1644,4 +1647,21 @@ n++;
 localStorage.setItem("on_load_counter", n);
  
 document.getElementById('counter').innerHTML = " Počet návštev: "+n;
+}
+
+
+/*************************************************************************************************************/
+function zobrazVysvetlenie(number){
+  var text = document.getElementsByClassName("crossroadVysvetlenie");
+  var tlacidlo = document.getElementsByClassName("vysvetlenie-button"); 
+
+  if(text[number-1].style.display == "block" ){ //je vidno
+    text[number-1].style.display = "none";  //schova text
+    tlacidlo[number-1].value = "Zobraz vysvetlenie"; //nadpis buttonu
+  }else{
+    text[number-1].style.display = "block";
+    tlacidlo[number-1].value = "Schovaj vysvetlenie";
+  }
+
+ 
 }
