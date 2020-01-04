@@ -1,5 +1,5 @@
 
-/************************************************zakladne prvky (Petra)************************************************/
+/************************************************ZAKLADNE PRVKY [Petra]************************************************/
 *{box-sizing:border-box;}
 i{padding:0;}
 p{
@@ -36,7 +36,7 @@ footer{
     font-size: 0.9em;
 }
 
-/************************************************menu, tlacidla (Petra)************************************************/
+/*****************************************************MENU [Petra]*****************************************************/
 /*menu vytvorene podla https://www.w3schools.com/w3css/tryw3css_templates_startup.htm*/
 
 /*menu - cely header*/
@@ -96,7 +96,7 @@ a.active {
     color: white;
 }
 
-/*********************************************galeria krizovatiek (Petra)**********************************************/
+/*********************************************GALERIA KRIZOVATIEK [Petra]**********************************************/
 /*galeria vytvorena podla Zadania 04: Galeria*/
 #crossroads-menu{
     display: flex;
@@ -111,7 +111,7 @@ a.active {
     margin:20px;
 }
 
-/**********************************************zvacsene krizovatky (Petra)*********************************************/
+/****************************************ZVACSENE NAHLADY KRIZOVATIEK [Petra]******************************************/
 /*zvacsene okno vytvorene podla Zadania 04: Galeria*/
 
 /*okno, kde sa zobrazuje krizovatka (zobrazenie na celu stranku = biele okno + priehladne pozadie)*/
@@ -277,9 +277,9 @@ a.active {
     z-index:2;
 }
 
-/***********************************************objekty v krizovatke***************************************************/
+/***********************************************OBJEKTY V KRIZOVATKE***************************************************/
 
-/*<div> obsahujuci vsetky objekty, ktore sa nachadzaju na krizovatke (Petra)*/
+/*<div> obsahujuci vsetky objekty, ktore sa nachadzaju na krizovatke [Petra]*/
 .crossroad-objects{
     position: relative;
     display: block;
@@ -288,10 +288,10 @@ a.active {
     margin:0 auto;
 }
 
-/*auta - svg sprites (Petra)*/
+/*auta - svg sprites [Petra]*/
 #svg-defs{display: none;}
 
-/*dopravne prostriedky - vseobecne (Petra)*/
+/*dopravne prostriedky - vseobecne [Petra]*/
 .car{
     display: block;
     padding:0;
@@ -320,10 +320,10 @@ a.active {
     z-index: 1;
 }
 
-/*smerovka*/
+/*smerovka [Petra]*/
 .turnsignal{opacity: 0;}
 
-/*konkretne dopravne prostriedky (Petra)*/
+/************konkretne dopravne prostriedky pre krizovatky 1-5 [Petra]************/
 #black-car1{
     bottom:20%;
     right:37%;
@@ -389,7 +389,7 @@ a.active {
     transform: rotate(90deg);
 }
 
-/*konkretne dopravne prostriedky (Simona)*/
+/************konkretne dopravne prostriedky pre krizovatky 6-10 [Simona]************/
 #red-car6{
     bottom: 5%;
     right: 43%;
@@ -471,7 +471,7 @@ a.active {
     transform: rotate(-90deg);
 }
 
-/*konkretne dopravne prostriedky (Matus)*/
+/************konkretne dopravne prostriedky pre krizovatky 11-15 [Matus]************/
 #black-car11{
     top: 23%;
     right: 14%;
@@ -555,8 +555,9 @@ a.active {
     transform: rotate(90deg);
 }
 
-/***************************************************kalendar (Simona)**************************************************/
+/*******************************************************KALENDAR*******************************************************/
 
+/************[Simona]************/
 .calendar-div{
     margin:40px auto;
     width:70%;
@@ -605,7 +606,8 @@ a.active {
 #vysledok{color: black;}
 #nDate{margin-top: 100px;}
 
-/*tooltip (Petra)*/
+/************tooltip (Petra)************/
+/*vytvoreny pomocou https://leaverou.github.io/bubbly/*/
 .tooltip {
     margin-top:5%;
     margin-left:20%;
@@ -620,9 +622,6 @@ a.active {
     z-index:2;
     border-radius:20px;
 }
-
-
-/*https://leaverou.github.io/bubbly/*/
 .tooltip:after {
     content: '';
     position: absolute;
@@ -638,13 +637,13 @@ a.active {
 }
 
 
-/***********************************************pocitadlo navstev (Matus)**********************************************/
+/***********************************************POCITADLO NAVSTEV [Matus]**********************************************/
 /* pri funkcii counterJS() */
 #counter{
     display: inline;
 }
 
-/*************************************************checklist (Petra)****************************************************/
+/*************************************************CHECKLIST [Petra]****************************************************/
 #checklist{
     width:70%;
     margin: 20px auto;
@@ -673,7 +672,7 @@ tr, td, th {
     border-collapse: collapse;
 }
 
-/**********************************************************************************************************************/
+/****************************************VYSVETLENIE KU KRIZOVATKAM [Matus]********************************************/
 .crossroadVysvetlenie{
     display: none;
 }
@@ -685,7 +684,7 @@ tr, td, th {
     font-style: italic;
 }
 
-/****************************************************kontakt (Simona)**************************************************/
+/****************************************************KONTAKT [Simona]**************************************************/
 #inlineId{
     text-align: center;
     display:flex;
@@ -715,19 +714,20 @@ address{
     margin:5% auto 0 auto;
 }
 
-/*************************************************navod stranky (Simona)***********************************************/
+/*************************************************NAVOD STRANKY [Simona]***********************************************/
 .navodStranky{
     width:70%;
     display:block;
     margin: 5% auto;
 }
 
-/********************************************responzivna stranka (Petra)***********************************************/
+/********************************************RESPONZIVNA STRANKA [Petra]***********************************************/
 @media screen and (max-width: 600px) {
     #right-menu{display:none;}
     #dropdown-menu-button{display: block;}
     body{font-size:0.7em;}
 }
+
 @media screen and (max-width: 800px) {
     .col1, .col2 {
         width: 100%;
