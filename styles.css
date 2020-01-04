@@ -213,7 +213,7 @@ a.active {
     width:60%;
     margin:0 auto 10px auto;
     padding:0;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content:center;
     align-items:center;
@@ -233,7 +233,6 @@ a.active {
     margin:0 auto;
     background-color: white;
     padding: 0 5px;
-    display:none;
 }
 .answer-button{
     margin:0 auto;
@@ -574,6 +573,7 @@ a.active {
 .col1{
     flex: 50%;
     margin-right:10px;
+    position:relative;
 }
 #col1Text, #col2Text{
     display: block;
@@ -604,6 +604,38 @@ a.active {
 }
 #vysledok{color: black;}
 #nDate{margin-top: 100px;}
+
+/*tooltip (Petra)*/
+.tooltip {
+    margin-top:5%;
+    margin-left:20%;
+    position: absolute;
+    padding:10px;
+    width:60%;
+    background-color: lightgray;
+    font-size:1vw;
+    color:black;
+    /*display:none;*/
+    display:block;
+    z-index:2;
+    border-radius:20px;
+}
+
+
+/*https://leaverou.github.io/bubbly/*/
+.tooltip:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 0.938em solid transparent;
+    border-bottom-color: lightgray;
+    border-top: 0;
+    margin-left: -0.937em;
+    margin-top: -0.937em;
+}
 
 
 /***********************************************pocitadlo navstev (Matus)**********************************************/
@@ -663,7 +695,6 @@ tr, td, th {
     justify-content: center;
 }
 
-
 .fotografia{
     width:88%;
     height:auto;
@@ -706,6 +737,9 @@ address{
     #checklist{width:100%;}
     #divider {
         width: 90%;
+    }
+    .tooltip{
+        position:relative;
     }
 }
 
