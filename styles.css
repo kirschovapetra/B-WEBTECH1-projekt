@@ -558,8 +558,10 @@ a.active {
 /*******************************************************KALENDAR*******************************************************/
 
 /************[Simona]************/
+
+
 .calendar-div{
-    margin:40px auto;
+    margin:15% auto 0 auto;
     width:70%;
     display: flex;
     flex-direction: row;
@@ -593,7 +595,7 @@ a.active {
     width: 60%;
 }
 #divPosli{margin: 0 auto;}
-#posli{
+.posli{
     margin:20px auto;
     width: 25%;
     display: block;
@@ -604,12 +606,14 @@ a.active {
     border-radius:20px;
 }
 #vysledok{color: black;}
-#nDate{margin-top: 100px;}
+#nDate{
+    display:inline;
+}
 
 /************tooltip (Petra)************/
 /*vytvoreny pomocou https://leaverou.github.io/bubbly/*/
 .tooltip {
-    margin-top:5%;
+    margin-top:-25%;
     margin-left:20%;
     position: absolute;
     padding:10px;
@@ -617,23 +621,22 @@ a.active {
     background-color: lightgray;
     font-size:1vw;
     color:black;
-    /*display:none;*/
-    display:block;
+    display:none;
     z-index:2;
     border-radius:20px;
 }
 .tooltip:after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 50%;
     width: 0;
     height: 0;
-    border: 0.938em solid transparent;
-    border-bottom-color: lightgray;
-    border-top: 0;
-    margin-left: -0.937em;
-    margin-top: -0.937em;
+    border: 20px solid transparent;
+    border-top-color: lightgray;
+    border-bottom: 0;
+    margin-left: -20px;
+    margin-bottom: -20px;
 }
 
 
