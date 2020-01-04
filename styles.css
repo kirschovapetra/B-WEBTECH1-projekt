@@ -641,6 +641,55 @@ tr, td, th {
     border-collapse: collapse;
 }
 
+/**********************************************************************************************************************/
+.crossroadVysvetlenie{
+    display: none;
+}
+
+.textVysvetlenia{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+/****************************************************kontakt (Simona)**************************************************/
+#inlineId{
+    text-align: center;
+    display:flex;
+    width:60%;
+    margin:5% auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.fotografia{
+    width:88%;
+    height:auto;
+    padding-left: 4%;
+    padding-top: 5%;
+}
+
+.popis_stlpca{
+    padding: 28px;
+}
+
+address{
+    text-align: center;
+}
+#divider{
+    width:60%;
+    border-top:2px dashed black;
+    margin:5% auto 0 auto;
+}
+
+/*************************************************navod stranky (Simona)***********************************************/
+.navodStranky{
+    width:70%;
+    display:block;
+    margin: 5% auto;
+}
 
 /********************************************responzivna stranka (Petra)***********************************************/
 @media screen and (max-width: 600px) {
@@ -655,7 +704,11 @@ tr, td, th {
     }
     .calendar-div{display: block;}
     #checklist{width:100%;}
+    #divider {
+        width: 90%;
+    }
 }
+
 @media screen and (max-width: 1300px) {
     #car-order{width: 100%;}
     #answer-button-wrap{
@@ -669,74 +722,5 @@ tr, td, th {
         margin-bottom: 5px;
     }
     body{font-size:0.7em;}
-}
 
-/**********************************************************************************************************************/
-        .crossroadVysvetlenie{
-            display: none;
-        }
-
-.textVysvetlenia{
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    font-style: italic;
-}
-
-/********************************************kontakt***********************************************/
-
-#inlineId {
-    text-align: center;
-    height: 600px;
-    width:60%;
-    margin-left: 20%;
-    /* height: 600em;*/
-
-}
-.stlpec{
-    height:100%;
-    text-align: left;
-    position:relative;
-    float:left;
-    width:33%;
-
-}
-
-.stlpec1{
-    height:100%;
-    text-align: left;
-    position:relative;
-    float:left;
-    width:33%;
-
-}
-.stlpec2{
-    height:100%;
-    text-align: left;
-    position:relative;
-    float:left;
-    width:33%;
-
-}
-
-.fotografia2{
-    width:94%;
-    padding-left: 4%;
-    padding-top: 15%;
-}
-
-.popis_stlpca1{
-    padding: 28px;
-}
-.navodStranky{
-    width:80%;
-    margin-top:2%;
-    margin-left: 8%;
-    margin-right: 8%;
-    margin-bottom: 10%;
-
-}
-
-address{
-    text-align: center;
 }
