@@ -440,12 +440,123 @@ function date(){
   var out = document.getElementById("nDate");
 
   out.innerHTML = "Dnes je " + actualDate ;
-  //sss
+  //TODO pridat k textu "meniny ma: ..."
 }
 
-//function dateMeniny(){
-// var name = " ";
-// }
+
+function loadXMLDoc(dname)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",dname,false);
+    xhttp.send();
+    return xhttp.responseXML;
+}
+
+
+function searchXMLdate()
+{
+    //TODO regex
+    // kontrola, ci je datum v rozsahu
+    // nejaky "if", ze ak bol zadany datum nespravny, tak sa zobrazi tooltip, teraz nie ke tooltip vidno
+
+    var xmlDoc = loadXMLDoc("Mena.xml");
+    var x = xmlDoc.getElementsByTagName("den");
+    var input = document.getElementById("datumMeniny").value;
+    var den,mesiac,upravenyInput,date;
+    var vysledok = document.getElementById("meninyVysledok");
+    var size = input.length;
+    var divTextLines = [];
+
+    vysledok.innerHTML = "";
+
+    if (input == null || input == "")
+    {
+        document.getElementById("meninyVysledok").innerHTML= "Zadaj datum!";
+        return false;
+    }
+
+    if(size == 4){
+        den = input.slice(0, 1);  //prejde od 0 po 1 index
+        mesiac = input.slice(2, size); // bola tam 3ka
+
+        for(var j = 1; j < 10; j++){
+
+            if(input[0] == j){
+                input = "0" + input;
+                size++;
+            }
+        }
+    }
+    if(size == 5){
+        if(input[2] == "."){
+            den = input.slice(0, 2);
+            mesiac = input.slice(3, size);
+            upravenyInput = mesiac + den;
+            for(var j = 1; j < 10; j++){
+
+                if(mesiac[0] == j){
+                    upravenyInput = upravenyInput.replace(".", "");
+                    upravenyInput = "0" + upravenyInput;
+                    //size++;
+                    upravenyInput = upravenyInput.replace(".", "");
+                    break;
+                }
+            }
+        }
+        else if(input[1] == "."){
+            for(var j = 1; j < 10; j++){
+
+                if(input[0] == j){
+                    input = "0" + input;
+                    den = input.slice(0, 2);
+                    mesiac = input.slice(3, 5);
+                    upravenyInput = mesiac + den;
+                    upravenyInput = upravenyInput.replace(".", "");
+                    upravenyInput = upravenyInput.replace(".", "");
+                    //size++;
+                    break;
+                }
+
+            }
+        }
+    }
+    if(size == 6){
+        den = input.slice(0, 2);
+        mesiac = input.slice(3, 5);
+        upravenyInput = mesiac + den;
+        upravenyInput = upravenyInput.replace(".", "");
+        upravenyInput = upravenyInput.replace(".", "");
+    }
+
+    for (var i = 0; i < x.length; i++) {
+
+        date = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
+       if (date == upravenyInput) {
+           var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes;
+            console.log(zaznam);
+            for (var k = 0; k < zaznam.length; k++) {
+                if (zaznam[k].nodeType == 1 && zaznam[k].nodeName != "den") {
+                    divTextLines.push(zaznam[k].nodeName + ": " + zaznam[k].firstChild.nodeValue + "<br />");
+                }
+            }
+        }
+    }
+    if (divTextLines.length == 0)
+        vysledok.innerHTML = "Neexistuje";
+    else {
+        for (var i = 0; i < divTextLines.length; i++) {
+            vysledok.innerHTML += divTextLines[i];
+        }
+    }
+}
+
 
 //vyprazdnenie inputu pri obnoveni stranky [Simona]
 function vymazInput() {
