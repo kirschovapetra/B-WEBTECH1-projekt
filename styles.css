@@ -624,7 +624,6 @@ a.active {
     display:none;
     z-index:2;
     border-radius:20px;
-    font-family: italic;
 }
 .tooltip:after {
     content: '';
@@ -701,12 +700,8 @@ tr, td, th {
 .fotografia{
     width:88%;
     height:auto;
-    padding-left: 4%;
-    padding-top: 5%;
-}
-
-.popis_stlpca{
-    padding: 28px;
+    display:block;
+    margin:3% auto;
 }
 
 address{
@@ -766,7 +761,38 @@ address{
 /*************************************************** TLAC [Simona] ****************************************************/
 
 @media print and (min-width: 480px) {
-    html, body {
-        height: auto;
+    html, body {height: auto;}
+    #navodStranky1{margin-top:10%;}
+    .demo-button{
+        width:100%;
+        padding:8px 5px;
+        margin-bottom: 5px;
     }
+    #nDate, #counter{font-size:0.7em;}
+    #checklist{
+        margin:10% auto;
+    }
+
+    #divider {
+        width: 90%;
+        page-break-after: always;
+    }
+    .fotografia{width:40%;}
+    #inlineId{width:100%;}
+
+    #checklist{
+        width: 100%;
+    }
+
+    tr, td, th{
+        color:black;
+        border-color:black;
+    }
+}
+
+@media  (min-width: 480px) and (orientation: landscape) {
+    #navodStranky1, #navodStranky2 {
+        page-break-after: always;
+    }
+
 }
