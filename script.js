@@ -462,32 +462,32 @@ function loadXMLDoc(dname)
 
 function searchXMLdate()
 {
-    //cast na kontrolu datumu ak je zly vyskoci tooltip 
-    var text = document.getElementById("datumMeniny");
-    console.log(text.value.match);
-    var dateformat = /^([0-31]{1,2}.[0-12]{1,2}.)$/; 
-    // Porovnajte formát dátumu pomocou regulárneho výrazu
-    if(text.value.match(dateformat))
-    {var tooltip = document.getElementById("tooltipID");
-     tooltip.style.display = "none";
-    }else{
-        var tooltip = document.getElementById("tooltipID");
-        tooltip.style.display = "block";
-    }
-        
-    //TODO regex
-    // kontrola, ci je datum v rozsahu
-    // nejaky "if", ze ak bol zadany datum nespravny, tak sa zobrazi tooltip, teraz nie ke tooltip vidno
 
     var xmlDoc = loadXMLDoc("Mena.xml");
     var x = xmlDoc.getElementsByTagName("den");
-    var input = document.getElementById("datumMeniny").value;
+    var text = document.getElementById("datumMeniny");
+    var input = text.value;
     var den,mesiac,upravenyInput,date;
     var vysledok = document.getElementById("meninyVysledok");
     var size = input.length;
     var divTextLines = [];
 
     vysledok.innerHTML = "";
+
+    //cast na kontrolu datumu ak je zly vyskoci tooltip 
+
+    var tooltip = document.getElementById("tooltipID");
+   // console.log(text.value.match);
+    var dateformat = /^(\d{1,2}[.]\d{1,2}[.])$/;
+    // Porovnajte formát dátumu pomocou regulárneho výrazu
+    if(text.value.match(dateformat)) {
+        tooltip.style.display = "none";
+    }else{
+        tooltip.style.display = "block";
+        return;
+    }
+
+    // kontrola, ci je datum v rozsahu
 
     if (input == null || input == "")
     {
