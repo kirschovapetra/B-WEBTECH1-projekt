@@ -1765,6 +1765,7 @@ function restartCrossroad(){
 }
 
 /*******************************************POCITADLO NAVSTEVNOSTI [Matus]*********************************************/
+// zdroj: https://code-maven.com/on-load-counter-with-javascript-and-local-storage
 function counterJS(){
   var n = localStorage.getItem('on_load_counter');
  
