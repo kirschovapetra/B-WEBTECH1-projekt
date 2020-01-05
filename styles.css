@@ -619,11 +619,12 @@ a.active {
     padding:10px;
     width:60%;
     background-color: lightgray;
-    font-size:1vw;
+    font-size:12px;
     color:black;
     display:none;
     z-index:2;
     border-radius:20px;
+    font-family: italic;
 }
 .tooltip:after {
     content: '';
@@ -760,4 +761,12 @@ address{
     }
     body{font-size:0.7em;}
 
+}
+
+/*************************************************** TLAC [Simona] ****************************************************/
+
+@media print and (min-width: 480px) {
+    html, body {
+        height: auto;
+    }
 }
