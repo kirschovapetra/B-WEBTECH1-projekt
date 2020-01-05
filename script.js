@@ -548,6 +548,42 @@ function searchXMLdate()
         upravenyInput = upravenyInput.replace(".", "");
     }
 
+    // Overenie datumu [Simona]
+    var day, month;
+    day = parseInt(den);
+    month = parseInt(mesiac);
+    if (isNaN(month)) {
+        month = parseInt(mesiac.replace("."));
+    }
+    switch (month) {
+        // januar, marec, maj, jul, august, oktober, december -> max 31
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            if (day < 1 || day > 31) {
+                tooltip.style.display = "block";
+                return;
+            }
+            break;
+        // februar -> max 29
+        case 2:
+            if (day < 1 || day > 29) {
+                tooltip.style.display = "block";
+                return;
+            }
+            break;
+        // april, jun, september, november -> max 30
+        case 4: case 6: case 9: case 11:
+            if (day < 1 || day > 30) {
+                tooltip.style.display = "block";
+                return;
+            }
+            break;
+        // neexisujuci mesiac
+        default:
+            tooltip.style.display = "block";
+            return;
+    }
+
+
     for (var i = 0; i < x.length; i++) {
 
         date = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
