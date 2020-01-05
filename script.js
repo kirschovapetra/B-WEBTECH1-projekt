@@ -462,6 +462,19 @@ function loadXMLDoc(dname)
 
 function searchXMLdate()
 {
+    //cast na kontrolu datumu ak je zly vyskoci tooltip 
+    var text = document.getElementById("datumMeniny");
+    console.log(text.value.match);
+    var dateformat = /^([0-31]{1,2}.[0-12]{1,2}.)$/; 
+    // Porovnajte formát dátumu pomocou regulárneho výrazu
+    if(text.value.match(dateformat))
+    {var tooltip = document.getElementById("tooltipID");
+     tooltip.style.display = "none";
+    }else{
+        var tooltip = document.getElementById("tooltipID");
+        tooltip.style.display = "block";
+    }
+        
     //TODO regex
     // kontrola, ci je datum v rozsahu
     // nejaky "if", ze ak bol zadany datum nespravny, tak sa zobrazi tooltip, teraz nie ke tooltip vidno

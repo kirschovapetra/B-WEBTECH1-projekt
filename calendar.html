@@ -50,14 +50,15 @@
         <div class = "calendar-div">
 
             <div class = "col1">
-
-                <div class="tooltip">
+                
+                <div class="tooltip" id="tooltipID">
                     <p>Dátum zadávajte v tvare: DD.MM., D.M., D.MM.,DD.M.,DD.MM.RRRR, D.M.RRRR, D.MM.RRRR,DD.M.RRRR</p>
                 </div>
 
                 <p id = "col1Text"> Zisti kto má meniny</p>
-                <input id="datumMeniny" class = "calendarInput" type="text" name="nameDay" placeholder="Napr.: 24.12." required>
-                <button type="button" class = "posli" onclick="searchXMLdate()">Stlac</button>
+                <input  id="datumMeniny" class = "calendarInput" type="text" name="nameDay"   placeholder="Napr.: 24.12." required>
+                
+                <button type="button" class = "posli" onclick="searchXMLdate()" >Nájdi</button>
                 <p id="meninyVysledok"></p>
 
 
