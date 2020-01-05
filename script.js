@@ -55,7 +55,7 @@ var activeCrossroadIndex = 0;
 var animations = [];
 var isClickable = true;
 
-/************************************ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU************************************/
+/**************************ODSTRANENIE ZMIEN, VRATENIE DO POVODNEHO STAVU [Petra, Simona, Matus]***********************/
 
 //vyprazdnenie poli "selected" a "carOrder", odstranenie oznacenia aut [Petra]
 function cleanSelected() {
@@ -66,7 +66,7 @@ function cleanSelected() {
     carOrder = [];
 }
 
-//nastavenie povodnych pozicii a rotacii aut
+//nastavenie povodnych pozicii a rotacii aut [Petra, Simona, Matus]
 function revertCarPositions(){
     /************************************[Petra]*****************************************/
     //blinkre
@@ -430,7 +430,7 @@ function moveRight(){
     heading.innerHTML = "Križovatka č."+(activeCrossroadIndex+1);
 }
 
-/*******************************************************KALENDAR*******************************************************/
+/******************************************KALENDAR [Petra, Simona, Matus]*********************************************/
 
 // vygenerovanie aktualneho datumu [Matus]
 function date(){
@@ -443,25 +443,8 @@ function date(){
   //TODO pridat k textu "meniny ma: ..."
 }
 
-
-function loadXMLDoc(dname)
-{
-    if (window.XMLHttpRequest)
-    {
-        xhttp=new XMLHttpRequest();
-    }
-    else
-    {
-        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xhttp.open("GET",dname,false);
-    xhttp.send();
-    return xhttp.responseXML;
-}
-
-
-function searchXMLdate()
-{
+// vyhladanie menin podla datumu [Matus, Simona, Petra]
+function searchXMLdate() {
 
     var xmlDoc = loadXMLDoc("Mena.xml");
     var x = xmlDoc.getElementsByTagName("den");
@@ -474,12 +457,11 @@ function searchXMLdate()
 
     vysledok.innerHTML = "";
 
-    //cast na kontrolu datumu ak je zly vyskoci tooltip 
+    /**************cast na kontrolu datumu ak je zly vyskoci tooltip [Matus]***************/
 
     var tooltip = document.getElementById("tooltipID");
-   // console.log(text.value.match);
     var dateformat = /^(\d{1,2}[.]\d{1,2}[.])$/;
-    // Porovnajte formát dátumu pomocou regulárneho výrazu
+    // Porovnanie formatu dátumu pomocou regulárneho výrazu
     if(text.value.match(dateformat)) {
         tooltip.style.display = "none";
     }else{
@@ -487,7 +469,7 @@ function searchXMLdate()
         return;
     }
 
-    // kontrola, ci je datum v rozsahu
+    /**********************kontrola, ci je datum v rozsahu [Matus]***********************/
 
     if (input == null || input == "")
     {
@@ -517,7 +499,6 @@ function searchXMLdate()
                 if(mesiac[0] == j){
                     upravenyInput = upravenyInput.replace(".", "");
                     upravenyInput = "0" + upravenyInput;
-                    //size++;
                     upravenyInput = upravenyInput.replace(".", "");
                     break;
                 }
@@ -533,7 +514,6 @@ function searchXMLdate()
                     upravenyInput = mesiac + den;
                     upravenyInput = upravenyInput.replace(".", "");
                     upravenyInput = upravenyInput.replace(".", "");
-                    //size++;
                     break;
                 }
 
@@ -548,7 +528,7 @@ function searchXMLdate()
         upravenyInput = upravenyInput.replace(".", "");
     }
 
-    // Overenie datumu [Simona]
+    /*********************************overenie datumu [Simona]***************************/
     var day, month;
     day = parseInt(den);
     month = parseInt(mesiac);
@@ -583,21 +563,19 @@ function searchXMLdate()
             return;
     }
 
-
+    /**************************vypis menin a sviatkov [Petra]***************************/
     for (var i = 0; i < x.length; i++) {
+       date = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
 
-        date = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
-       if (date == upravenyInput) {
-           var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes;
-            console.log(zaznam);
-            for (var k = 0; k < zaznam.length; k++) {
-                if (zaznam[k].nodeType == 1 && zaznam[k].nodeName != "den") {
+       if (date === upravenyInput) {
+           var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes; //cely zaznam
+            for (var k = 0; k < zaznam.length; k++) { //v cykle sa vypisuje kazda jeho polozka v tvare "nodeName: nodeValue"
+                if (zaznam[k].nodeType === 1 && zaznam[k].nodeName !== "den")
                     divTextLines.push(zaznam[k].nodeName + ": " + zaznam[k].firstChild.nodeValue + "<br />");
-                }
             }
         }
     }
-    if (divTextLines.length == 0)
+    if (divTextLines.length === 0)
         vysledok.innerHTML = "Neexistuje";
     else {
         for (var i = 0; i < divTextLines.length; i++) {
@@ -606,21 +584,19 @@ function searchXMLdate()
     }
 }
 
-
 //vyprazdnenie inputu pri obnoveni stranky [Simona]
 function vymazInput() {
     document.getElementById("mena").value = "";
 }
 
 //funkcie, ktore sa spustia pro nacitani "body" [Simona]
-function onloadfunction(){
+function onloadfunction() {
     vymazInput();
     date();
 }
 
 //nacitanie XML [Simona]
-function loadXMLDoc(dname)
-{
+function loadXMLDoc(dname) {
     var xhttp;
     if (window.XMLHttpRequest)
     {
@@ -650,8 +626,7 @@ function diaConvert(str) {
 }
 
 //vyhladavanie v XML [Simona]
-function searchXML()
-{
+function searchXML() {
     var vysledky = [];
     var xmlDoc,x,input,size,meno,datum,divText;
 
@@ -708,9 +683,9 @@ function searchXML()
 }
 
 /******************************************************ANIMACIE********************************************************/
-//zastavenie animacii [Petra]
+//zastavenie vsetkych animacii [Petra]
 function stopAllAnimations(){
-    for (var i=0; i < animations.length; i++){
+    for (var i = 0; i < animations.length; i++){
         animations[i].pause();
     }
 }
@@ -749,7 +724,9 @@ function animateTurnSignals(){
     });
 }
 
-//krizovatka 1: 1) ruzove, 2) cierne, 3) zlte [Petra]
+/*********************************krizovatky 1-5 [Petra]***************************/
+
+//krizovatka 1: 1) ruzove, 2) cierne, 3) zlte
 function animateCrossroad1() {
 
   //casova os: animacie sa vykonavaju postupne za sebou
@@ -816,7 +793,7 @@ function animateCrossroad1() {
       });
 }
 
-//krizovatka 2: 1) zelene, 2) cervene [Petra]
+//krizovatka 2: 1) zelene, 2) cervene
 function animateCrossroad2() {
 
    //casova os: animacie sa vykonavaju postupne za sebou
@@ -865,7 +842,7 @@ function animateCrossroad2() {
     });
 }
 
-//krizovatka 3: 1) modre, 2) sive, 3) zlte [Petra]
+//krizovatka 3: 1) modre, 2) sive, 3) zlte
 function animateCrossroad3() {
 
   //casova os: animacie sa vykonavaju postupne za sebou
@@ -933,7 +910,7 @@ function animateCrossroad3() {
 
 }
 
-//krizovatka 4: 1) ruzove, 2) cierne [Petra]
+//krizovatka 4: 1) ruzove, 2) cierne
 function animateCrossroad4() {
 
   var timeline4 = anime.timeline({
@@ -978,7 +955,7 @@ function animateCrossroad4() {
       });
 }
 
-//krizovatka 5: 1) cyklista a zelene naraz, potom 2) cervene [Petra]
+//krizovatka 5: 1) cyklista a zelene naraz, potom 2) cervene
 function animateCrossroad5() {
 
   //2 casove osi: cyklista a zelene auto idu naraz
@@ -1064,7 +1041,9 @@ function animateCrossroad5() {
 
 }
 
-//krizovatka 6 [Simona]
+/*********************************krizovatky 6-10 [Simona]***************************/
+
+//krizovatka 6
 function animateCrossroad6(){
 
     //casova os: animacie sa vykonavaju postupne za sebou
@@ -1137,7 +1116,7 @@ function animateCrossroad6(){
     });
 }
 
-//krizovatka 7 [Simona]
+//krizovatka 7
 function animateCrossroad7(){
 
     //casova os: animacie sa vykonavaju postupne za sebou
@@ -1233,7 +1212,7 @@ function animateCrossroad7(){
     });
 }
 
-//krizovatka 8 [Simona]
+//krizovatka 8
 function animateCrossroad8(){
     //casova os: animacie sa vykonavaju postupne za sebou
     var timeline8 = anime.timeline({
@@ -1292,7 +1271,7 @@ function animateCrossroad8(){
 
 }
 
-//krizovatka 9 [Simona]
+//krizovatka 9
 function animateCrossroad9(){
     var timeline9 = anime.timeline({
         easing: 'easeOutExpo',
@@ -1359,7 +1338,7 @@ function animateCrossroad9(){
     });
 }
 
-//krizovatka 10 [Simona]
+//krizovatka 10
 function animateCrossroad10(){
     var timeline10 = anime.timeline({
         easing: 'easeOutExpo',
@@ -1425,7 +1404,9 @@ function animateCrossroad10(){
     });
 }
 
-//krizovatka 11 [Matus]
+/*********************************krizovatky 11-15 [Matus]***************************/
+
+//krizovatka 11
 function animateCrossroad11(){
   var timeline11 = anime.timeline({
   easing: 'easeOutExpo',
@@ -1448,7 +1429,8 @@ function animateCrossroad11(){
     easing: 'easeInSine', duration:2000
     });
 }
-//krizovatka 12 [Matus]
+
+//krizovatka 12
 function animateCrossroad12(){
   var timeline12 = anime.timeline({easing:'easeOutExpo',duration: 750});
   animations.push(timeline12);
@@ -1486,7 +1468,7 @@ function animateCrossroad12(){
 
 }
 
-//krizovatka 13 [Matus]
+//krizovatka 13
 function animateCrossroad13(){
   // pre cierne zelene a modre
   var timeline13A = anime.timeline({
@@ -1525,7 +1507,7 @@ function animateCrossroad13(){
     });
 }
 
-//krizovatka 14 [Matus]
+//krizovatka 14
 function animateCrossroad14(){
   var timeline14 = anime.timeline({
   easing: 'easeOutExpo',
@@ -1565,7 +1547,7 @@ function animateCrossroad14(){
   });
 }
 
-//krizovatka 15 [Matus]
+//krizovatka 15
 function animateCrossroad15(){
   var timeline15 = anime.timeline({
     easing: 'easeOutExpo',
@@ -1673,7 +1655,10 @@ function printCarOrder(){
         parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo/znak na konci
 
         if (!isNaN(parseInt(parsedCarId[parsedCarId.length-1])))
-            parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo, ak sa v id nachadza
+            parsedCarId = parsedCarId.slice(0,parsedCarId.length-1); //odstrani sa cislo, ak sa v id este nejake nachadza
+
+        /*v krizovatke c. 14 je pripad s 2 elektrickami, pre ich rozlisenie sa vypisuju v tvare "tram" a "tram1",
+        preto z id "tram14a" neodstranujem dalsie cislo z konca, ale nechavam v tvare "tram1" */
 
         p.innerHTML += parsedCarId;
         (i !== carOrder.length-1) ? (p.innerHTML+=", "):p.innerHTML+=". "
@@ -1685,7 +1670,8 @@ function selectObject(object){
     if (!isClickable) //ked je spustena animacia, neda sa klikat na obrazok
         return;
 
-    if (selected[object.id]){ //ak je auto oznacene a klikne sa nan, zrusi sa oznacenie
+    //ak je auto oznacene a klikne sa nan, zrusi sa oznacenie a odstrani sa zo zoznamu vybranych aut
+    if (selected[object.id]){
         object.style.border="none";
         selected[object.id] = false;
 
@@ -1693,7 +1679,7 @@ function selectObject(object){
         if (index !== -1)
             carOrder.splice(index, 1);
     }
-    else{ //oznaci sa a oramuje na modro
+    else{ //oznaci sa a oramuje na modro, prida sa do zoznamu oznacenych aut
         object.style.border="2px solid blue";
         selected[object.id] = true;
         carOrder.push(object.id);
@@ -1703,14 +1689,14 @@ function selectObject(object){
     showAnswerButton();
 }
 
-//tlacidlo "Skontroluj odpoveď" a vypisane poeadie aut sa zobrazi iba ak bolo vybrate aspon 1 auto
+//tlacidlo "Skontroluj odpoveď" a vypisane poradie aut sa zobrazi iba ak bolo vybrane aspon 1 auto
 function showAnswerButton(){
     var answer = document.getElementById('answer-wrap');
     if (carOrder.length > 0){
-        answer.style.display = "flex";
+        answer.style.visibility = "visible";
     }
     else{
-        answer.style.display = "none";
+        answer.style.visibility = "hidden";
     }
 }
 
@@ -1738,7 +1724,7 @@ function checkAnswer(){
     var correctAnswer = correctCarOrder[activeCrossroadIndex];
     var p = document.getElementById("car-order-text");
 
-    //viacero moznych odpovedi
+    //viacero moznych odpovedi pre krizovatku
     if (typeof(correctAnswer[0]) == 'object'){
         for (var i = 0; i < correctAnswer.length; i++){
             //ak bola odpoved spravna, spusti sa animacia
@@ -1749,20 +1735,20 @@ function checkAnswer(){
                 return;
             }
         }
-        //ak bola odpoved nespravna, vyber sa anuluje
+        //ak bola odpoved nespravna, auta sa oznacia na cerveno
         p.style.color='red';
         p.innerHTML = "Nesprávna odpoveď! :(";
         setBorderColor('red');
         showAnswerButton();
     }
-    //iba jedina moznost
+    //iba jedina spravna moznost
     else {
         //ak bola odpoved spravna, spusti sa animacia
         if (compare(correctAnswer, carOrder)) {
             p.style.color='#78f542';
             p.innerHTML = "Správna odpoveď! :)";
             playCorrectAnswer();
-        } else { //ak bola odpoved nespravna, vyber sa anuluje
+        } else { //ak bola odpoved nespravna, auta sa oznacia na cerveno
             p.style.color='red';
             p.innerHTML = "Nesprávna odpoveď! :(";
             setBorderColor('red');
@@ -1771,7 +1757,7 @@ function checkAnswer(){
     }
 }
 
-//po kliknuti na tlacidlo "Znova" sa obnovi krizovatka
+//po kliknuti na tlacidlo "Znova" sa krizovatka resetuje
 function restartCrossroad(){
     isClickable = true;
     revert();
@@ -1791,7 +1777,6 @@ localStorage.setItem("on_load_counter", n);
  
 document.getElementById('counter').innerHTML = " Počet návštev: "+n;
 }
-
 
 /*****************************VYSVETLENIE SPRAVNEHO RIESENIA KRIZOVATKY (Matus)****************************************/
 function zobrazVysvetlenie(number){
