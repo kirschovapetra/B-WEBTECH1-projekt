@@ -21,6 +21,7 @@
         <nav id="main-menu">
             <div id="left-menu">
                 <a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
+                <p id="nDate" ></p>
             </div>
     
             <div id="right-menu">
@@ -45,13 +46,22 @@
         </nav>
     </header>
 
-    <section>
-        <p id="nDate" ></p>
+    <section id="calendar-section">
         <div class = "calendar-div">
 
             <div class = "col1">
-                    <p id = "col1Text"> Zisti kto má meniny</p>
-                    <input id="datumMeniny" class = "calendarInput" type="date" name="bday" required>
+                
+                <div class="tooltip" id="tooltipID">
+                    <p>Dátum zadávajte v tvare: DD.MM., D.M., D.MM., DD.M.</p>
+                </div>
+
+                <p id = "col1Text"> Zisti kto má meniny</p>
+                <input  id="datumMeniny" class = "calendarInput" type="text" name="nameDay"   placeholder="Napr.: 24.12." required>
+                
+                <button type="button" class = "posli" onclick="searchXMLdate()" >Nájdi</button>
+                <p id="meninyVysledok"></p>
+
+
             </div>
 
             <div class = "col2">
@@ -59,7 +69,7 @@
                     <p id = "col2Text"> Zisti kedy má meniny</p>
                     <input name="riadok"  class = "calendarInput" id="mena" type="text">
                     <div id = "divPosli">
-                        <button  id = "posli" type="button" onclick="searchXML()">Nájdi</button>
+                        <button  class = "posli" type="button" onclick="searchXML()">Nájdi</button>
                         <p id="vysledok"></p>
                     </div>
 
@@ -70,7 +80,7 @@
 
 
     <footer>
-        Copyright &copy; 2020 Petra Kirschová, Simona Lopatníková, Matúš Hudák<br>
+        Copyright &copy; 2020 Petra Kirschová, Simona Lopatniková, Matúš Hudák<br>
         Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
     </footer>
 
