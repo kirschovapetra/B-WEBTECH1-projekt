@@ -432,11 +432,11 @@ function moveRight(){
 
 /******************************************KALENDAR [Petra, Simona, Matus]*********************************************/
 
-// vygenerovanie aktualneho datumu [Matus]
+// vygenerovanie aktualneho datumu s menom [Matus]
 function date(){
     var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
-   // var d = new Date();
-    var d = new Date("2015-05-01");
+    var d = new Date();
+    
     var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
     var out = document.getElementById("nDate");
 
@@ -448,6 +448,7 @@ function date(){
     var dateString = month+day;
     var xmlDoc = loadXMLDoc("Mena.xml");
     var x = xmlDoc.getElementsByTagName("den");
+
     var sk="",skd="",skSviatky="";
 
     for (var i = 0; i < x.length; i++) {
@@ -468,12 +469,18 @@ function date(){
                         skd = ", meniny má " + zaznam[k].firstChild.nodeValue;
                     }
                     if (zaznam[k].nodeName == "SKsviatky") {
-                        skSviatky = ", " + zaznam[k].firstChild.nodeValue;
+                        skSviatky = "," + zaznam[k].firstChild.nodeValue;
                     }
                 }
             }
         }
     }
+    if (sk!="")
+        out.innerHTML += sk;
+    if (sk == "" && skd != "")
+        out.innerHTML += skd;
+    if (skSviatky != "")
+        out.innerHTML += skSviatky;
 
     if (skSviatky != "")
         out.innerHTML += skSviatky;
@@ -482,6 +489,7 @@ function date(){
     if (sk == "" && skd != "")
         out.innerHTML += skd;
 }
+
 
 
 // vyhladanie menin podla datumu [Matus, Simona, Petra]
