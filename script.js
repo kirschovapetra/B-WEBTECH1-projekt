@@ -448,7 +448,8 @@ function date(){
     var dateString = month+day;
     var xmlDoc = loadXMLDoc("Mena.xml");
     var x = xmlDoc.getElementsByTagName("den");
-    var sk="",skd="",skSviatky="",skdni="";
+
+    var sk="",skd="",skSviatky="";
 
     for (var i = 0; i < x.length; i++) {
         var currentDate = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
@@ -481,6 +482,12 @@ function date(){
     if (skSviatky != "")
         out.innerHTML += skSviatky;
 
+    if (skSviatky != "")
+        out.innerHTML += skSviatky;
+    if (sk!="")
+        out.innerHTML += sk;
+    if (sk == "" && skd != "")
+        out.innerHTML += skd;
 }
 
 
@@ -1825,7 +1832,6 @@ function counterJS(){
 }
 
 /*****************************VYSVETLENIE SPRAVNEHO RIESENIA KRIZOVATKY (Matus)****************************************/
-
 function zobrazVysvetlenie(number) {
     var text = document.getElementsByClassName("crossroadVysvetlenie");
     var tlacidlo = document.getElementsByClassName("vysvetlenie-button");
