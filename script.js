@@ -432,13 +432,19 @@ function moveRight(){
 
 /******************************************KALENDAR [Petra, Simona, Matus]*********************************************/
 
-// vygenerovanie aktualneho datumu [Matus]
+// vygenerovanie aktualneho datumu s menom [Matus]
 function date(){
+
     var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
-   // var d = new Date();
-    var d = new Date("2015-7-5");
+    var d = new Date(); 
     var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
     var out = document.getElementById("nDate");
+
+
+  var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
+  var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
+  var out = document.getElementById("nDate");
+
 
     out.innerHTML = "Dnes je " + actualDate;
 
@@ -474,12 +480,14 @@ function date(){
             }
         }
     }
+
     if (sk!="")
         out.innerHTML += sk;
     if (sk == "" && skd != "")
         out.innerHTML += skd;
     if (skSviatky != "")
         out.innerHTML += skSviatky;
+
 
 }
 
@@ -1824,6 +1832,7 @@ function counterJS(){
 }
 
 /*****************************VYSVETLENIE SPRAVNEHO RIESENIA KRIZOVATKY (Matus)****************************************/
+
 function zobrazVysvetlenie(number) {
     var text = document.getElementsByClassName("crossroadVysvetlenie");
     var tlacidlo = document.getElementsByClassName("vysvetlenie-button");
@@ -1836,3 +1845,4 @@ function zobrazVysvetlenie(number) {
         tlacidlo[number - 1].value = "Schovaj vysvetlenie";
     }
 }
+
