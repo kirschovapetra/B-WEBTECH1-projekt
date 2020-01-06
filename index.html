@@ -1,10 +1,12 @@
+<!--zakladna struktura (head, body, header, footer) [Petra]-->
 <!DOCTYPE html>
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
 	<title>Domovská stránka</title>
-	<!-- favicon Matus -->
+	<!-- favicon [Matus] -->
 	<link href="fotky/pierko.png" type="image/png" rel="icon">
+
 	<!--css-->
     <link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,10 +16,27 @@
 	
 	<!--fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	
+
+	<!--******************************ZDROJE******************************
+	Dopravne znacky v krizovatkach .eps: https://4vector.com/free-vector/road-traffic-signs-vector-5861
+	Auta .eps : https://www.freepik.com/free-vector/elegant-cars-collection_1362828.htm#page=1&query=car%20top&position=1
+	Elektricka .jpg (preview) : https://www.vectorstock.com/royalty-free-vector/top-view-tram-icon-outline-style-vector-22833311
+	Cyklista .jpg : https://art.ngfiles.com/images/35000/35778_slim-bean_top-down-cyclist.jpg?f1250091565
+	Chodci .eps : https://www.freepik.com/free-vector/colorful-people-doing-different-actions_3065155.htm#page=1&query=person&position=3
+	Galeria zo zadania 04: http://147.175.121.202/~xkirschova/str04_pkir/
+	Header menu: https://www.w3schools.com/w3css/tryw3css_templates_startup.htm
+	Svg sprite generator: https://svgsprite.com/tools/svg-sprite-generator/
+	Tooltip v tvare "bubliny": https://leaverou.github.io/bubbly/
+	Pocitadlo navstevnosti: https://code-maven.com/on-load-counter-with-javascript-and-local-storage
+	TODO zdroj "pierko.png"
+	***********************************************************************-->
+
+
 </head>
+
 <body onload="counterJS()">
 
+	<!--Menu [Petra]-->
 	<header>
 		<nav id="main-menu">
 			<div id="left-menu">
@@ -48,16 +67,16 @@
 	</header>
 
 	<section>
-		<!--nadpis - pridany kvoli warningu "Section lacks heading", na stranke nie je viditelny-->
+		<!--nadpis - pridany kvoli warningu "Section lacks heading", na stranke nie je viditelny [Petra]-->
 		<h2 class="heading-to-hide">heading</h2>
 
+		<!--navod [Simona]-->
 		<img class="navodStranky" id="navodStranky1" src="fotky/navod.png" alt="Návod stránky (križovatky)">
-		<img class="navodStranky" id="navodStranky2" src="fotky/navod2.png" alt="Návod stránky (kalendár pt1)">
-		<img class="navodStranky" src="fotky/navod3.png" alt="Návod stránky (kalendár pt2)">
+		<img class="navodStranky" id="navodStranky2" src="fotky/navod2.png" alt="Návod stránky (kalendár č.1)">
+		<img class="navodStranky" src="fotky/navod3.png" alt="Návod stránky (kalendár č.2)">
 	</section>
 
-
-
+	<!--[Petra]-->
 	<footer>
 		Copyright &copy; 2020 Petra Kirschová, Simona Lopatniková, Matúš Hudák<br>
 		Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave

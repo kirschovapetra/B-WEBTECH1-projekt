@@ -1,17 +1,14 @@
-<!--
-CHECKLIST
-Petra: vytvorenie html, menu, galeria, prvych 5 krizovatiek, svg sprites
-Simona: pridane krizovatky 06-10
-Matus: favicon
--->
+<!--zakladna struktura (head, body, header, footer) [Petra]-->
 
 <!DOCTYPE html>
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
 	<title>Križovatky</title>
-	<!-- favicon Matus -->
+
+	<!-- favicon [Matus] -->
 	<link href="fotky/pierko.png" type="image/png" rel="icon">
+
 	<!--css-->
     <link rel="stylesheet" type="text/css" href="styles.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,7 +21,7 @@ Matus: favicon
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
-	<!-- sprites vytvorene pomocou https://svgsprite.com/tools/svg-sprite-generator/ -->
+	<!-- sprites vytvorene pomocou https://svgsprite.com/tools/svg-sprite-generator/  [Petra]-->
 	<svg id="svg-defs">
 		<defs>
 			<g id="img-yellow-car">
@@ -110,7 +107,7 @@ Matus: favicon
 
 	<section>
 		<h1>Križovatky</h1>
-		<!--galeria vytvorena pomocou Zadania 04: Galeria-->
+		<!----------------------galeria vytvorena pomocou Zadania 04: Galeria [Petra]---------------------->
 
 		<!--galeria krizovatiek-->
 		<div id="crossroads-menu">
@@ -131,602 +128,660 @@ Matus: favicon
 			<img id="crossroad15-temp" src="krizovatky_temp/krizovatka15.JPG" alt="križovatka 15" width="450" height="450" onclick="openCrossroad(15)">
 		</div>
 
-		<!--zobrazenie svg vo velkom okne-->
+		<!--zobrazenie svg vo velkom okne (cele zobrazenie: biele okno v strede obrazovky + priehladne pozadie) [Petra]-->
 		<div id="fullsizeView">
-			<!--krizovatky-->
 
+			<!--biele okno [Petra]-->
 			<div id="fullsize-window">
-			<div id="fullsize-wrapper">
+				<!--casti okna [Petra]-->
+				<div id="fullsize-wrapper">
 
-				<!--ovladacie tlacidla-->
-				<div id="controls-wrap">
-					<div id="#fullsizeView-controls">
-						<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveLeft()"><i class="fa fa-arrow-left"></i></a>
-						<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveRight()"><i class="fa fa-arrow-right"></i></a>
-					</div>
-					<div id="fullsizeView-exit">
-						<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="closeCrossroad()"> X</a>
-					</div>
-				</div>
-
-				<div>
-					<h2 id="crossroad-heading">.</h2>
-					<p>V akom poradí prejdú autá križovatkou?</p>
-				</div>
-				<div id="answer-wrap">
-					<div id="car-order">
-						<p id="car-order-text">Poradie: </p>
-					</div>
-					<div id="answer-button-wrap">
-						<input class="answer-button" type="submit" name="submit" value="Skontroluj odpoveď" onclick="checkAnswer()">
-					</div>
-				</div>
-
-				<!-- Petra krizovatky 6 az 10 -->
-				<div id="crossroad1-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button"  type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(1)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie"  >
-								<ul class="textVysvetlenia"> 
-									<li> Máme križovatku vyznačenú dopravnými značkami. </li>	
-									<li> Ako prvé auto prejde cez križovatku ružové auto, ktoré prichádza na križovatku po hlavnej ceste a zostáva na  hlavnej ceste. Ako druhé auto pôjde čierne, ktoré dáva prednosť ružovému a odbočuje na vedľajšiu cestu. A posledné prejde cez cestu žlté auto, lebo prichádza  z vedľajšej cesty. </li>
-									<li> Žlté auto dávalo prednosť autám prichádzajúcim z hlavnej cesty. </li>
-								</ul>
-							</div>
+					<!--ovladacie tlacidla [Petra]-->
+					<div id="controls-wrap">
+						<div id="#fullsizeView-controls">
+							<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveLeft()"><i class="fa fa-arrow-left"></i></a>
+							<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="moveRight()"><i class="fa fa-arrow-right"></i></a>
+						</div>
+						<div id="fullsizeView-exit">
+							<a href="javascript:void(0);" class="nav-button nav-button-white" onclick="closeCrossroad()"> X</a>
 						</div>
 					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg" type="image/svg+xml" data="krizovatky/krizovatka01.svg" width="200" height="200"></object>
-						<svg id="black-car1" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-black-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="yellow-car1" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-yellow-car"></use>
-						</svg>
-						<svg id="pink-car1" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-pink-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
+
+					<!--nadpis, popis [Petra]-->
+					<div>
+						<h2 id="crossroad-heading">.</h2>
+						<p>V akom poradí prejdú autá križovatkou?</p>
 					</div>
-				</div>
-				<div id="crossroad2-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button"  type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(2)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia"> 
-								<li> Na križovatke máme kruhový objazd, ktorý je vyznačený dopravnými značkami. </li>
-								<li> Vodič červeného auta musí dodržať tieto dve značky. </li>
-								<li> Značka „STOP“ mu vraví , že musí zastaviť automobil pred kruhovým objazdom tak aby mal rozhľad a dal prednosť vozidlu prichádzajúceho z hlavnej cesty.</li>	 
-								<li> Značka „Kruhový objazd“ mu vraví, že musí dodržať smer určeného šípkami.</li>
-								<li> Zelené  vozidlo vchádza do kruhového objazdu, lebo nemá žiadne obmedzenia a po jeho ľavej strane neprichádza žiadne vozidlo.</li>
-								</ul>
-							</div>
+
+					<!--vypisanie vzbraneho poradia aut, tlacidlo "Skontroluj odpoveď" [Petra]-->
+					<div id="answer-wrap">
+						<div id="car-order">
+							<p id="car-order-text">Poradie: </p>
+						</div>
+						<div id="answer-button-wrap">
+							<input class="answer-button" type="submit" name="submit" value="Skontroluj odpoveď" onclick="checkAnswer()">
 						</div>
 					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka02.svg" width="200" height="200"></object>
-						<svg id="red-car2" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-red-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="green-car2" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-green-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						
-					</div>
-					
-				</div>
-				
-				<div id="crossroad3-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(3)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-								<li> Máme križovatku vyznačenú dopravnými značkami. 	</li>
-								<li> Ako prvé auto prejde vozidlo modrej farby,ktoré prichádza z hlavnej cesty.</li>
-								<li> Za ním nasleduje auto sivej farby,ktoré má prikazaný smer do ľavej a do pravej strany. </li>
-								<li> Ako posledné vozidlo prejde  auto  žltej farby.</li>
-								</ul>
+
+					<!-- krizovatky 1 az 5 [Petra, Matus] -->
+					<!--krizovatka 1-->
+					<div id="crossroad1-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Petra]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Petra]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button"  type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(1)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami. </li>
+										<li> Ako prvé auto prejde cez križovatku ružové auto, ktoré prichádza na križovatku po hlavnej ceste a zostáva na  hlavnej ceste. Ako druhé auto pôjde čierne, ktoré dáva prednosť ružovému a odbočuje na vedľajšiu cestu. A posledné prejde cez cestu žlté auto, lebo prichádza  z vedľajšej cesty. </li>
+										<li> Žlté auto dávalo prednosť autám prichádzajúcim z hlavnej cesty. </li>
+									</ul>
+								</div>
 							</div>
 						</div>
+						<!--objekty v krizovatke (svg krizovatka, cyklisti, elektricky, auta, blinkre) [Petra]-->
+						<div class="crossroad-objects">
+							<object class="crossroad-svg" type="image/svg+xml" data="krizovatky/krizovatka01.svg" width="200" height="200"></object>
+							<svg id="black-car1" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="yellow-car1" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+							</svg>
+							<svg id="pink-car1" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-pink-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+						</div>
 					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka03.svg" width="200" height="200"></object>
-						<svg id="blue-car3" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+					<!--krizovatka 2-->
+					<div id="crossroad2-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Petra]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Petra]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button"  type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(2)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+									<li> Na križovatke máme kruhový objazd, ktorý je vyznačený dopravnými značkami. </li>
+									<li> Vodič červeného auta musí dodržať tieto dve značky. </li>
+									<li> Značka „STOP“ mu vraví , že musí zastaviť automobil pred kruhovým objazdom tak aby mal rozhľad a dal prednosť vozidlu prichádzajúceho z hlavnej cesty.</li>
+									<li> Značka „Kruhový objazd“ mu vraví, že musí dodržať smer určeného šípkami.</li>
+									<li> Zelené  vozidlo vchádza do kruhového objazdu, lebo nemá žiadne obmedzenia a po jeho ľavej strane neprichádza žiadne vozidlo.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--objekty v krizovatke (svg krizovatka, cyklisti, elektricky, auta, blinkre) [Petra]-->
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka02.svg" width="200" height="200"></object>
+							<svg id="red-car2" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-red-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="green-car2" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-green-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+
+						</div>
+
+					</div>
+					<!--krizovatka 3-->
+					<div id="crossroad3-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Petra]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Petra]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(3)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+									<li> Máme križovatku vyznačenú dopravnými značkami. 	</li>
+									<li> Ako prvé auto prejde vozidlo modrej farby,ktoré prichádza z hlavnej cesty.</li>
+									<li> Za ním nasleduje auto sivej farby,ktoré má prikazaný smer do ľavej a do pravej strany. </li>
+									<li> Ako posledné vozidlo prejde  auto  žltej farby.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--objekty v krizovatke (svg krizovatka, cyklisti, elektricky, auta, blinkre) [Petra]-->
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka03.svg" width="200" height="200"></object>
+							<svg id="blue-car3" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-blue-car"></use>
+							</svg>
+							<svg id="yellow-car3" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="grey-car3" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-grey-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+						</div>
+					</div>
+					<!--krizovatka 4-->
+					<div id="crossroad4-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Petra]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Petra]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(4)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+									<li> Máme križovatku vyznačenú semaformi. 	</li>
+									<li> Ako prvé prejde vodič ružového auta lebo jeho semafor svieti zelenou farbou.</li>
+									<li> Ďalšie môže pokračovat čierne vozidlo,lebo semafor so šípkou svieti na zeleno, ale pod podmienkou, že na prechode sa nebudú nachádzať chodci, ktorým svieti tiež zelená. </li>
+									<li> A vodič oranžového auta bude stáť lebo mu svieti červená.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--objekty v krizovatke (svg krizovatka, cyklisti, elektricky, auta, blinkre) [Petra]-->
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka04.svg" width="200" height="200"></object>
+							<svg id="orange-car4" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-orange-car"></use>
+							</svg>
+							<svg id="pink-car4" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-pink-car"></use>
+							</svg>
+							<svg id="black-car4" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+						</div>
+					</div>
+					<!--krizovatka 5-->
+					<div id="crossroad5-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Petra]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Petra]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(5)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+									<li> Máme križovatku bez dopravných značiek a semafora.	</li>
+									<li> Na tejto križovatke sa riadime podľa pravidla pravej ruky a prednosť majú chodci a cyklisti.</li>
+									<li> Ako prvý môže ísť cyklista odbočujúci do pravej strany  a súčasne  s ním môže ísť vodič zeleného auta. </li>
+									<li> A ako posledný pôjde vodič červeného auta, ktorý musí dať prednosť cyklistovi.</li>
+									<li> Novela zákona vraví, že  cyklista odbočujúci vľavo alebo vpravo bude mať prednosť pred motorovým vozidlom, ktoré takisto odbočuje doľava alebo vpravo Taktiež novela zákona jednoznačne určuje, že vodič odbočujúci vpravo bude musieť dať prednosť cyklistovi, ktorý pôjde rovno. </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--objekty v krizovatke (svg krizovatka, cyklisti, elektricky, auta, blinkre) [Petra]-->
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka05.svg" width="200" height="200"></object>
+							<svg id="red-car5" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-red-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="green-car5" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-green-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="cyclist5" class="cyclist" onclick="selectObject(this)" width="25" height="50" viewBox="0 0 2500 5000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-cyclist"></use>
+							</svg>
+						</div>
+					</div>
+
+					<!-- krizovatky 6 az 10 [Simona, Matus]-->
+					<!--krizovatka 6-->
+					<div id="crossroad6-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Simona]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Simona]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(6)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+									<li> Máme križovatku vyznačenú dopravnými značkami.</li>
+									<li> Na našej križovatke budú mať prednosť súčasne 2 autá, ktoré sa nachádzajú na hlavnej ceste.</li>
+									<li> Červene auto odbočujúce do pravej strany a zelené auto, ktoré má prednosť pred ružovým autom. </li>
+									<li> Ako posledné pôjde ružové auto, ktoré prichádza na kruhový objazd z vedľajšej cesty a dá presnosť ostatným autám. </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka06.svg" width="200" height="200"></object>
+							<svg id="red-car6" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-red-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="green-car6" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-green-car"></use>
+							</svg>
+							<svg id="pink-car6" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-pink-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+
+						</div>
+					</div>
+					<!--krizovatka 7-->
+					<div id="crossroad7-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Simona]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Simona]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(7)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
+										<li> V poradí prvá prejde cez križovatku električka idúca po hlavnej ceste. </li>
+										<li> Súčasne s ňou môže ísť zelené auto odbočujúce do pravej strany idúce taktiež po hlavnej ceste. </li>
+										<li> Ako tretie prejde čierne auto, ktoré muselo dať prednosť vozidlám idúcich po hlavnej ceste.   </li>
+										<li> Posledné prejde žlté auto, ktoré dávalo prednosť vozidlám idúcich po hlavnej ceste a pri odbočovaní čiernemu autu, ktoré ma prednosť.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka07.svg" width="200" height="200"></object>
+							<svg id="yellow-car7" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="black-car7" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="green-car7" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-green-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="tram7" class="tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-tram"></use>
+							</svg>
+						</div>
+					</div>
+					<!--krizovatka 8-->
+					<div id="crossroad8-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Simona]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<div class="buttons-wrap">
+								<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Simona]-->
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(8)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú semaformi. </li>
+										<li> Ako prvé autá pôjdu súčasne čierne a žlté vozidlo, lebo obidvom ukazuje semafor zelené svetlo na križovatke.</li>
+										<li> A ružové auto čaká posledné, lebo jemu semafor svieti červenou farbou.  </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka08.svg" width="200" height="200"></object>
+							<svg id="yellow-car8" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="black-car8" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="pink-car8" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-pink-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+
+						</div>
+					</div>
+					<!--krizovatka 9-->
+					<div id="crossroad9-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Simona]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Simona]-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(9)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami. </li>
+										<li> V tejto križovatke môžeme vidieť značku „STOP“, ktorá nám vraví, že musí zastaviť automobil pred kruhovým objazdom tak aby mal rozhľad a dal prednosť vozidlu prichádzajúceho z hlavnej cesty. </li>
+										<li> Ako prvé v poradí pôjdu autá prichádzajúce z hlavnej cesty teda oranžové a modré vozidlo.</li>
+										<li> A posledné pôjde čierne auto, ktoré počká pokiaľ sa uvoľní križovatka. </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka09.svg" width="200" height="200"></object>
+						<svg id="blue-car9" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-blue-car"></use>
-						</svg>
-						<svg id="yellow-car3" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-yellow-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="grey-car3" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-grey-car"></use>
 							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
 						</svg>
-					</div>
-				</div>
-
-				<div id="crossroad4-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(4)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-								<li> Máme križovatku vyznačenú semaformi. 	</li>
-								<li> Ako prvé prejde vodič ružového auta lebo jeho semafor svieti zelenou farbou.</li>
-								<li> Ďalšie môže pokračovat čierne vozidlo,lebo semafor so šípkou svieti na zeleno, ale pod podmienkou, že na prechode sa nebudú nachádzať chodci, ktorým svieti tiež zelená. </li>
-								<li> A vodič oranžového auta bude stáť lebo mu svieti červená.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka04.svg" width="200" height="200"></object>
-						<svg id="orange-car4" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="orange-car9" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-orange-car"></use>
 						</svg>
-						<svg id="pink-car4" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-pink-car"></use>
-						</svg>
-						<svg id="black-car4" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-black-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-					</div>
-				</div>
-
-				<div id="crossroad5-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(5)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-								<li> Máme križovatku bez dopravných značiek a semafora.	</li>
-								<li> Na tejto križovatke sa riadime podľa pravidla pravej ruky a prednosť majú chodci a cyklisti.</li>
-								<li> Ako prvý môže ísť cyklista odbočujúci do pravej strany  a súčasne  s ním môže ísť vodič zeleného auta. </li>
-								<li> A ako posledný pôjde vodič červeného auta, ktorý musí dať prednosť cyklistovi.</li>
-								<li> Novela zákona vraví, že  cyklista odbočujúci vľavo alebo vpravo bude mať prednosť pred motorovým vozidlom, ktoré takisto odbočuje doľava alebo vpravo Taktiež novela zákona jednoznačne určuje, že vodič odbočujúci vpravo bude musieť dať prednosť cyklistovi, ktorý pôjde rovno. </li>
-								</ul>								
-							</div>
-						</div>
-					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka05.svg" width="200" height="200"></object>
-						<svg id="red-car5" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-red-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="green-car5" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-green-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="cyclist5" class="cyclist" onclick="selectObject(this)" width="25" height="50" viewBox="0 0 2500 5000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-cyclist"></use>
-						</svg>
-					</div>
-				</div>
-				<!-- Simona krizovatky 6 az 10 -->
-				<div id="crossroad6-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(6)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-								<li> Máme križovatku vyznačenú dopravnými značkami.</li>
-								<li> Na našej križovatke budú mať prednosť súčasne 2 autá, ktoré sa nachádzajú na hlavnej ceste.</li>
-								<li> Červene auto odbočujúce do pravej strany a zelené auto, ktoré má prednosť pred ružovým autom. </li>
-								<li> Ako posledné pôjde ružové auto, ktoré prichádza na kruhový objazd z vedľajšej cesty a dá presnosť ostatným autám. </li>
-								</ul>							
-							</div>
-						</div>
-					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka06.svg" width="200" height="200"></object>
-						<svg id="red-car6" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-red-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="green-car6" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-green-car"></use>
-						</svg>
-						<svg id="pink-car6" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-pink-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-
-					</div>
-				</div>
-				<div id="crossroad7-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(7)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
-									<li> V poradí prvá prejde cez križovatku električka idúca po hlavnej ceste. </li>
-									<li> Súčasne s ňou môže ísť zelené auto odbočujúce do pravej strany idúce taktiež po hlavnej ceste. </li>
-									<li> Ako tretie prejde čierne auto, ktoré muselo dať prednosť vozidlám idúcich po hlavnej ceste.   </li>
-									<li> Posledné prejde žlté auto, ktoré dávalo prednosť vozidlám idúcich po hlavnej ceste a pri odbočovaní čiernemu autu, ktoré ma prednosť.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka07.svg" width="200" height="200"></object>
-						<svg id="yellow-car7" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-yellow-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="black-car7" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-black-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="green-car7" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-green-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="tram7" class="tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-tram"></use>
-						</svg>
-					</div>
-				</div>
-				<div id="crossroad8-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(8)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú semaformi. </li>
-									<li> Ako prvé autá pôjdu súčasne čierne a žlté vozidlo, lebo obidvom ukazuje semafor zelené svetlo na križovatke.</li>
-									<li> A ružové auto čaká posledné, lebo jemu semafor svieti červenou farbou.  </li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka08.svg" width="200" height="200"></object>
-						<svg id="yellow-car8" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-yellow-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="black-car8" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+						<svg id="black-car9" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
 							<use xlink:href="#img-black-car"></use>
 							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 						</svg>
-						<svg id="pink-car8" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-pink-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
 
 					</div>
 				</div>
-
-				<div id="crossroad9-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(9)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami. </li>
-									<li> V tejto križovatke môžeme vidieť značku „STOP“, ktorá nám vraví, že musí zastaviť automobil pred kruhovým objazdom tak aby mal rozhľad a dal prednosť vozidlu prichádzajúceho z hlavnej cesty. </li>
-									<li> Ako prvé v poradí pôjdu autá prichádzajúce z hlavnej cesty teda oranžové a modré vozidlo.</li>
-									<li> A posledné pôjde čierne auto, ktoré počká pokiaľ sa uvoľní križovatka. </li>
-								</ul>
+					<!--krizovatka 10-->
+					<div id="crossroad10-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky [Simona]-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<div class="buttons-wrap">
+								<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova" [Simona]-->
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(10)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke [Matus]-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami. </li>
+										<li> Ako prvé budú prechádzať vozidlá prichádzajúce z hlavnej cesty teda ružové auto a zelené auto, ktoré nemenia smer jazdy a môžu prejsť súčasne. </li>
+										<li> A ako ďalšie na rade budú prechádať vozidlá prichádzajúce z vedľajšej cesty, žlté a čierne auto. </li>
+										<li> Obidva vozidla môžu prejsť súčasne, lebo vozidlo žltej farby odbočuje do pravej strany a vozidlo čiernej farby ide rovno (nemení smer) a spolu sa nekrižujú.</li>
+									</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="crossroad-objects">
-					<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka09.svg" width="200" height="200"></object>
-					<svg id="blue-car9" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-						<use xlink:href="#img-blue-car"></use>
-						<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-					</svg>
-					<svg id="orange-car9" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-						<use xlink:href="#img-orange-car"></use>
-					</svg>
-					<svg id="black-car9" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-						<use xlink:href="#img-black-car"></use>
-						<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-					</svg>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka10.svg" width="200" height="200"></object>
+							<svg id="yellow-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="black-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+							</svg>
+							<svg id="green-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-green-car"></use>
+							</svg>
+							<svg id="pink-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-pink-car"></use>
+							</svg>
 
-				</div>
-			</div>
-
-				<div id="crossroad10-fullsize" class="crossroad">
-					<div class="border-left"></div>
-					<div class="border-right"></div>
-					<div class="border-bottom">
-						<div class="buttons-wrap">
-							<div class="buttons">
-								<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(10)">
-								<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami. </li>
-									<li> Ako prvé budú prechádzať vozidlá prichádzajúce z hlavnej cesty teda ružové auto a zelené auto, ktoré nemenia smer jazdy a môžu prejsť súčasne. </li>
-									<li> A ako ďalšie na rade budú prechádať vozidlá prichádzajúce z vedľajšej cesty, žlté a čierne auto. </li>
-									<li> Obidva vozidla môžu prejsť súčasne, lebo vozidlo žltej farby odbočuje do pravej strany a vozidlo čiernej farby ide rovno (nemení smer) a spolu sa nekrižujú.</li>
-								</ul>
-							</div>
 						</div>
 					</div>
-					<div class="crossroad-objects">
-						<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka10.svg" width="200" height="200"></object>
-						<svg id="yellow-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-yellow-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						<svg id="black-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-black-car"></use>
-						</svg>
-						<svg id="green-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-green-car"></use>
-						</svg>
-						<svg id="pink-car10" class="car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-pink-car"></use>
-						</svg>
 
+					<!--krizovatky 11 az 15 [Matus]-->
+					<!-- krizovatka 11  -->
+					<div id="crossroad11-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova"-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(11)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku bez dopravných značiek a semafora. </li>
+										<li> Pri tejto križovatke  sa bude určovať, ktoré vozidlo pôjde ako prvé podľa pravidla pravej ruky.  </li>
+										<li> Vozidlo modrej farby môže ísť ako prvé lebo po svojej pravej strane (ruke) nemá žiadne vozidlo. </li>
+										<li> A ako posledné vozidlo pôjde čierne auto. </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka11.svg" width="200" height="200"></object>
+							<svg id="black-car11" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="blue-car11" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-blue-car"></use>
+							</svg>
+						</div>
 					</div>
+					<!-- krizovatka 12  -->
+					<div id="crossroad12-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova"-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(12)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
+										<li> Vozidlo červenej farby, ktoré prichádza po hlavnej ceste bude pokračovať ako prvé lebo cez križovatku bude pôjde cez hlavnú cestu. </li>
+										<li> Ako druhé vozidlo prejde modré auto, ktoré muselo dať prednosť červenému autu prichádzajúcemu sprava.</li>
+										<li> Ako tretie auto pôjde čierne auto, ktoré muselo dať prednosť vozidlám idúcim po hlavnej ceste. </li>
+										<li> Posledné pôjde cez križovatku žlté auto, ktoré dávalo prednosť ostatným autám.  </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka12.svg" width="200" height="200"></object>
+							<svg id="black-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="yellow-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="red-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-red-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="blue-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-blue-car"></use>
+							</svg>
+						</div>
+					</div>
+					<!-- krizovatka 13  -->
+					<div id="crossroad13-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova"-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(13)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
+										<li> Ako prvé prejde cez križovatku  čierne auto spolu súčasne so zeleným autom, ktoré prichádzajú po hlavnej ceste a v nej aj pokračujú. </li>
+										<li> Posledné prejde cez križovatku modré auto, ktoré dávalo prednosť obom idúcim autám po hlavnej ceste.  </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka13.svg" width="200" height="200"></object>
+							<svg id="black-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-black-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="blue-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-blue-car"></use>
+							</svg>
+							<svg id="green-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-green-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+
+						</div>
+					</div>
+					<!-- krizovatka 14  -->
+					<div id="crossroad14-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova"-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(14)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
+										<li> Obidve vozidla musia dať prednosť v jazde električkám. Ako prvé prejdú cez križovatku električky.  </li>
+										<li> Ako druhé prejde žlté auto, ktoré má prednosť, lebo nemení smer jazdy. Posledné prejde cez križovatku modré auto, ktoré dávalo prednosť ostatným vozidlám. </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka14.svg" width="200" height="200"></object>
+							<svg id="blue-car14" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-blue-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+							<svg id="yellow-car14" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-yellow-car"></use>
+							</svg>
+							<svg id="tram14" class="crossroad-object tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-tram"></use>
+							</svg>
+							<svg id="tram14a" class="crossroad-object tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-tram"></use>
+							</svg>
+
+						</div>
+					</div>
+					<!-- krizovatka 15  -->
+					<div id="crossroad15-fullsize" class="crossroad">
+						<!--ohranicenia krizovatky-->
+						<div class="border-left"></div>
+						<div class="border-right"></div>
+						<div class="border-bottom">
+							<!--tlacidla na spodnom paneli: "Spusti demo","Zobraz vysvetlenie", "Znova"-->
+							<div class="buttons-wrap">
+								<div class="buttons">
+									<input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
+									<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(15)">
+									<input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
+								</div>
+								<!--vysvetlenie ku krizovatke-->
+								<div class="crossroadVysvetlenie">
+									<ul class="textVysvetlenia">
+										<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
+										<li> Ako prvé prejde cez križovatku červené auto, pretože pokračuje v jazde po hlavnej ceste.  </li>
+										<li> Ako druhé vozidlo prejde oranžové auto, lebo modré auto má na svojej strane značku STOP takže posledné prejde cez križovatku modré auto.</li>
+										<li> Značka „STOP“ mu vraví , že musí zastaviť automobil pred križovatkou tak aby mal rozhľad a dal prednosť vozidlu prichádzajúceho z hlavnej cesty a v tomto prípade vedľajšej cesty. </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="crossroad-objects">
+							<object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka15.svg" width="200" height="200"></object>
+							<svg id="blue-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-blue-car"></use>
+								<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
+							</svg>
+							<svg id="orange-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-orange-car"></use>
+							</svg>
+							<svg id="red-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
+								<use xlink:href="#img-red-car"></use>
+								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
+							</svg>
+
+
+						</div>
+					</div>
+
 				</div>
 
-				<!--krizovatky 11-15  Matus-->
-                <!-- krizovatka 11  -->
-                <div id="crossroad11-fullsize" class="crossroad">
-                    <div class="border-left"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom">
-                        <div class="buttons-wrap">
-                            <div class="buttons">
-                                <input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(11)">
-                                <input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku bez dopravných značiek a semafora. </li>
-									<li> Pri tejto križovatke  sa bude určovať, ktoré vozidlo pôjde ako prvé podľa pravidla pravej ruky.  </li>
-									<li> Vozidlo modrej farby môže ísť ako prvé lebo po svojej pravej strane (ruke) nemá žiadne vozidlo. </li>
-									<li> A ako posledné vozidlo pôjde čierne auto. </li>
-								</ul>
-							</div>
-                        </div>
-                    </div>
-                    <div class="crossroad-objects">
-                        <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka11.svg" width="200" height="200"></object>
-                        <svg id="black-car11" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-black-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-                        </svg>
-                        <svg id="blue-car11" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-blue-car"></use>
-                        </svg>
-                    </div>
-				</div>
-				
-				<!-- krizovatka 12  -->
-                <div id="crossroad12-fullsize" class="crossroad">
-                    <div class="border-left"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom">
-                        <div class="buttons-wrap">
-                            <div class="buttons">
-                                <input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(12)">
-                                <input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
-									<li> Vozidlo červenej farby, ktoré prichádza po hlavnej ceste bude pokračovať ako prvé lebo cez križovatku bude pôjde cez hlavnú cestu. </li>
-									<li> Ako druhé vozidlo prejde modré auto, ktoré muselo dať prednosť červenému autu prichádzajúcemu sprava.</li>
-									<li> Ako tretie auto pôjde čierne auto, ktoré muselo dať prednosť vozidlám idúcim po hlavnej ceste. </li>
-									<li> Posledné pôjde cez križovatku žlté auto, ktoré dávalo prednosť ostatným autám.  </li>
-								</ul>
-							</div>
-                        </div>
-                    </div>
-                    <div class="crossroad-objects">
-                        <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka12.svg" width="200" height="200"></object>
-                        <svg id="black-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-black-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="yellow-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-yellow-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-                        <svg id="red-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-red-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="blue-car12" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-blue-car"></use>
-						</svg>
-                    </div>
-				</div>
-
-				<!-- krizovatka 13  -->
-                <div id="crossroad13-fullsize" class="crossroad">
-                    <div class="border-left"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom">
-                        <div class="buttons-wrap">
-                            <div class="buttons">
-                                <input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(13)">
-                                <input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
-									<li> Ako prvé prejde cez križovatku  čierne auto spolu súčasne so zeleným autom, ktoré prichádzajú po hlavnej ceste a v nej aj pokračujú. </li>
-									<li> Posledné prejde cez križovatku modré auto, ktoré dávalo prednosť obom idúcim autám po hlavnej ceste.  </li>
-								</ul>
-							</div>
-                        </div>
-                    </div> 
-                    <div class="crossroad-objects">
-                        <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka13.svg" width="200" height="200"></object>
-                        <svg id="black-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-black-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						<svg id="blue-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-blue-car"></use>
-						</svg>
-                        <svg id="green-car13" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-green-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-						
-                    </div>
-				</div>
-
-				<!-- krizovatka 14  -->
-                <div id="crossroad14-fullsize" class="crossroad">
-                    <div class="border-left"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom">
-                        <div class="buttons-wrap">
-                            <div class="buttons">
-                                <input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(14)">
-                                <input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
-									<li> Obidve vozidla musia dať prednosť v jazde električkám. Ako prvé prejdú cez križovatku električky.  </li>
-									<li> Ako druhé prejde žlté auto, ktoré má prednosť, lebo nemení smer jazdy. Posledné prejde cez križovatku modré auto, ktoré dávalo prednosť ostatným vozidlám. </li>
-								</ul>
-							</div>
-                        </div>
-                    </div>
-                    <div class="crossroad-objects">
-                        <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka14.svg" width="200" height="200"></object>
-						<svg id="blue-car14" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-blue-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-                        <svg id="yellow-car14" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-yellow-car"></use>
-						</svg>
-						<svg id="tram14" class="crossroad-object tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-tram"></use>
-						</svg>
-						<svg id="tram14a" class="crossroad-object tram" onclick="selectObject(this)" width="25" height="100" viewBox="0 0 2500 10000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-							<use xlink:href="#img-tram"></use>
-						</svg>
-						
-                    </div>
-				</div>
-
-				<!-- krizovatka 15  -->
-                <div id="crossroad15-fullsize" class="crossroad">
-                    <div class="border-left"></div>
-                    <div class="border-right"></div>
-                    <div class="border-bottom">
-                        <div class="buttons-wrap">
-                            <div class="buttons">
-                                <input class="demo-button" type="submit" name ="submit" value="Spusti demo" onclick="playDemo()">
-								<input class="demo-button vysvetlenie-button" type="submit" name ="submit" value="Zobraz vysvetlenie" onclick="zobrazVysvetlenie(15)">
-                                <input class="demo-button" type="submit" name ="submit" value="Znova" onclick="restartCrossroad()">
-							</div>
-							<div class="crossroadVysvetlenie">
-								<ul class="textVysvetlenia">
-									<li> Máme križovatku vyznačenú dopravnými značkami.  </li>
-									<li> Ako prvé prejde cez križovatku červené auto, pretože pokračuje v jazde po hlavnej ceste.  </li>
-									<li> Ako druhé vozidlo prejde oranžové auto, lebo modré auto má na svojej strane značku STOP takže posledné prejde cez križovatku modré auto.</li>
-									<li> Značka „STOP“ mu vraví , že musí zastaviť automobil pred križovatkou tak aby mal rozhľad a dal prednosť vozidlu prichádzajúceho z hlavnej cesty a v tomto prípade vedľajšej cesty. </li>
-								</ul>
-							</div>
-                        </div>
-                    </div>
-                    <div class="crossroad-objects">
-                        <object class="crossroad-svg"  type="image/svg+xml" data="krizovatky/krizovatka15.svg" width="200" height="200"></object>
-						<svg id="blue-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-blue-car"></use>
-							<use xlink:href="#img-turnsignal-right" class="turnsignal"></use>
-						</svg>
-                        <svg id="orange-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-orange-car"></use>
-						</svg>
-						<svg id="red-car15" class="crossroad-object car" onclick="selectObject(this)" width="35" height="70" viewBox="0 0 3500 7000" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMinYMin">
-                            <use xlink:href="#img-red-car"></use>
-							<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
-						</svg>
-						
-						
-                    </div>
-				</div>
-
-			</div>
 			</div>
 		</div>
 
 	</section>
 
+	<!--[Petra]-->
 	<footer>
 		Copyright &copy; 2020 Petra Kirschová, Simona Lopatniková, Matúš Hudák<br>
 		Fakulta elektrotechniky a informatiky Slovenskej technickej univerzity v Bratislave
