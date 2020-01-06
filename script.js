@@ -435,13 +435,39 @@ function moveRight(){
 // vygenerovanie aktualneho datumu [Matus]
 function date(){
   var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
-  var d = new Date();
+  //var d = new Date();
+  var d = new Date("2015-01-1");
   var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
   var out = document.getElementById("nDate");
 
-  out.innerHTML = "Dnes je " + actualDate ;
-  //TODO pridat k textu "meniny ma: ..."
+  out.innerHTML = "Dnes je " + actualDate;
+
+    var day = (d.getDate() < 10) ? "0"+d.getDate() : ""+d.getDate();
+    var month = ((d.getMonth()+1) < 10) ? "0"+(d.getMonth()+1) : ""+(d.getMonth()+1);
+
+    var dateString = month+day;
+    var xmlDoc = loadXMLDoc("Mena.xml");
+    var x = xmlDoc.getElementsByTagName("den");
+
+    for (var i = 0; i < x.length; i++) {
+        var currentDate = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
+
+        if (currentDate === dateString) {
+            var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes;
+            for (var k = 0; k < zaznam.length; k++) {
+                if (zaznam[k].nodeType === 1 && zaznam[k].nodeName == "SKsviatky") {
+                    out.innerHTML += ", "+zaznam[k].firstChild.nodeValue;
+                }
+                if (zaznam[k].nodeType === 1 && zaznam[k].nodeName == "SK") {
+                    out.innerHTML += ", meniny má " + zaznam[k].firstChild.nodeValue;
+                }else if(zaznam[k].nodeType === 1 && zaznam[k].nodeName == "SKd"){
+                    out.innerHTML += ", meniny má " + zaznam[k].firstChild.nodeValue;
+                }
+            }
+        }
+    }
 }
+
 
 // vyhladanie menin podla datumu [Matus, Simona, Petra]
 function searchXMLdate() {
@@ -454,6 +480,7 @@ function searchXMLdate() {
     var vysledok = document.getElementById("meninyVysledok");
     var size = input.length;
     var divTextLines = [];
+    var out = document.getElementById("nDate");
 
     vysledok.innerHTML = "";
 
@@ -570,7 +597,9 @@ function searchXMLdate() {
        if (date === upravenyInput) {
            var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes; //cely zaznam
             for (var k = 0; k < zaznam.length; k++) { //v cykle sa vypisuje kazda jeho polozka v tvare "nodeName: nodeValue"
-                if (zaznam[k].nodeType === 1 && zaznam[k].nodeName !== "den")
+
+                if (zaznam[k].nodeType === 1 && zaznam[k].nodeName !== "den") {
+
                     divTextLines.push(zaznam[k].nodeName + ": " + zaznam[k].firstChild.nodeValue + "<br />");
             }
         }
@@ -613,7 +642,7 @@ function loadXMLDoc(dname) {
 
 //hladanie slov s a bez diakritiky [Simona]
 function diaConvert(str) {
-    let accents = 'ÀÁÂÃÄÅàáâãäåßÒÓÔÕÕÖØòóôõöøĎďDŽdžÈÉÊËèéêëðÇçČčÐÌÍÎÏìíîïÙÚÛÜùúûüĽĹľĺÑŇňñŔŕřŠšŤťŸÝÿýŽž';
+    let accents = 'AÁÂAÄAaáâaäaßOÓÔOOÖOoóôoöoĎďDŽdžEÉEËeéeë?ÇçČč?IÍÎIiíîiUÚUÜuúuüĽĹľĺNŇňnŔŕřŠšŤťYÝyýŽž';
     let accentsOut = "AAAAAAaaaaaasOOOOOOOooooooDdDZdzEEEEeeeeeCcCcDIIIIiiiiUUUUuuuuLLllNNnnRrrSsTtYYyyZz";
     str = str.split('');
     str.forEach((letter, index) => {
