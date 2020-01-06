@@ -434,17 +434,11 @@ function moveRight(){
 
 // vygenerovanie aktualneho datumu s menom [Matus]
 function date(){
-
     var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
-    var d = new Date(); 
+    var d = new Date();
+    
     var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
     var out = document.getElementById("nDate");
-
-
-  var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
-  var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
-  var out = document.getElementById("nDate");
-
 
     out.innerHTML = "Dnes je " + actualDate;
 
@@ -480,7 +474,6 @@ function date(){
             }
         }
     }
-
     if (sk!="")
         out.innerHTML += sk;
     if (sk == "" && skd != "")
@@ -488,8 +481,8 @@ function date(){
     if (skSviatky != "")
         out.innerHTML += skSviatky;
 
-
 }
+
 
 
 // vyhladanie menin podla datumu [Matus, Simona, Petra]
