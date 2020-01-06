@@ -468,6 +468,7 @@ function date(){
     }
 }
 
+
 // vyhladanie menin podla datumu [Matus, Simona, Petra]
 function searchXMLdate() {
 
@@ -596,9 +597,10 @@ function searchXMLdate() {
        if (date === upravenyInput) {
            var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes; //cely zaznam
             for (var k = 0; k < zaznam.length; k++) { //v cykle sa vypisuje kazda jeho polozka v tvare "nodeName: nodeValue"
+
                 if (zaznam[k].nodeType === 1 && zaznam[k].nodeName !== "den") {
+
                     divTextLines.push(zaznam[k].nodeName + ": " + zaznam[k].firstChild.nodeValue + "<br />");
-                }
             }
         }
     }
