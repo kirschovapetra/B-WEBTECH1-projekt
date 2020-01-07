@@ -338,6 +338,7 @@ function hideAllCrossroads(){
 function revert(){
     cleanSelected();
     showAnswerButton();
+	showAnswerDiv();
     stopAllAnimations();
     revertCarPositions();
 }
@@ -1729,16 +1730,28 @@ function selectObject(object){
 
     printCarOrder();
     showAnswerButton();
+	showAnswerDiv();
+}
+
+//<div> s tlacidlom "Skontroluj odpoveď" a vypisane poradie aut sa zobrazi iba ak bolo vybrane aspon 1 auto
+function showAnswerDiv(){
+    var answerDiv = document.getElementById('answer-wrap');
+    if (carOrder.length > 0){
+        answer.style.visibility = "visible";
+    }
+    else{
+        answer.style.visibility = "hidden";
+    }
 }
 
 //tlacidlo "Skontroluj odpoveď" a vypisane poradie aut sa zobrazi iba ak bolo vybrane aspon 1 auto
 function showAnswerButton(){
     var answer = document.getElementById('answer-button-wrap');
     if (carOrder.length > 0){
-        answer.style.visibility = "visible";
+        answer.style.display = "none";
     }
     else{
-        answer.style.visibility = "hidden";
+        answer.style.display = "block";
     }
 }
 
@@ -1782,6 +1795,7 @@ function checkAnswer(){
         p.innerHTML = "Nesprávna odpoveď! :(";
         setBorderColor('red');
         showAnswerButton();
+		showAnswerDiv();
     }
     //iba jedina spravna moznost
     else {
@@ -1795,6 +1809,7 @@ function checkAnswer(){
             p.innerHTML = "Nesprávna odpoveď! :(";
             setBorderColor('red');
             showAnswerButton();
+			showAnswerDiv();
         }
     }
 }
