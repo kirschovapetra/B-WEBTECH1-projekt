@@ -629,6 +629,7 @@ function searchXMLdate() {
 //vyprazdnenie inputu pri obnoveni stranky [Simona]
 function vymazInput() {
     document.getElementById("mena").value = "";
+    document.getElementById("datumMeniny").value = "";
 }
 
 //funkcie, ktore sa spustia pro nacitani "body" [Simona]
@@ -1729,11 +1730,12 @@ function selectObject(object){
 
     printCarOrder();
     showAnswerButton();
+
 }
 
 //tlacidlo "Skontroluj odpoveď" a vypisane poradie aut sa zobrazi iba ak bolo vybrane aspon 1 auto
 function showAnswerButton(){
-    var answer = document.getElementById('answer-wrap');
+    var answer = document.getElementById('answer-button-wrap');
     if (carOrder.length > 0){
         answer.style.visibility = "visible";
     }
@@ -1741,7 +1743,6 @@ function showAnswerButton(){
         answer.style.visibility = "hidden";
     }
 }
-
 //porovnanie 2 poli
 function compare(arr1,arr2){
     if (arr1.length !== arr2.length)
@@ -1782,6 +1783,7 @@ function checkAnswer(){
         p.innerHTML = "Nesprávna odpoveď! :(";
         setBorderColor('red');
         showAnswerButton();
+
     }
     //iba jedina spravna moznost
     else {
@@ -1795,6 +1797,7 @@ function checkAnswer(){
             p.innerHTML = "Nesprávna odpoveď! :(";
             setBorderColor('red');
             showAnswerButton();
+
         }
     }
 }
