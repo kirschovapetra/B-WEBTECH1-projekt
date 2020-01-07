@@ -23,11 +23,12 @@
 <body onload="onloadfunction()">
     <!--menu [Petra]-->
     <header>
-        <p id="nDate" ></p>
+
         <nav id="main-menu">
+            <p id="nDate" ></p>
+
             <div id="left-menu">
                 <a href="index.html" class="nav-button nav-button-white"><i class="fa fa-home"></i></a>
-                <!-- <p id="nDate" ></p> -->
             </div>
     
             <div id="right-menu">
@@ -66,7 +67,7 @@
 
                 <!--meniny podla datumu [Matus]-->
                 <p id = "col1Text"> Zisti kto má meniny</p>
-                <input  id="datumMeniny" class = "calendarInput" type="text" name="nameDay"  placeholder="Napr.: 24.12." required>
+                <input  id="datumMeniny" class = "calendarInput" type="text" name="nameDay"  placeholder="Napr.: 24.12.">
                 
                 <button type="button" class = "posli" onclick="searchXMLdate()" >Nájdi</button>
                 <p id="meninyVysledok"></p>

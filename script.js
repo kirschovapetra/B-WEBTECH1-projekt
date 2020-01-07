@@ -338,6 +338,7 @@ function hideAllCrossroads(){
 function revert(){
     cleanSelected();
     showAnswerButton();
+	showAnswerDiv();
     stopAllAnimations();
     revertCarPositions();
 }
@@ -434,10 +435,10 @@ function moveRight(){
 
 // vygenerovanie aktualneho datumu s menom [Matus]
 function date(){
-    var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
+    var months = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
     var d = new Date();
-    
-    var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
+
+    var actualDate = d.getDate() + "." + months[d.getMonth()] + " "+ d.getFullYear();
     var out = document.getElementById("nDate");
 
     out.innerHTML = "Dnes je " + actualDate;
@@ -448,7 +449,7 @@ function date(){
     var dateString = month+day;
     var xmlDoc = loadXMLDoc("Mena.xml");
     var x = xmlDoc.getElementsByTagName("den");
-    var sk="",skd="",skSviatky="",skdni="";
+    var sk="",skd="",skSviatky="";
 
     for (var i = 0; i < x.length; i++) {
         var currentDate = xmlDoc.getElementsByTagName("den")[i].childNodes[0].nodeValue;
@@ -460,7 +461,7 @@ function date(){
             var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes;
             for (var k = 0; k < zaznam.length; k++) {
 
-                if (zaznam[k].nodeType === 1) {
+                if (zaznam[k].nodeType == 1) {
                     if (zaznam[k].nodeName == "SK") {
                         sk = ", meniny má " + zaznam[k].firstChild.nodeValue;
                     }
@@ -483,8 +484,6 @@ function date(){
 
 }
 
-
-
 // vyhladanie menin podla datumu [Matus, Simona, Petra]
 function searchXMLdate() {
 
@@ -496,7 +495,6 @@ function searchXMLdate() {
     var vysledok = document.getElementById("meninyVysledok");
     var size = input.length;
     var divTextLines = [];
-    var out = document.getElementById("nDate");
 
     vysledok.innerHTML = "";
 
@@ -632,6 +630,7 @@ function searchXMLdate() {
 //vyprazdnenie inputu pri obnoveni stranky [Simona]
 function vymazInput() {
     document.getElementById("mena").value = "";
+    document.getElementById("datumMeniny").value = "";
 }
 
 //funkcie, ktore sa spustia pro nacitani "body" [Simona]
@@ -1736,7 +1735,8 @@ function selectObject(object){
 
 //tlacidlo "Skontroluj odpoveď" a vypisane poradie aut sa zobrazi iba ak bolo vybrane aspon 1 auto
 function showAnswerButton(){
-    var answer = document.getElementById('answer-wrap');
+    var answer = document.getElementById('answer-button-wrap');
+
     if (carOrder.length > 0){
         answer.style.visibility = "visible";
     }
@@ -1825,7 +1825,6 @@ function counterJS(){
 }
 
 /*****************************VYSVETLENIE SPRAVNEHO RIESENIA KRIZOVATKY (Matus)****************************************/
-
 function zobrazVysvetlenie(number) {
     var text = document.getElementsByClassName("crossroadVysvetlenie");
     var tlacidlo = document.getElementsByClassName("vysvetlenie-button");

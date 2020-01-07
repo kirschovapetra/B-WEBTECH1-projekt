@@ -7,6 +7,7 @@ h1{
     font-size: 1.7em;
     font-weight: bold;
     margin-top:5%;
+    text-decoration: underline;
 }
 /*nadpis - pridany kvoli warningu "Section lacks heading" a "Article lacks heading", na stranke nie je viditelny*/
 .heading-to-hide{display:none;}
@@ -222,7 +223,6 @@ a.active {
     margin:0 auto 10px auto;
     padding:0;
     display: flex;
-    visibility: hidden;
     flex-wrap: wrap;
     justify-content:center;
     align-items:center;
@@ -242,6 +242,7 @@ a.active {
     margin:0 auto;
     background-color: white;
     padding: 0 5px;
+    visibility: hidden;
 }
 .answer-button{
     margin:0 auto;
@@ -575,6 +576,9 @@ a.active {
     flex-wrap: nowrap;
     align-items: stretch;
 }
+#calendar-section h1{
+    margin-top:10%;
+}
 .calendar-div:after{
     content: "";
     display: table;
@@ -585,7 +589,11 @@ a.active {
     margin-right:10px;
     position:relative;
 }
-#col1Text, #col2Text{display: block;}
+#col1Text, #col2Text{
+    display: block;
+    font-weight: bold;
+    text-decoration: underline;
+}
 .col2{
     flex: 50%;
     margin-left:10px;
@@ -611,7 +619,11 @@ a.active {
     border-radius:20px;
 }
 #vysledok{color: black;}
-#nDate{display:inline;}
+#nDate{
+    display:block;
+    margin: 3px 8px 3px 3px;
+    text-align: right;
+}
 
 /************tooltip [Petra]************/
 /*vytvoreny pomocou https://leaverou.github.io/bubbly/*/
@@ -729,6 +741,9 @@ address{text-align: center;}
         margin: 10px 0;
     }
     .calendar-div{display: block;}
+    #calendar-section h1{
+        margin-top:15%;
+    }
     #checklist{width:100%;}
     #divider {width: 90%;}
     .tooltip{position:relative;}
@@ -761,6 +776,7 @@ address{text-align: center;}
     #crossroads-menu {width:100%;}
     #checklist {width: 100%;}
     .buttons, #answer-button-wrap {display:none;}
+    .tooltip{ display: none}
     .demo-button {
         width:100%;
         padding:8px 5px;
