@@ -812,5 +812,8 @@ address{text-align: center;}
         width:13%;
         height:13%;
     }
-
+    .textVysvetlenia{
+        width: 60%;
+        font-size: 0.8em;
+    }
 }
