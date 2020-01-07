@@ -341,7 +341,6 @@ function hideAllCrossroads(){
 function revert(){
     cleanSelected();
     showAnswerButton();
-	showAnswerDiv();
     stopAllAnimations();
     revertCarPositions();
 }
