@@ -434,10 +434,10 @@ function moveRight(){
 
 // vygenerovanie aktualneho datumu s menom [Matus]
 function date(){
-    var month = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
+    var months = ["január","február","marec","apríl","máj","jún","júl","august","september","október","november","december"];
     var d = new Date();
-    
-    var actualDate = d.getDate() + "." + month[d.getMonth()] + " "+ d.getFullYear();
+
+    var actualDate = d.getDate() + "." + months[d.getMonth()] + " "+ d.getFullYear();
     var out = document.getElementById("nDate");
 
     out.innerHTML = "Dnes je " + actualDate;
@@ -448,7 +448,6 @@ function date(){
     var dateString = month+day;
     var xmlDoc = loadXMLDoc("Mena.xml");
     var x = xmlDoc.getElementsByTagName("den");
-
     var sk="",skd="",skSviatky="";
 
     for (var i = 0; i < x.length; i++) {
@@ -461,7 +460,7 @@ function date(){
             var zaznam = xmlDoc.getElementsByTagName("zaznam")[i].childNodes;
             for (var k = 0; k < zaznam.length; k++) {
 
-                if (zaznam[k].nodeType === 1) {
+                if (zaznam[k].nodeType == 1) {
                     if (zaznam[k].nodeName == "SK") {
                         sk = ", meniny má " + zaznam[k].firstChild.nodeValue;
                     }
@@ -482,15 +481,7 @@ function date(){
     if (skSviatky != "")
         out.innerHTML += skSviatky;
 
-    if (skSviatky != "")
-        out.innerHTML += skSviatky;
-    if (sk!="")
-        out.innerHTML += sk;
-    if (sk == "" && skd != "")
-        out.innerHTML += skd;
 }
-
-
 
 // vyhladanie menin podla datumu [Matus, Simona, Petra]
 function searchXMLdate() {
@@ -503,7 +494,6 @@ function searchXMLdate() {
     var vysledok = document.getElementById("meninyVysledok");
     var size = input.length;
     var divTextLines = [];
-    var out = document.getElementById("nDate");
 
     vysledok.innerHTML = "";
 
