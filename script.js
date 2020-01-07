@@ -1694,7 +1694,8 @@ function playDemo(){
 function printCarOrder(){
     var p = document.getElementById("car-order-text");
     p.style.color='black';
-    p.innerHTML = "Poradie: ";
+    p.innerHTML = (carOrder.length>0)? "Poradie: " : "";
+
     for (var i = 0; i < carOrder.length; i++){
         //Id v tvare "black-car1","black-car11", "tram1", "tram14", "tram14a" , vypisat bez cisel a znaku "a" na konci
         var parsedCarId = carOrder[i].replace('-',' '); //odstrani sa '-'
