@@ -768,6 +768,7 @@ address{text-align: center;}
 
 @media print and (min-width: 480px) {
     html, body {height: auto;}
+    footer{display: none;}
     #nDate, #counter {font-size:0.7em;}
     #navodStranky1 {margin-top:10%;}
     #checklist {margin:10% auto;}
@@ -794,21 +795,9 @@ address{text-align: center;}
         width:19%;
         height:19%;
     }
-    #fullsize-window {
-        width:100%;
-        height: auto;
-    }
-    .border-bottom {
-        width:100%;
-        height: auto;
-    }
-    #fullsize-wrapper {
-        width:100%;
-        height: auto;
-    }
-    .crossroad {
-        width:100%;
-        height:100%;
+    .crossroad-objects{
+        width:40%;
+        height:40%;
     }
 }
 
@@ -816,8 +805,8 @@ address{text-align: center;}
 @media print and (min-width: 480px) and (orientation: landscape) {
     #navodStranky1, #navodStranky2 {page-break-after: always;}
     .crossroad-objects {
-        width:25%;
-        height:25%;
+        width:30%;
+        height:30%;
     }
     #crossroads-menu img {
         width:13%;
