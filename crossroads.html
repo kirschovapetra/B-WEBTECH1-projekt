@@ -60,11 +60,10 @@
 			<g id="img-turnsignal-left">
 				<path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2B2A29" stroke-width="10" d="M915 7003l1659 0c332,0 601,-268 601,-598l0 -5338c0,-587 -479,-1064 -1069,-1064l-723 0c-590,0 -1069,477 -1069,1064l0 5338c0,330 269,598 601,598z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FFAB01" d="M1051 353c-3,-52 -35,-98 -76,-127l-1 -1c-176,70 -324,196 -424,356 122,38 259,25 371,-38 71,-39 136,-109 130,-190z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FEFEFE" d="M2438 353c3,-52 35,-98 76,-127l1 -1c175,70 324,196 424,356 -122,38 -259,25 -372,-38 -70,-39 -135,-109 -129,-190z"/><path xmlns="http://www.w3.org/2000/svg" fill="#FFAB01" d="M774 6798c-89,-27 -172,-74 -239,-138 -18,-17 -34,-35 -57,-46 -14,-7 -33,-10 -48,-5 94,128 239,219 405,240l1 -2c-1,-27 -35,-41 -62,-49z"/><path xmlns="http://www.w3.org/2000/svg" fill="#E31E24" d="M2715 6798c89,-27 172,-74 239,-138 17,-17 35,-35 56,-46 16,-7 34,-10 49,-5 -93,128 -239,219 -405,240l0 -2c1,-27 34,-41 61,-49z"/><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#FFAB01" stroke-width="50" d="M325 817c-176,-114 -232,-346 -125,-517 109,-171 340,-217 516,-102"/><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#FFAB01" stroke-width="50" d="M265 932c-224,-145 -289,-449 -144,-678 145,-230 444,-299 668,-153"/><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#FFAB01" stroke-width="50" d="M379 733c-126,-82 -165,-247 -86,-371 78,-124 243,-159 368,-77"/><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#FFAB01" stroke-width="50" d="M481 6879c-152,53 -318,-21 -371,-166 -53,-146 27,-306 178,-360"/><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#FFAB01" stroke-width="50" d="M522 6969c-193,67 -406,-35 -477,-230 -72,-195 26,-408 219,-475"/><path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#FFAB01" stroke-width="50" d="M454 6807c-108,38 -226,-16 -264,-121 -38,-105 17,-221 125,-259"/>
 			</g>
-
-
 		</defs>
 	</svg>
 
+	<!--menu [Petra]-->
 	<header>
 		<nav id="main-menu">
 			<div id="left-menu">
@@ -89,7 +88,6 @@
 				<a href="calendar.html" class="nav-button nav-button-blue"><i class="fa fa-calendar"></i> KALENDÁR</a>
 				<a href="contacts.html" class="nav-button nav-button-blue"><i class="fa fa-user"></i> KONTAKTY</a>
 			</nav>
-
 		</nav>
 	</header>
 
@@ -119,7 +117,7 @@
 		<!--zobrazenie svg vo velkom okne (cele zobrazenie: biele okno v strede obrazovky + priehladne pozadie) [Petra]-->
 		<div id="fullsizeView">
 
-			<!--biele okno [Petra]-->
+			<!--biele okno v strede obrazovky [Petra]-->
 			<div id="fullsize-window">
 				<!--casti okna [Petra]-->
 				<div id="fullsize-wrapper">
@@ -141,10 +139,10 @@
 						<p>V akom poradí prejdú autá križovatkou?</p>
 					</div>
 
-					<!--vypisanie vzbraneho poradia aut, tlacidlo "Skontroluj odpoveď" [Petra]-->
+					<!--vypisanie vybraneho poradia aut, tlacidlo "Skontroluj odpoveď" [Petra]-->
 					<div id="answer-wrap">
 						<div id="car-order">
-							<p id="car-order-text">Poradie: </p>
+							<p id="car-order-text"></p>
 						</div>
 						<div id="answer-button-wrap">
 							<input class="answer-button" type="submit" name="submit" value="Skontroluj odpoveď" onclick="checkAnswer()">
@@ -758,12 +756,9 @@
 								<use xlink:href="#img-turnsignal-left" class="turnsignal"></use>
 							</svg>
 
-
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 
