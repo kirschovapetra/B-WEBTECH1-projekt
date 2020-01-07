@@ -1733,7 +1733,7 @@ function selectObject(object){
 
 //tlacidlo "Skontroluj odpoveď" a vypisane poradie aut sa zobrazi iba ak bolo vybrane aspon 1 auto
 function showAnswerButton(){
-    var answer = document.getElementById('answer-wrap');
+    var answer = document.getElementById('answer-button-wrap');
     if (carOrder.length > 0){
         answer.style.visibility = "visible";
     }
