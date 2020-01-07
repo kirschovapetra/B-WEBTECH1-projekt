@@ -1,6 +1,7 @@
 var selected = [];
 var carOrder = [];
 var correctCarOrder=[
+    //Peta [1]-[5]
     ["pink-car1","black-car1","yellow-car1"],
     ["green-car2","red-car2"],
     ["blue-car3","grey-car3","yellow-car3"],
@@ -12,6 +13,7 @@ var correctCarOrder=[
         ["cyclist5","green-car5","red-car5"],
         ["green-car5","cyclist5","red-car5"]
     ],
+    //Simona [6]-[10] 
     [
         ["green-car6","red-car6","pink-car6"],
         ["red-car6","green-car6","pink-car6"]
@@ -41,6 +43,7 @@ var correctCarOrder=[
         ["green-car10", "pink-car10","black-car10","yellow-car10"],
 
     ],
+    //Matus [11]-[15]
     ["blue-car11","black-car11"],
     ["red-car12","blue-car12","black-car12","yellow-car12"],
     [
@@ -338,7 +341,6 @@ function hideAllCrossroads(){
 function revert(){
     cleanSelected();
     showAnswerButton();
-	showAnswerDiv();
     stopAllAnimations();
     revertCarPositions();
 }
@@ -1514,12 +1516,12 @@ function animateCrossroad12(){
 
 //krizovatka 13
 function animateCrossroad13(){
-    // pre cierne zelene a modre
+    // pre cierne,zelene a modre
     var timeline13A = anime.timeline({
         easing: 'easeOutExpo',
         duration: 750
     });
-    //zelene,cierne,modre
+    //pre zelene,cierne,modre
     var timeline13B = anime.timeline({
         easing: 'easeOutExpo',
         duration: 750
@@ -1540,7 +1542,7 @@ function animateCrossroad13(){
         easing: 'easeInSine',duration:2000
     });
 
-    // pre to aby sla aj druha naraz s prvou
+    // pre to aby sla aj druha naraz s prvou teda zelené auto pôjde s čiernym autom
     animations.push(timeline13B);
     timeline13B.add({
         targets: "#green-car13",
