@@ -223,7 +223,6 @@ a.active {
     margin:0 auto 10px auto;
     padding:0;
     display: flex;
-    visibility: hidden;
     flex-wrap: wrap;
     justify-content:center;
     align-items:center;
@@ -243,6 +242,7 @@ a.active {
     margin:0 auto;
     background-color: white;
     padding: 0 5px;
+    visibility: hidden;
 }
 .answer-button{
     margin:0 auto;
