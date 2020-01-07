@@ -239,7 +239,7 @@ function revertCarPositions(){
     pinkCar10.style.transform = 'rotate(-90deg)';
 
     /************************************[Matus]*****************************************/
-    //krizovatka 11
+        //krizovatka 11
     var black11 = document.getElementById('black-car11');
     black11.style.top = '23%';
     black11.style.right = '14%';
